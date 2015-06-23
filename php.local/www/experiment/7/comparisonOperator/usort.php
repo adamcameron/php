@@ -16,6 +16,17 @@ class Score {
 $scores = array_map(function($x){return new Score($x);}, [97,2,47,73,29]);
 
 
+/*
+$oldScoreSorter = function($e1, $e2){
+    $e1Value = $e1->getValue();
+    $e2Value = $e2->getValue();
+
+    if ($e1Value == $e2Value) return 0;
+    if ($e1Value > $e2Value) return 1;
+    return -1;
+};
+*/
+
 $oldScoreSorter = function($e1, $e2){
     return (function($x){
         return (int) ($x / abs($x));
