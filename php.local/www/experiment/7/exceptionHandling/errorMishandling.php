@@ -1,17 +1,24 @@
 <?php
+// errorMishandling.php
+
 require __DIR__ . "/../../../../vendor/autoload.php";
 
 class Person {}
+
+class PersonFactory {
+    public static function getPersonFromId($id){
+        if ($id > 0) {
+            return new Person();
+        }
+    }
+}
 
 function doSomethingToPerson(Person $x){
 	return true;
 }
 
-function getPersonFromId($id){
-	// mocked to conditionally return a person
-	return rand(0,1) ? new Person() : null;
-}
-$person = getPersonFromId($_GET['id']);
+$person = PersonFactory::getPersonFromId($_GET['id']);
+
 try {
 	$result = doSomethingToPerson($person);
 	echo 'Process ran OK';
