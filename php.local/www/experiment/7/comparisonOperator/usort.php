@@ -13,8 +13,9 @@ class Score {
     }
 }
 
-$scores = array_map(function($x){return new Score($x);}, [97,2,47,73,29]);
-
+function getScores(){
+    return $scores = array_map(function($x){return new Score($x);}, [97,2,47,73,29]);
+}
 
 /*
 $oldScoreSorter = function($e1, $e2){
@@ -34,23 +35,25 @@ $oldScoreSorter = function($e1, $e2){
 };
 
 
-$newScoreSorter = function($e1, $e2){
-    return $e1->getValue() <=> $e2->getValue();
-};
 
-$scoresForOldSort = $scores;
-$scoresForNewSort = $scores;
+$scores = getScores();
+echo '<h4>Before</h4><pre>';
+var_dump($scores);
+echo '</pre>';
 
-usort($scoresForOldSort, $oldScoreSorter);
-echo '<pre>';
-var_dump($scoresForOldSort, $scoresForNewSort);
+usort($scores, $oldScoreSorter);
+echo '<h4>After (using old approach)</h4><pre>';
+var_dump($scores);
 echo '</pre>';
 
 
-
-usort($scoresForNewSort, $newScoreSorter);
-echo '<pre>';
-new \dBug([$scoresForOldSort, $scores]);
+$newScoreSorter = function($e1, $e2){
+    return $e1->getValue() <=> $e2->getValue();
+};
+$scores = getScores();
+usort($scores, $newScoreSorter);
+echo '<h4>After (using new approach)</h4><pre>';
+var_dump($scores);
 echo '</pre>';
 
 
