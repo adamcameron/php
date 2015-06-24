@@ -17,7 +17,7 @@ function getScores(){
     return $scores = array_map(function($x){return new Score($x);}, [97,2,47,73,29]);
 }
 
-$oldScoreSorter = function($e1, $e2){
+$oldSchoolComparator = function($e1, $e2){
     $e1Value = $e1->getValue();
     $e2Value = $e2->getValue();
 
@@ -28,8 +28,22 @@ $oldScoreSorter = function($e1, $e2){
 
 
 $scores = getScores();
-usort($scores, $oldScoreSorter);
+usort($scores, $oldSchoolComparator);
 echo '<h4>After (using old approach)</h4><pre>';
+var_dump($scores);
+echo '</pre>';
+
+
+$comparatorUsingSgn = function($e1, $e2){
+    $sgn = function($x){
+        return (int) ($x / abs($x));
+    };
+    return $sgn($e1->getValue() - $e2->getValue());
+};
+
+$scores = getScores();
+usort($scores, $comparatorUsingSgn);
+echo '<h4>After (using intermediary)</h4><pre>';
 var_dump($scores);
 echo '</pre>';
 
@@ -40,9 +54,11 @@ $comparatorUsingIife = function($e1, $e2){
     })($e1->getValue() - $e2->getValue());
 };
 
+
+
 $scores = getScores();
 usort($scores, $comparatorUsingIife);
-echo '<h4>After (using new approach)</h4><pre>';
+echo '<h4>After (using IIFE)</h4><pre>';
 var_dump($scores);
 echo '</pre>';
 

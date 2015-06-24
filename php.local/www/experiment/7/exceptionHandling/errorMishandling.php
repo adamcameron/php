@@ -1,19 +1,7 @@
 <?php
 // errorMishandling.php
 
-class Person {}
-
-class PersonFactory {
-    public static function getPersonFromId($id){
-        if ($id > 0) {
-            return new Person();
-        }
-    }
-}
-
-function doSomethingToPerson(Person $x){
-	return true;
-}
+require __DIR__ . '/infrastructure.php';
 
 try {
     $person = PersonFactory::getPersonFromId($_GET['id']);
