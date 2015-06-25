@@ -8,5 +8,5 @@ try {
 
     takesInt('not an int');
 } catch(EngineException $e) {
-	echo 'Exception caught<br>';
+	echo 'EngineException caught<br>';
 }
