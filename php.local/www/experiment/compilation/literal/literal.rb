@@ -8,6 +8,7 @@ begin
 		result = 1 % 0
 	end
 rescue Exception => e
-	puts "Operator: #{operator}\n"
-	puts e
+	puts "Operator: #{operator}"
+	puts "Message: #{e.exception}"
+	puts "Class: #{e.class}"
 end

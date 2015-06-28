@@ -2,7 +2,7 @@
 // viaParam.php
 
 $operator = $_GET['operator'] ?? 'divide';
-$divisor = $_GET['divisor'] ?? 0;
+$divisor = $_GET['divisor'] ?? 1;
 try {
 
 	if ($operator == 'divide'){
