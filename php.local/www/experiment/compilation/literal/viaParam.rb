@@ -1,7 +1,7 @@
 ## viaParam.rb
 
 operator = ARGV[0] || "divide"
-divisor = (ARGV[1] || 0).to_i
+divisor = (ARGV[1] || 1).to_i
 begin
 	if operator == 'divide' then
 		result = 1 / divisor

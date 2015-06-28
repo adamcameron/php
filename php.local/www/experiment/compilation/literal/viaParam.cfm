@@ -2,7 +2,7 @@
 // viaParam.cfm
 
 operator = url.operator ?: 'divide';
-divisor = url.divisor ?: 0;
+divisor = url.divisor ?: 1;
 try {
 	if (operator == 'divide'){
 		result = 1 / divisor;
