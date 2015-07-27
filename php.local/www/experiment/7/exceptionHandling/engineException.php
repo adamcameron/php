@@ -7,6 +7,6 @@ try {
     }
 
     takesInt('not an int');
-} catch(EngineException $e) {
+} catch(TypeError $e) {
 	echo 'EngineException caught<br>';
 }

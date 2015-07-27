@@ -16,6 +16,10 @@ try {
 	echo 'Exception caught<br>';
 } catch (EngineException $e){
 	echo 'EngineException caught<br>';
+} catch (TypeError $e){
+	echo 'TypeError caught<br>';
+} catch (Throwable $t){
+	echo 'Throwable caught<br>';
 } finally {
 	echo 'In finally block<br>';
 }
