@@ -9,31 +9,43 @@ function takesInt(int $i){
 
 safeRun("Passing an int", function(){
     $i = 1;
-    takesInt($i);
+    $result = takesInt($i);
+    echo "Returned:<br>";
+    var_dump($result);
 });
 
 safeRun("Passing a float", function(){
     $f = 1.1;
-    takesInt($f);
+    $result = takesInt($f);
+    echo "Returned:<br>";
+    var_dump($result);
 });
 
 safeRun("Passing a boolean", function(){
     $b = true;
-    takesInt($b);
+    $result = takesInt($b);
+    echo "Returned:<br>";
+    var_dump($result);
 });
 
 safeRun("Passing a string", function(){
     $s = "1";
-    takesInt($s);
+    $result = takesInt($s);
+    echo "Returned:<br>";
+    var_dump($result);
 });
 
 safeRun("Passing a PHP object", function(){
     $d = new DateTime();
-    takesInt($d);
+    $result = takesInt($d);
+    echo "Returned:<br>";
+    var_dump($result);
 });
 
 class C {}
 safeRun("Passing a bespoke object", function(){
     $o = new C();
-    takesInt($o);
+    $result = takesInt($o);
+    echo "Returned:<br>";
+    var_dump($result);
 });
