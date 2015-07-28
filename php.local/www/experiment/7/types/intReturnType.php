@@ -1,4 +1,6 @@
 <?php
+// intReturnType.php
+
 function squareIt($x): int {
     return $x ** 2;
 }
