@@ -35,6 +35,13 @@ safeRun("Passing a string", function(){
     var_dump($result);
 });
 
+safeRun("Passing a string which in no way can be considered an int", function(){
+    $s = "not an integer";
+    $result = takesInt($s);
+    echo "Returned:<br>";
+    var_dump($result);
+});
+
 safeRun("Passing a PHP object", function(){
     $d = new DateTime();
     $result = takesInt($d);
