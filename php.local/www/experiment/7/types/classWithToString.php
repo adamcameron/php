@@ -29,5 +29,3 @@ safeRun("Outputing a Person (which gives a fatal error)", function(){
     $son = new Person("Zachary");
     echo "The boy's name is $son<br>";
 });
-
-

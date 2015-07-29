@@ -1,0 +1,2 @@
+<?php
+// classArray.php
