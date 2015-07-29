@@ -1,7 +1,7 @@
 <?php
 // intArgumentType.php
 
-require __DIR__ . "/safeRun.php";
+require __DIR__ . "/../safeRun.php";
 
 function squareIt(int $x) {
 	return $x ** 2;

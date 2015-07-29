@@ -1,8 +1,8 @@
 <?php
 // basic.php
 
-function f() :string {
+function greet() :string {
     return "G'day world";
 }
 
-echo f();
+echo greet();
