@@ -10,5 +10,3 @@ function reverseArrayElements(string[] $strings){
 $wobniar = ["orehw","akarak" ,"iahwok", "ikirakak","ignarokik","ognaporop", "arupap"];    $rainbow = ["whero", "karaka", "kowhai", "kakariki", "kikorangi", "poropango", "papura"];
 $rainbow = reverseArrayElements($wobniar);
 var_dump($rainbow);
-
-
