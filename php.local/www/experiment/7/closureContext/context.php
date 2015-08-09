@@ -1,4 +1,5 @@
 <?php
+ //context.php
 
 class A {
 	private $v = "A OBJECT CONTEXT\n";
