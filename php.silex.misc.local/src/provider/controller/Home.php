@@ -14,6 +14,13 @@ class Home implements ControllerProviderInterface {
 			->method('GET')
 			->bind('route.home');
 		return $controllers;
+
+$controllers->get('/woo', function () use ($app) {
+	var_dump(func_get_args());
+	die;
+    
+});
+
 	}
 
 }
