@@ -1,8 +1,6 @@
 <?php
-// fromString.php
+// inline.php
 
-$object =
-<<<'code'
 $o = new class(17) {
 	private $x;
 
@@ -14,9 +12,6 @@ $o = new class(17) {
 		return $this->x * $y;
 	}
 };
-code;
-eval($object);
-
 $result = $o->multiply(19);
 
 echo $result;
