@@ -1,5 +1,5 @@
 <?php
-// functionExpression.php
+// functionExpressionType.php
 
 $f = function ($x) {
     return $x;
