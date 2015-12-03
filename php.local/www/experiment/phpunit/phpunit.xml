@@ -6,5 +6,8 @@
         <testsuite name="Mock super methods">
             <directory>./mockSuperMethods</directory>
         </testsuite>
+        <testsuite name="returnValueMap">
+            <directory>./returnValueMap</directory>
+        </testsuite>
     </testsuites>
 </phpunit>
