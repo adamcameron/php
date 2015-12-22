@@ -1,0 +1,8 @@
+{
+	"name" : "test",
+	"autoload" : {
+		"psr-4" : {
+			"dac\\" : "src/"
+		}
+	}
+}
