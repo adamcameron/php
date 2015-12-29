@@ -1,11 +1,12 @@
 <?php
 namespace dac;
 
-echo 'WorkingSubClass' . PHP_EOL;
+echo __FILE__ . ' read' . PHP_EOL;
 
 class WorkingSubClass extends BaseClass {
 
 	public function __construct(){
+        echo __FILE__ . ' constructor executed' . PHP_EOL;
 		require_once DEPENDENCY_DIR . '/Dependency.php';
 	}
 

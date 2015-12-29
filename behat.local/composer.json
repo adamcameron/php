@@ -1,0 +1,19 @@
+{
+    "name": "dac/behattest",
+    "require-dev": {
+        "behat/behat": "dev-master#2059cbe4bb8055c8555fa3365c6ea3b4b30288f5",
+        "behat/mink": "1.6.*@stable",
+        "behat/mink-extension": "@stable",
+        "behat/mink-goutte-driver": "@stable",
+        "behat/mink-selenium2-driver": "@stable"
+    },
+    "config": {
+        "bin-dir": "bin/"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src"
+        }
+    }
+
+}
