@@ -1,18 +1,18 @@
 <?php
-// Controllers.php
+// ControllerService.php
 namespace me\adamcameron\behattest\provider\service;
 
 use Silex;
 use me\adamcameron\behattest\controller;
 
-class Controllers extends Base {
+class ControllerService extends BaseService {
 
 	public function register(Silex\Application $app) {
 		$app["controller.home"] = $app->share(function() {
-			return new controller\Home();
+			return new controller\HomeController();
 		});
 		$app["controller.ajax"] = $app->share(function() {
-			return new controller\Ajax();
+			return new controller\AjaxController();
 		});
 	}
 

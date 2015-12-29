@@ -23,8 +23,8 @@ class Application extends SilexApplication {
 			"twig.options" => ['cache' => __DIR__ . '\..\..\cache']
 		]);
 		$this->register(new Silex\Provider\UrlGeneratorServiceProvider());
-		$this->register(new provider\service\Controllers());
-		$this->register(new provider\service\ControllerProviders());
+		$this->register(new provider\service\ControllerService());
+		$this->register(new provider\service\ControllerProviderService());
 	}
 
 	function mountControllers(){

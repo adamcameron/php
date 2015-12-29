@@ -1,11 +1,11 @@
 <?php
-// Ajax.php
+// AjaxControllerProvider.php
 namespace me\adamcameron\behattest\provider\controller;
 
 use Silex;
 use Silex\ControllerProviderInterface;
 
-class Ajax implements ControllerProviderInterface {
+class AjaxControllerProvider implements ControllerProviderInterface {
 
 	public function connect(Silex\Application $app){
 		$controllers = $app['controllers_factory'];

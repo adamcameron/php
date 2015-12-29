@@ -1,11 +1,11 @@
 <?php
-// Home.php
+// HomeControllerProvider.php
 namespace me\adamcameron\behattest\provider\controller;
 
 use Silex;
 use Silex\ControllerProviderInterface;
 
-class Home implements ControllerProviderInterface {
+class HomeControllerProvider implements ControllerProviderInterface {
 
 	public function connect(Silex\Application $app){
 		$controllers = $app['controllers_factory'];

@@ -1,11 +1,11 @@
 <?php
-// Home.php
+// HomeController.php
 namespace me\adamcameron\behattest\controller;
 
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 
-class Home {
+class HomeController {
 
 	public static function doGet(Request $request, Application $app){
 		return $app['twig']->render('home.html.twig', ['greeting' => 'G\'day world']);
