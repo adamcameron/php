@@ -1,6 +1,6 @@
 <?php
 
-namespace test\features\bootstrap;
+namespace test\context;
 
 use Behat\Gherkin\Node\PyStringNode;
 

@@ -1,4 +1,4 @@
-# features/ls.feature
+# feature/ls.feature
   Feature: ls
   In order to see the directory structure
   As a Windows command prompt user

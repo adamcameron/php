@@ -1,10 +1,14 @@
 # behat.yml
 default:
-    autoload:
-        '': %paths.base%/../test/features/bootstrap
+    extensions:
+        Behat\MinkExtension:
+            base_url: http://behat.local:8550/
+            goutte: ~
+            selenium2: ~
     suites:
         default:
             paths:
-                - %paths.base%/../test/features
+                - %paths.base%/../test/feature
             contexts:
-                - test\features\bootstrap\LsContext
+                - test\context\LsContext
+                - Behat\MinkExtension\Context\MinkContext
