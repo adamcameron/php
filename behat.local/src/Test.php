@@ -1,5 +1,7 @@
 <?php
 
-class Test {
+namespace me\adamcameron\behattest;
 
+class Test
+{
 }

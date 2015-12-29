@@ -15,7 +15,8 @@
     },
     "autoload": {
         "psr-4": {
-            "me\\adamcameron\\behattest\\": "src/"
+            "me\\adamcameron\\behattest\\": "src/",
+            "test\\": "test/"
         }
     }
 
