@@ -29,6 +29,7 @@ class Application extends SilexApplication {
 
 	function mountControllers(){
 		$this->mount('/', $this["provider.controller.home"]);
+		$this->mount('/ajax', $this["provider.controller.ajax"]);
 	}
 
 }

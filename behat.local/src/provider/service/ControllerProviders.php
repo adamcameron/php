@@ -11,6 +11,9 @@ class ControllerProviders extends Base {
 		$app["provider.controller.home"] = $app->share(function() {
 			return new controller\Home();
 		});
+		$app["provider.controller.ajax"] = $app->share(function() {
+			return new controller\Ajax();
+		});
 	}
 
 }
