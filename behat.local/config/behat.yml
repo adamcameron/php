@@ -11,4 +11,4 @@ default:
                 - %paths.base%/../test/feature
             contexts:
                 - test\context\LsContext
-                - Behat\MinkExtension\Context\MinkContext
+                - test\context\JsContext

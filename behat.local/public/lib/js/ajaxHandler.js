@@ -1,3 +1,3 @@
 $(document).ready(function(){
-    $("#results").text("loaded");
+    $("#jsContent").text("This is content loaded via JavaScript");
 });
