@@ -12,7 +12,8 @@
         "behat/mink": "~1.7",
         "behat/mink-extension": "~2.1",
         "behat/mink-goutte-driver": "~1.2",
-        "behat/mink-selenium2-driver": "~1.3"
+        "behat/mink-selenium2-driver": "~1.3",
+        "jakoch/phantomjs-installer": "~2.0"
     },
     "config": {
         "bin-dir": "bin/"
@@ -22,6 +23,14 @@
             "me\\adamcameron\\behattest\\": "src/",
             "test\\": "test/"
         }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "PhantomInstaller\\Installer::installPhantomJS"
+        ],
+        "post-update-cmd": [
+            "PhantomInstaller\\Installer::installPhantomJS"
+        ]
     }
 
 }

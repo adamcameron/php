@@ -4,7 +4,8 @@ default:
         Behat\MinkExtension:
             base_url: http://behat.local:8550/
             goutte: ~
-            selenium2: ~
+            selenium2:
+                wd_host: "http://localhost:8643/wd/hub"
     suites:
         default:
             paths:

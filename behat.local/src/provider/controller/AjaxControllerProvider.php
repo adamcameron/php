@@ -13,6 +13,10 @@ class AjaxControllerProvider implements ControllerProviderInterface {
 		$controllers->get('', 'controller.ajax:doGet')
 			->method('GET')
 			->bind('route.ajax.main');
+
+		$controllers->get('sub', 'controller.ajax:doAjaxGet')
+			->method('GET')
+			->bind('route.ajax.sub');
 		return $controllers;
 	}
 
