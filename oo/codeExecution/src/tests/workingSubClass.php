@@ -1,11 +1,11 @@
 <?php
-echo __FILE__ . ' read' . PHP_EOL;
+echo __FILE__ . ' executing' . PHP_EOL;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 echo 'autoload.php executed' . PHP_EOL;
 
 use \dac\WorkingSubClass;
-echo 'WorkingSubClass used' . PHP_EOL;
+echo 'WorkingSubClass USEd' . PHP_EOL;
 
 echo 'before WorkingSubClass instance created' . PHP_EOL;
 $workingSubClass = new WorkingSubClass();

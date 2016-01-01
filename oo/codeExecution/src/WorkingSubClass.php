@@ -1,7 +1,7 @@
 <?php
 namespace dac;
 
-echo __FILE__ . ' read' . PHP_EOL;
+echo __FILE__ . ' outside class definition' . PHP_EOL;
 
 class WorkingSubClass extends BaseClass {
 
