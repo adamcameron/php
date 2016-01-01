@@ -1,4 +1,6 @@
 <?php
+// tests/appConfig.php
+
 echo __FILE__ . ' executing' . PHP_EOL;
 
 require_once __DIR__ . '/../appConfig.php';

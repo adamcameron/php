@@ -1,4 +1,6 @@
 <?php
+// appConfig.php
+
 echo __FILE__ . ' loaded' . PHP_EOL;
 
 require_once __DIR__ . '/../vendor/autoload.php';

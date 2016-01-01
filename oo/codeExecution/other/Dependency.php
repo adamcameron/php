@@ -1,4 +1,5 @@
 <?php
+// Dependency.php
 
 namespace other;
 

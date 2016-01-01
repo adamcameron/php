@@ -1,4 +1,6 @@
 <?php
+// BrokenSubClass.php
+
 namespace dac;
 
 echo __FILE__ . ' outside class definition' . PHP_EOL;
