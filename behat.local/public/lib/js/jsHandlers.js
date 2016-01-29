@@ -5,5 +5,3 @@ $(document).ready(function(){
         $("#ajaxContent").text(response.result);
     });
 });
-
-
