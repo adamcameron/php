@@ -1,0 +1,11 @@
+{
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "me\\adamcameron\\mocking\\": "src/",
+      "me\\adamcameron\\mocking\\test\\": "test/"
+    }
+  }
+}
