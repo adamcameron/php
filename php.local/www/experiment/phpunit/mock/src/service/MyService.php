@@ -2,13 +2,11 @@
 
 namespace me\adamcameron\mocking\service;
 
-use me\adamcameron\mocking\exception\DoNotTestThisException;
-
 class MyService {
 
     private $logger;
 
-    public function __construct($logger){
+    public function __construct(LoggingService $logger){
         $this->logger = $logger;
     }
 

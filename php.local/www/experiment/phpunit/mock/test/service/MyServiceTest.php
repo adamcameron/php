@@ -12,8 +12,8 @@ class MyServiceTest extends \PHPUnit_Framework_TestCase {
     private $myService;
 
     function setup(){
-        $logger = $this->getTestLogger();
-        $this->myService = $this->getTestMyService($logger);
+        $mockedLogger = $this->getMockedLogger();
+        $this->myService = $this->getTestMyService($mockedLogger);
     }
 
     /**
@@ -25,8 +25,8 @@ class MyServiceTest extends \PHPUnit_Framework_TestCase {
         $this->assertSame("RESULT OF DOING STUFF ON MOCKED RESPONSE FROM DOESRISKYSTUFF", $result);
     }
 
-    function getTestLogger(){
-        $mockedLogger = $this->getMockBuilder('\me\adamcameron\mocking\service\LoggingService')
+    function getMockedLogger(){
+        $mockedLogger = $this->getMockBuilder('\me\adamcameron\mocking\stub\StubbedLoggingService')
             ->setMethods(["logSomething"])
             ->getMock();
 
