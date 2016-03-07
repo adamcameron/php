@@ -1,6 +1,8 @@
 <?php
 
 namespace me\adamcameron\mocking\test\service;
+use me\adamcameron\mocking\service\MyService;
+use me\adamcameron\mocking\test\helper\ReflectionHelper;
 
 /**
  * @coversDefaultClass me\adamcameron\mocking\service\MyService
@@ -12,8 +14,7 @@ class MyServiceTest extends \PHPUnit_Framework_TestCase {
     private $myService;
 
     function setup(){
-        $mockedLogger = $this->getMockedLogger();
-        $this->myService = $this->getTestMyService($mockedLogger);
+        $this->myService = $this->getTestMyService();
     }
 
     /**
@@ -25,7 +26,46 @@ class MyServiceTest extends \PHPUnit_Framework_TestCase {
         $this->assertSame("RESULT OF DOING STUFF ON MOCKED RESPONSE FROM DOESRISKYSTUFF", $result);
     }
 
-    function getMockedLogger(){
+    private function getTestMyService(){
+        $partiallyMockedMyService = $this->getPartiallyMockedMyService();
+        $partiallyMockedMyService = $this->stubOutLogger($partiallyMockedMyService);
+
+        return $partiallyMockedMyService;
+    }
+
+    private function getPartiallyMockedMyService(){
+        $mockedLogger = $this->getMockedLogger();
+
+        $partiallyMockedMyService = $this->getMockBuilder('\me\adamcameron\mocking\service\MyService')
+            ->setConstructorArgs([$mockedLogger])
+            ->setMethods(["doesRiskyStuff"])
+            ->getMock();
+        $partiallyMockedMyService->expects($this->once())
+            ->method("doesRiskyStuff")
+            ->with("PREPPED TEST VALUE")
+            ->willReturn("MOCKED RESPONSE FROM DOESRISKYSTUFF");
+        return $partiallyMockedMyService;
+    }
+
+    private function getMockedLogger(){
+        $stubbedLogger = $this->getMockBuilder('\me\adamcameron\mocking\service\LoggingService')
+            ->disableOriginalConstructor()
+            ->getMock();
+        return $stubbedLogger;
+    }
+
+    private function stubOutLogger($myService){
+        $stubbedLogger = $this->getStubbedLogger();
+        ReflectionHelper::setPrivateProperty(
+            '\me\adamcameron\mocking\service\MyService',
+            $myService,
+            'logger',
+            $stubbedLogger
+        );
+        return $myService;
+    }
+
+    private function getStubbedLogger(){
         $mockedLogger = $this->getMockBuilder('\me\adamcameron\mocking\stub\StubbedLoggingService')
             ->setMethods(["logSomething"])
             ->getMock();
@@ -35,27 +75,6 @@ class MyServiceTest extends \PHPUnit_Framework_TestCase {
             ->with("MOCKED RESPONSE FROM DOESRISKYSTUFF");
 
         return $mockedLogger;
-    }
-
-    function getStubbedLogger(){
-        $stubbedLogger = $this->getMockBuilder('\me\adamcameron\mocking\stub\StubbedLoggingService')
-            ->disableOriginalConstructor()
-            ->getMock();
-        return $stubbedLogger;
-    }
-
-    function getTestMyService($logger){
-        $partiallyMockedMyService = $this->getMockBuilder('\me\adamcameron\mocking\service\MyService')
-            ->setConstructorArgs([$logger])
-            ->setMethods(["doesRiskyStuff"])
-            ->getMock();
-
-        $partiallyMockedMyService->expects($this->once())
-            ->method("doesRiskyStuff")
-            ->with("PREPPED TEST VALUE")
-            ->willReturn("MOCKED RESPONSE FROM DOESRISKYSTUFF");
-
-        return $partiallyMockedMyService;
     }
 
 }

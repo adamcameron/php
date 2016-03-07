@@ -7,7 +7,7 @@ class MyService {
     private $logger;
 
     public function __construct(LoggingService $logger){
-        $this->logger = $logger;
+        $this->loggerx = $logger;
     }
 
     public function doesStuff($value){
