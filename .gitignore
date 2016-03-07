@@ -7,4 +7,5 @@
 **/composer.lock
 **/*.sublime-*
 **/cache/**
+wri.local
 **/*.exe
