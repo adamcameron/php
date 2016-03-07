@@ -37,6 +37,13 @@ class MyServiceTest extends \PHPUnit_Framework_TestCase {
         return $mockedLogger;
     }
 
+    function getStubbedLogger(){
+        $stubbedLogger = $this->getMockBuilder('\me\adamcameron\mocking\stub\StubbedLoggingService')
+            ->disableOriginalConstructor()
+            ->getMock();
+        return $stubbedLogger;
+    }
+
     function getTestMyService($logger){
         $partiallyMockedMyService = $this->getMockBuilder('\me\adamcameron\mocking\service\MyService')
             ->setConstructorArgs([$logger])
