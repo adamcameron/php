@@ -1,18 +1,11 @@
 {
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/adamcameron/dBug"
-        }
-    ],
     "require": {
-        "twig/twig": "~1.0",
-        "silex/silex": "~1.2",
-        "ospinto/dbug": "dev-master",
-        "phpunit/phpunit": "*"
+        "twig/twig" : "1.*",
+        "silex/silex" : "1.*",
+        "phpunit/phpunit" : "5.*"
     },
-    "autoload" : {
-        "psr-4" : {
+	"autoload" : {
+		"psr-4" : {
             "dump\\" : "src/",
             "me\\adamcameron\\" : "src/"
         }
