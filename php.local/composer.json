@@ -8,11 +8,13 @@
     "require": {
         "twig/twig": "~1.0",
         "silex/silex": "~1.2",
-        "ospinto/dbug": "dev-master"
+        "ospinto/dbug": "dev-master",
+        "phpunit/phpunit": "*"
     },
-	"autoload" : {
-		"psr-4" : {
-          "dump\\" : "src/"
+    "autoload" : {
+        "psr-4" : {
+            "dump\\" : "src/",
+            "me\\adamcameron\\" : "src/"
         }
-	}
+    }
 }

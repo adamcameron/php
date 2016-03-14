@@ -26,12 +26,12 @@ class MyServiceTest extends \PHPUnit_Framework_TestCase {
         $this->assertSame("RESULT OF DOING STUFF ON MOCKED RESPONSE FROM DOESRISKYSTUFF", $result);
     }
 
-    private function getTestMyService(){
-        $partiallyMockedMyService = $this->getPartiallyMockedMyService();
-        $partiallyMockedMyService = $this->stubOutLogger($partiallyMockedMyService);
+private function getTestMyService(){
+    $partiallyMockedMyService = $this->getPartiallyMockedMyService();
+    $partiallyMockedMyService = $this->stubOutLogger($partiallyMockedMyService);
 
-        return $partiallyMockedMyService;
-    }
+    return $partiallyMockedMyService;
+}
 
     private function getPartiallyMockedMyService(){
         $mockedLogger = $this->getMockedLogger();
