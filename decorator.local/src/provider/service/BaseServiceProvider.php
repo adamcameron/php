@@ -1,6 +1,6 @@
 <?php
 // Base.php
-namespace me\adamcameron\misc\provider\service;
+namespace me\adamcameron\decorator\provider\service;
 
 use Silex\ServiceProviderInterface;
 use Silex;

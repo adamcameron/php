@@ -1,5 +1,5 @@
 <?php
-namespace me\adamcameron\misc\provider\service;
+namespace me\adamcameron\decorator\provider\service;
 
 use me\adamcameron\decorator\provider\controller\HomeControllerProvider;
 use Silex;

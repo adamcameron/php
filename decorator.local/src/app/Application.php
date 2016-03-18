@@ -3,7 +3,7 @@
 namespace me\adamcameron\decorator\app;
 
 use me\adamcameron\decorator\provider\service\ControllerServiceProvider;
-use me\adamcameron\misc\provider\service\ControllerProviderServiceProvider;
+use me\adamcameron\decorator\provider\service\ControllerProviderServiceProvider;
 use Silex;
 use Silex\Application as SilexApplication;
 

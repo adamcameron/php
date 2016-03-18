@@ -1,0 +1,11 @@
+{
+    "require": {
+        "silex/silex" : "1.*",
+        "phpunit/phpunit" : "5.*"
+    },
+	"autoload" : {
+		"psr-4" : {
+            "me\\adamcameron\\decorator\\" : "src/"
+        }
+    }
+}
