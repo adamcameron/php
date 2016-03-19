@@ -2,12 +2,15 @@
 
 namespace me\adamcameron\decorator\repository;
 
-class LoggedUserRepository implements RepositoryInterface {
+use me\adamcameron\decorator\service\cache\CacheServiceInterface;
+use me\adamcameron\decorator\service\logger\LoggerServiceInterface;
+
+class CachedLoggedUserRepository implements RepositoryInterface {
 
 	private $loggerService;
 	private $cacheService;
 
-	public function __construct(RepositoryInterface $repository, $loggerService, $cacheService){
+	public function __construct(LoggerServiceInterface $loggerService, CacheServiceInterface $cacheService){
 		$this->loggerService = $loggerService;
 		$this->cacheService = $cacheService;
 	}
@@ -21,9 +24,9 @@ class LoggedUserRepository implements RepositoryInterface {
 		}
 
 		$user = [
-			'id' => $id,
-			'firstName' => 'Number $id',
-			'recordAccessed' => new \DateTime()
+			"id" => $id,
+			"firstName" => "Number $id",
+			"recordAccessed" => new \DateTime()
 		];
 
 		$this->cacheService->put($id, $user);
