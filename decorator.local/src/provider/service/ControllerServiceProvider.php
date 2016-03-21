@@ -1,4 +1,5 @@
 <?php
+
 namespace me\adamcameron\decorator\provider\service;
 
 use Silex;

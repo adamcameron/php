@@ -1,4 +1,5 @@
 <?php
+
 namespace me\adamcameron\decorator\controller;
 
 use Silex\Application;
