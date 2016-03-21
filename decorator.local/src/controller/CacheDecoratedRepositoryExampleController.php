@@ -1,4 +1,5 @@
 <?php
+
 namespace me\adamcameron\decorator\controller;
 
 use Silex\Application;
@@ -7,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CacheDecoratedRepositoryExampleController {
 
-	public static function doGet(Request $request, Application $app){
+	public static function doGet(Request $request, Application $app) {
 
 		echo "First Fetch:<br>";
 		$user = $app["service.userWithCacheDecoratedRepository"]->getById(5);

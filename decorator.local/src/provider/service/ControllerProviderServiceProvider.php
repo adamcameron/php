@@ -1,4 +1,5 @@
 <?php
+
 namespace me\adamcameron\decorator\provider\service;
 
 use me\adamcameron\decorator\provider\controller\ControllerProvider;

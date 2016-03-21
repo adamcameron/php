@@ -10,13 +10,12 @@ class CachedLoggedUserRepository implements RepositoryInterface {
 	private $loggerService;
 	private $cacheService;
 
-	public function __construct(LoggerServiceInterface $loggerService, CacheServiceInterface $cacheService){
+	public function __construct(LoggerServiceInterface $loggerService, CacheServiceInterface $cacheService) {
 		$this->loggerService = $loggerService;
 		$this->cacheService = $cacheService;
 	}
 
-	public function getById($id)
-	{
+	public function getById($id) {
 		$this->loggerService->logText("$id requested");
 
 		if ($this->cacheService->isCached($id)) {

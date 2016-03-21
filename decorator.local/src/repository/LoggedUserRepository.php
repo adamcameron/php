@@ -8,12 +8,11 @@ class LoggedUserRepository implements RepositoryInterface {
 
 	private $loggerService;
 
-	public function __construct(RepositoryInterface $repository, LoggerServiceInterface $loggerService){
+	public function __construct(RepositoryInterface $repository, LoggerServiceInterface $loggerService) {
 		$this->loggerService = $loggerService;
 	}
 
-	public function getById($id)
-	{
+	public function getById($id) {
 		$this->loggerService->logText("$id requested");
 		return (object) [
 			"id" => $id,
