@@ -12,14 +12,14 @@ use Silex\Application as SilexApplication;
 
 class Application extends SilexApplication {
 
-    function __construct(){
+    function __construct() {
         parent::__construct();
         $this["debug"] = true;
         $this->registerProviders();
         $this->mountControllers();
     }
 
-    function registerProviders(){
+    function registerProviders() {
         $this->register(new Silex\Provider\ServiceControllerServiceProvider());
         $this->register(new ControllerProviderServiceProvider());
         $this->register(new ControllerServiceProvider());
@@ -27,7 +27,7 @@ class Application extends SilexApplication {
         $this->register(new RepositoryProvider());
     }
 
-    function mountControllers(){
+    function mountControllers() {
         $this->mount("/", $this["provider.controller"]);
     }
 

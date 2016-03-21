@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class FullyDecoratedRepositoryExampleController {
 
-	public static function doGet(Request $request, Application $app){
+	public static function doGet(Request $request, Application $app) {
 
 		echo "First Fetch:<br>";
 		$user = $app["service.userWithFullyDecoratedRepository"]->getById(5);

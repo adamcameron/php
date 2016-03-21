@@ -9,13 +9,12 @@ class CachedRepository implements RepositoryInterface {
 	private $repository;
 	private $cacheService;
 
-	public function __construct(RepositoryInterface $repository, CacheServiceInterface $cacheService){
+	public function __construct(RepositoryInterface $repository, CacheServiceInterface $cacheService) {
 		$this->repository = $repository;
 		$this->cacheService = $cacheService;
 	}
 
-	public function getById($id)
-	{
+	public function getById($id) {
 		if ($this->cacheService->isCached($id)) {
 			return $this->cacheService->get($id);
 		}

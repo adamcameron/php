@@ -8,11 +8,11 @@ class UserService {
 
 	private $userRepository;
 
-	public function __construct(RepositoryInterface $userRepository){
+	public function __construct(RepositoryInterface $userRepository) {
 		$this->userRepository = $userRepository;
 	}
 
-	public function getById($id){
+	public function getById($id) {
 		return $this->userRepository->getById($id);
 	}
 }

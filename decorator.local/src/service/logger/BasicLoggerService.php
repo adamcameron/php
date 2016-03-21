@@ -4,7 +4,7 @@ namespace me\adamcameron\decorator\service\logger;
 
 class BasicLoggerService implements LoggerServiceInterface {
 
-	public function logText($text){
+	public function logText($text) {
 		echo "BasicLoggerService used<br>";
 		error_log($text);
 	}
