@@ -49,18 +49,15 @@ namespace me\adamcameron\someapp\test\service {
                 ->getMock();
 
             $mockedSomeRepository
-                //->expects($this->once())
                 ->method("getTheThing")
                 ->with($this->testId)
                 ->willReturn($this->mockedGetTheThingResult);
 
             $mockedSomeRepository
-                //->expects($this->once())
                 ->method("setTheThing")
                 ->with($this->testId, $this->testThing);
 
             $mockedSomeRepository
-                //->expects($this->once())
                 ->method("doesTheThingExist")
                 ->with($this->testId)
                 ->willReturn($this->mockedDoesTheThingExistResult);
