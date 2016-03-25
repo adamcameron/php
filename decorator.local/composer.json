@@ -1,13 +1,11 @@
 {
     "require": {
-        "twig/twig" : "1.*",
         "silex/silex" : "1.*",
         "phpunit/phpunit" : "5.*"
     },
 	"autoload" : {
 		"psr-4" : {
-            "dump\\" : "src/",
-            "me\\adamcameron\\" : "src/"
+            "me\\adamcameron\\decorator\\" : "src/"
         }
     }
 }

@@ -1,0 +1,288 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xd="http://www.w3.org/2001/XMLSchema">
+
+	<xs:complexType name="logDetails">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute type="xs:string" name="file" use="required" />
+				<xs:attribute type="xs:string" name="level" use="required" />
+				<xs:attribute type="xs:boolean" name="enabled" use="optional" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="contentServerDetails">
+		<xs:sequence>
+			<xs:element name="prefix" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute type="xs:string" name="name" use="required" />
+							<xs:attribute type="xs:string" name="host" use="required" />
+							<xs:attribute type="xs:string" name="securehost" use="required" />
+							<xs:attribute type="xs:string" name="version" use="optional" />
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute type="xs:string" name="host" use="optional" />
+		<xs:attribute type="xs:string" name="securehost" use="optional" />
+		<xs:attribute type="xs:string" name="version" use="required" />
+		<xs:attribute type="xs:string" name="num" use="optional"/>
+	</xs:complexType>
+
+	<xs:complexType name="Config">
+		<xs:sequence>
+			<xs:element name="Application">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute type="xs:string" name="env" use="required" />
+							<xs:attribute type="xs:string" name="sessionName" use="required" />
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Logger">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Default" type="logDetails" />
+						<xs:element name="Debug" type="logDetails" />
+						<xs:element name="HttpServiceRequest" type="logDetails" />
+						<xs:element name="HttpServiceResponse" type="logDetails" />
+					</xs:sequence>
+					<xs:attribute type="xs:string" name="path" use="required" />
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ServiceHosts">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element type="xs:anyURI" name="XMR" minOccurs="0" maxOccurs="1" />
+						<xs:element type="xs:anyURI" name="Translations" minOccurs="0" maxOccurs="1"/>
+						<xs:element type="xs:anyURI" name="SEO" minOccurs="0" maxOccurs="1"/>
+						<xs:element type="xs:string" name="Groups" minOccurs="0" maxOccurs="1"/>
+						<xs:element type="xs:anyURI" name="IpToCountry" minOccurs="0" maxOccurs="1"/>
+					</xs:sequence>
+					<xs:attribute type="xs:string" name="globalconfig" use="optional" />
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ContentServers">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Images" type="contentServerDetails" />
+						<xs:element name="Styles" type="contentServerDetails" />
+						<xs:element name="Javascript" type="contentServerDetails" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Cache">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Provider" minOccurs="0" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element type="xs:string" name="provider"/>
+									<xs:element type="xs:string" name="host"/>
+									<xs:element type="xs:short" name="port"/>
+								</xs:sequence>
+
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="PageCache" minOccurs="0" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element type="xs:string" name="enabled"/>
+									<xs:element type="xs:byte" name="version"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Translations" minOccurs="0" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element type="xs:int" name="ttl"/>
+									<xs:element type="xs:byte" name="version"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="GlobalConstants" minOccurs="0" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element type="xs:short" name="ttl"/>
+									<xs:element type="xs:byte" name="version"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Locations" minOccurs="0" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element type="xs:short" name="ttl"/>
+									<xs:element type="xs:byte" name="version"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ApiResponses" minOccurs="0" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element type="xs:byte" name="version"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute type="xs:string" name="globalconfig" use="optional"/>
+					<xs:attribute type="xs:string" name="mergeconfig" use="optional"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element type="xs:string" name="TrustedProxies"/>
+			<xs:element name="Languages">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Language" maxOccurs="unbounded" minOccurs="0">
+							<xs:complexType>
+								<xs:choice maxOccurs="unbounded" minOccurs="0">
+									<xs:element type="xs:string" name="id"/>
+									<xs:element type="xs:string" name="locale"/>
+									<xs:element type="xs:string" name="languageCode"/>
+									<xs:element type="xs:string" name="subdomain"/>
+									<xs:element type="xs:string" name="name"/>
+									<xs:element type="xs:string" name="primary"/>
+									<xs:element name="currencyFormat">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element type="xs:string" name="decimal"/>
+												<xs:element type="xs:string" name="thousand"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:choice>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element type="xs:string" name="OAuthEnabled"/>
+			<xs:element type="xs:string" name="OmnitureAccount"/>
+			<xs:element type="xs:int" name="ITunesAppKey"/>
+			<xs:element type="xs:string" name="GooglePlayAppKey"/>
+			<xs:element type="xs:string" name="GoogleMapsAPIKey"/>
+			<xs:element type="xs:string" name="GoogleAdSenseAPIKey"/>
+			<xs:element name="GoogleAnalytics">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="accountId" maxOccurs="unbounded" minOccurs="0">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:string">
+										<xs:attribute type="xs:string" name="locale" use="optional"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="facebook">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="appIds">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="appId" maxOccurs="unbounded" minOccurs="0">
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:long">
+													<xs:attribute type="xs:string" name="locale" use="optional"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="bing">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="accountId" maxOccurs="unbounded" minOccurs="0">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:int">
+										<xs:attribute type="xs:string" name="locale" use="optional"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Criteo">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="accountId" maxOccurs="unbounded" minOccurs="0">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:short">
+										<xs:attribute type="xs:string" name="locale" use="optional"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element type="xs:string" name="EnableCriteo"/>
+			<xs:element type="xs:string" name="EnableAffiliateConversionTags"/>
+			<xs:element type="xs:string" name="EnableSmartPixel"/>
+			<xs:element type="xs:string" name="EnableGroupEnquirySubmission"/>
+			<xs:element type="xs:string" name="EnableTwigCache"/>
+			<xs:element name="Debug">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element type="xs:string" name="enableWebProfiler"/>
+						<xs:element type="xs:string" name="supportUpdateCache"/>
+						<xs:element type="xs:string" name="supportDisablingTranslations"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SecureLocation">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element type="xs:string" name="Protocol"/>
+						<xs:element type="xs:string" name="SubdomainPrefix"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RestrictedAffiliateSettings">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="headers">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element type="xs:string" name="header"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="abTesting">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="vwo">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element type="xs:string" name="enable"/>
+									<xs:element type="xs:int" name="accountId"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element type="xs:string" name="webmasterToolsId"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,718 @@
+<?xml version="1.0"?>
+<Config>
+    <Targets>
+        <Test>
+            <Config>
+                <!-- NOTE: this is the name of the application (used in User-Agent when consuming services) AND the application namespace -->
+                <Application env="test" sessionName="psid">hostelbookers</Application>
+                <Logger path="/var/log/app/hostelbookers.com">
+                    <Default file="/app.log" level="ERROR" enabled="true"/>
+                    <Debug file="/debug.log" level="DEBUG" enabled="true"/>
+                    <HttpServiceRequest file="/serviceRequest.log" level="ERROR" enabled="true"/>
+                    <HttpServiceResponse file="/serviceResponse.log" level="ERROR" enabled="true"/>
+                </Logger>
+
+                <ServiceHosts>
+                    <XMR>http://api.m.hostelworld.com.test1.ch.hostelworld.com/1.5</XMR>
+                    <Translations>http://translations.test2.ch.hostelworld.com/translations/hb</Translations>
+                    <SEO>http://seo-service.test4.ch.hostelworld.com/0.1</SEO>
+                    <Groups>https://groups.hb-api.com/api</Groups>
+                    <IpToCountry>http://location-from-ip-service.test4.ch.hostelworld.com/0.1</IpToCountry>
+                </ServiceHosts>
+
+                <ContentServers>
+                    <Images host="" securehost="" version="false">
+                        <prefix name="vanilla" host="" securehost="" version="false">/vanilla/</prefix>
+                    </Images>
+                    <Styles host="" securehost="" version="true" num="1" />
+                    <Javascript host="" securehost="" version="true" num="1" />
+                </ContentServers>
+
+                <Cache>
+                    <Provider>
+                        <provider>\wri\chipmunk\cache\provider\Memcache</provider>
+                        <host>ch-test-cache02.ch.hostelworld.com</host>
+                        <port>11211</port>
+                    </Provider>
+                    <PageCache>
+                        <enabled>true</enabled>
+                        <version>4</version>
+                    </PageCache>
+                    <Translations>
+                        <ttl>86400</ttl>
+                        <version>1</version>
+                    </Translations>
+                    <GlobalConstants>
+                        <ttl>3600</ttl>
+                        <version>1</version>
+                    </GlobalConstants>
+                    <Locations>
+                        <ttl>3600</ttl>
+                        <version>1</version>
+                    </Locations>
+                    <ApiResponses>
+                        <version>4</version>
+                    </ApiResponses>
+                </Cache>
+                <TrustedProxies></TrustedProxies>
+                <Languages>
+                    <Language>
+                        <id>default</id>
+                        <locale>en_GB</locale>
+                        <languageCode>en</languageCode>
+                        <subdomain>www</subdomain>
+                        <name>English</name>
+                        <primary>true</primary>
+                        <currencyFormat>
+                            <decimal>.</decimal>
+                            <thousand>,</thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>fr</id>
+                        <locale>fr_FR</locale>
+                        <languageCode>fr</languageCode>
+                        <subdomain>fr</subdomain>
+                        <name>Français</name>
+                        <primary>true</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand> </thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>de</id>
+                        <locale>de_DE</locale>
+                        <languageCode>de</languageCode>
+                        <subdomain>de</subdomain>
+                        <name>Deutsch</name>
+                        <primary>true</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand>.</thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>it</id>
+                        <locale>it_IT</locale>
+                        <languageCode>it</languageCode>
+                        <subdomain>it</subdomain>
+                        <name>Italiano</name>
+                        <primary>true</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand>.</thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>es</id>
+                        <locale>es_ES</locale>
+                        <languageCode>es</languageCode>
+                        <subdomain>es</subdomain>
+                        <name>Español</name>
+                        <primary>true</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand>.</thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>pt</id>
+                        <locale>pt_BR</locale>
+                        <languageCode>pt</languageCode>
+                        <subdomain>pt</subdomain>
+                        <name>Português</name>
+                        <primary>true</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand>.</thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>no</id>
+                        <locale>nb_NO</locale>
+                        <languageCode>nb</languageCode>
+                        <subdomain>no</subdomain>
+                        <name>Norsk</name>
+                        <primary>false</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand> </thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>dk</id>
+                        <locale>da_DK</locale>
+                        <languageCode>da</languageCode>
+                        <subdomain>dk</subdomain>
+                        <name>Dansk</name>
+                        <primary>false</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand>.</thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>nl</id>
+                        <locale>nl_NL</locale>
+                        <languageCode>nl</languageCode>
+                        <subdomain>nl</subdomain>
+                        <name>Nederlands</name>
+                        <primary>false</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand>.</thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>pl</id>
+                        <locale>pl_PL</locale>
+                        <languageCode>pl</languageCode>
+                        <subdomain>pl</subdomain>
+                        <name>Polski</name>
+                        <primary>false</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand> </thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>se</id>
+                        <locale>sv_SE</locale>
+                        <languageCode>sv</languageCode>
+                        <subdomain>se</subdomain>
+                        <name>Svenska</name>
+                        <primary>false</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand> </thousand>
+                        </currencyFormat>
+                    </Language>
+                </Languages>
+                <OAuthEnabled>false</OAuthEnabled>
+                <OmnitureAccount>wrihostelbookersdev</OmnitureAccount>
+                <ITunesAppKey>559809479</ITunesAppKey>
+                <GooglePlayAppKey>com.hostelbookers.HBApp</GooglePlayAppKey>
+                <GoogleMapsAPIKey>AIzaSyDKJsHoPy85rqlNmTSiZJ96xxATTYEZxXM</GoogleMapsAPIKey>
+                <GoogleAdSenseAPIKey>pub-0050982221130678</GoogleAdSenseAPIKey>
+                <GoogleAnalytics>
+                    <accountId locale="en_GB">UA-26638016-1</accountId>
+                    <accountId locale="fr_FR">UA-26638016-1</accountId>
+                    <accountId locale="de_DE">UA-26638016-1</accountId>
+                    <accountId locale="it_IT">UA-26638016-1</accountId>
+                    <accountId locale="es_ES">UA-26638016-1</accountId>
+                    <accountId locale="pt_BR">UA-26638016-1</accountId>
+                    <accountId locale="nb_NO">UA-26638016-1</accountId>
+                    <accountId locale="da_DK">UA-26638016-1</accountId>
+                    <accountId locale="nl_NL">UA-26638016-1</accountId>
+                    <accountId locale="pl_PL">UA-26638016-1</accountId>
+                    <accountId locale="sv_SE">UA-26638016-1</accountId>
+                </GoogleAnalytics>
+                <facebook>
+                    <appIds>
+                        <appId locale="en_GB">187039851427239</appId>
+                        <appId locale="fr_FR">401033733292392</appId>
+                        <appId locale="de_DE">298591863571630</appId>
+                        <appId locale="it_IT">106694969476575</appId>
+                        <appId locale="es_ES">152962441507252</appId>
+                        <appId locale="pt_BR">479685505393555</appId>
+                    </appIds>
+                </facebook>
+                <bing>
+                    <accountId locale="en_GB">4069616</accountId>
+                    <accountId locale="fr_FR">4069647</accountId>
+                    <accountId locale="de_DE">4069620</accountId>
+                    <accountId locale="it_IT">4069649</accountId>
+                    <accountId locale="es_ES">4069623</accountId>
+                    <accountId locale="nl_NL">4069650</accountId>
+                </bing>
+                <Criteo>
+                    <accountId locale="en_GB">1647</accountId>
+                    <accountId locale="de_DE">2677</accountId>
+                </Criteo>
+                <EnableCriteo>false</EnableCriteo>
+                <EnableAffiliateConversionTags>false</EnableAffiliateConversionTags>
+                <EnableSmartPixel>false</EnableSmartPixel>
+                <EnableGroupEnquirySubmission>true</EnableGroupEnquirySubmission>
+                <EnableTwigCache>true</EnableTwigCache>
+                <Debug>
+                    <enableWebProfiler>false</enableWebProfiler>
+                    <supportUpdateCache>true</supportUpdateCache>
+                    <supportDisablingTranslations>true</supportDisablingTranslations>
+                </Debug>
+                <SecureLocation>
+                    <Protocol></Protocol>
+                    <SubdomainPrefix>vsecure</SubdomainPrefix>
+                </SecureLocation>
+                <RestrictedAffiliateSettings>
+                    <headers>
+                        <header>X-Requested-With</header>
+                    </headers>
+                </RestrictedAffiliateSettings>
+                <abTesting>
+                    <vwo>
+                        <enable>true</enable>
+                        <accountId>211144</accountId>
+                    </vwo>
+                </abTesting>
+                <webmasterToolsId>qHVpZG74rJWA1YYjUsej5eBFHEOwwzwvSEghhmZ6WNA=</webmasterToolsId>
+            </Config>
+        </Test>
+        <Staging>
+            <Config>
+                <Application env="staging" sessionName="psid">hostelbookers</Application>
+
+                <Logger path="/var/log/app/hostelbookers">
+                    <Default file="/app.log" level="ERROR" enabled="true"/>
+                    <Debug file="/debug.log" level="DEBUG" enabled="false"/>
+                    <HttpServiceRequest file="/serviceRequest.log" level="ERROR" enabled="false"/>
+                    <HttpServiceResponse file="/serviceResponse.log" level="ERROR" enabled="false"/>
+                </Logger>
+
+                <ServiceHosts globalconfig="/var/data/www/config/hostelbookers/servicehosts.xml"/>
+
+                <ContentServers>
+                    <Images host="" securehost="" version="false">
+                        <prefix name="vanilla" host="" securehost="" version="false">/vanilla/</prefix>
+                    </Images>
+                    <Styles host="" securehost="" version="true" num="1"/>
+                    <Javascript host="" securehost="" version="true" num="1"/>
+                </ContentServers>
+
+                <Cache globalconfig="/var/data/www/config/hostelbookers/cache.xml" mergeconfig="true"/>
+                <TrustedProxies>10.174.2.240,10.174.2.241,10.174.2.250,10.174.2.251</TrustedProxies>
+
+                <Languages>
+                    <Language>
+                        <id>default</id>
+                        <locale>en_GB</locale>
+                        <languageCode>en</languageCode>
+                        <subdomain>www-hostelbookers-com</subdomain>
+                        <name>English</name>
+                        <primary>true</primary>
+                        <currencyFormat>
+                            <decimal>.</decimal>
+                            <thousand>,</thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>fr</id>
+                        <locale>fr_FR</locale>
+                        <languageCode>fr</languageCode>
+                        <subdomain>fr-hostelbookers-com</subdomain>
+                        <name>Français</name>
+                        <primary>true</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand> </thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>de</id>
+                        <locale>de_DE</locale>
+                        <languageCode>de</languageCode>
+                        <subdomain>de-hostelbookers-com</subdomain>
+                        <name>Deutsch</name>
+                        <primary>true</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand>.</thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>it</id>
+                        <locale>it_IT</locale>
+                        <languageCode>it</languageCode>
+                        <subdomain>it-hostelbookers-com</subdomain>
+                        <name>Italiano</name>
+                        <primary>true</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand>.</thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>es</id>
+                        <locale>es_ES</locale>
+                        <languageCode>es</languageCode>
+                        <subdomain>es-hostelbookers-com</subdomain>
+                        <name>Español</name>
+                        <primary>true</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand>.</thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>pt</id>
+                        <locale>pt_BR</locale>
+                        <languageCode>pt</languageCode>
+                        <subdomain>pt-hostelbookers-com</subdomain>
+                        <name>Português</name>
+                        <primary>true</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand>.</thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>no</id>
+                        <locale>nb_NO</locale>
+                        <languageCode>nb</languageCode>
+                        <subdomain>no-hostelbookers-com</subdomain>
+                        <name>Norsk</name>
+                        <primary>false</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand> </thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>dk</id>
+                        <locale>da_DK</locale>
+                        <languageCode>da</languageCode>
+                        <subdomain>dk-hostelbookers-com</subdomain>
+                        <name>Dansk</name>
+                        <primary>false</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand>.</thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>nl</id>
+                        <locale>nl_NL</locale>
+                        <languageCode>nl</languageCode>
+                        <subdomain>nl-hostelbookers-com</subdomain>
+                        <name>Nederlands</name>
+                        <primary>false</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand>.</thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>pl</id>
+                        <locale>pl_PL</locale>
+                        <languageCode>pl</languageCode>
+                        <subdomain>pl-hostelbookers-com</subdomain>
+                        <name>Polski</name>
+                        <primary>false</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand> </thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>se</id>
+                        <locale>sv_SE</locale>
+                        <languageCode>sv</languageCode>
+                        <subdomain>se-hostelbookers-com</subdomain>
+                        <name>Svenska</name>
+                        <primary>false</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand> </thousand>
+                        </currencyFormat>
+                    </Language>
+                </Languages>
+                <OAuthEnabled>false</OAuthEnabled>
+                <OmnitureAccount>wrihostelbookersprod</OmnitureAccount>
+                <ITunesAppKey>559809479</ITunesAppKey>
+                <GooglePlayAppKey>com.hostelbookers.HBApp</GooglePlayAppKey>
+                <GoogleMapsAPIKey>AIzaSyCguG-T4H3_SlJaplgOky5Z-AO1rCYrWIU</GoogleMapsAPIKey>
+                <GoogleAdSenseAPIKey>pub-0050982221130678</GoogleAdSenseAPIKey>
+                <GoogleAnalytics>
+                    <accountId locale="en_GB">UA-28444024-1</accountId>
+                    <accountId locale="fr_FR">UA-28445351-1</accountId>
+                    <accountId locale="de_DE">UA-28446222-1</accountId>
+                    <accountId locale="it_IT">UA-28445171-1</accountId>
+                    <accountId locale="es_ES">UA-28444192-1</accountId>
+                    <accountId locale="pt_BR">UA-28444872-1</accountId>
+                    <accountId locale="nb_NO">UA-28447223-1</accountId>
+                    <accountId locale="da_DK">UA-28447443-1</accountId>
+                    <accountId locale="nl_NL">UA-28445673-1</accountId>
+                    <accountId locale="pl_PL">UA-28447610-1</accountId>
+                    <accountId locale="sv_SE">UA-28446295-1</accountId>
+                </GoogleAnalytics>
+                <facebook>
+                    <appIds>
+                        <appId locale="en_GB">350053261739696</appId>
+                        <appId locale="fr_FR">387021904696849</appId>
+                        <appId locale="de_DE">250253505092131</appId>
+                        <appId locale="it_IT">447935111905496</appId>
+                        <appId locale="es_ES">175924945873247</appId>
+                        <appId locale="pt_BR">260470727401443</appId>
+                    </appIds>
+                </facebook>
+                <bing>
+                    <accountId locale="en_GB">4069616</accountId>
+                    <accountId locale="fr_FR">4069647</accountId>
+                    <accountId locale="de_DE">4069620</accountId>
+                    <accountId locale="it_IT">4069649</accountId>
+                    <accountId locale="es_ES">4069623</accountId>
+                    <accountId locale="nl_NL">4069650</accountId>
+                </bing>
+                <Criteo>
+                    <accountId locale="en_GB">1647</accountId>
+                    <accountId locale="de_DE">2677</accountId>
+                </Criteo>
+                <EnableCriteo>true</EnableCriteo>
+                <EnableAffiliateConversionTags>true</EnableAffiliateConversionTags>
+                <EnableSmartPixel>true</EnableSmartPixel>
+                <EnableGroupEnquirySubmission>true</EnableGroupEnquirySubmission>
+                <EnableTwigCache>true</EnableTwigCache>
+                <Debug>
+                    <enableWebProfiler>false</enableWebProfiler>
+                    <supportUpdateCache>false</supportUpdateCache>
+                    <supportDisablingTranslations>false</supportDisablingTranslations>
+                </Debug>
+                <SecureLocation>
+                    <Protocol>https</Protocol>
+                    <SubdomainPrefix>www-hostelbookers-com</SubdomainPrefix>
+                </SecureLocation>
+
+                <RestrictedAffiliateSettings>
+                    <headers>
+                        <header>X-Requested-With</header>
+                    </headers>
+                </RestrictedAffiliateSettings>
+                <abTesting>
+                    <vwo>
+                        <enable>true</enable>
+                        <accountId>211144</accountId>
+                    </vwo>
+                </abTesting>
+                <webmasterToolsId>qHVpZG74rJWA1YYjUsej5eBFHEOwwzwvSEghhmZ6WNA=</webmasterToolsId>
+            </Config>
+        </Staging>
+        <Live>
+            <Config>
+                <Application env="production" sessionName="psid">hostelbookers</Application>
+
+                <Logger path="/var/log/app/hostelbookers">
+                    <Default file="/app.log" level="ERROR" enabled="true"/>
+                    <Debug file="/debug.log" level="DEBUG" enabled="false"/>
+                    <HttpServiceRequest file="/serviceRequest.log" level="ERROR" enabled="false"/>
+                    <HttpServiceResponse file="/serviceResponse.log" level="ERROR" enabled="false"/>
+                </Logger>
+
+                <ServiceHosts globalconfig="/var/data/www/config/hostelbookers/servicehosts.xml"/>
+
+                <ContentServers>
+                    <Images num="1" version="true">
+                        <prefix name="static" host="ihb.hwstatic.com" securehost="ihb.hwstatic.com"/>
+                    </Images>
+                    <Styles num="1" version="true" host="shb.hwstatic.com" securehost="shb.hwstatic.com"/>
+                    <Javascript num="1" version="true" host="jhb.hwstatic.com" securehost="jhb.hwstatic.com"/>
+                </ContentServers>
+
+                <Cache globalconfig="/var/data/www/config/hostelbookers/cache.xml" mergeconfig="true"/>
+                <TrustedProxies>10.174.2.240,10.174.2.241,10.174.2.250,10.174.2.251</TrustedProxies>
+
+                <Languages>
+                    <Language>
+                        <id>default</id>
+                        <locale>en_GB</locale>
+                        <languageCode>en</languageCode>
+                        <subdomain>www</subdomain>
+                        <name>English</name>
+                        <primary>true</primary>
+                        <currencyFormat>
+                            <decimal>.</decimal>
+                            <thousand>,</thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>fr</id>
+                        <locale>fr_FR</locale>
+                        <languageCode>fr</languageCode>
+                        <subdomain>fr</subdomain>
+                        <name>Français</name>
+                        <primary>true</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand> </thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>de</id>
+                        <locale>de_DE</locale>
+                        <languageCode>de</languageCode>
+                        <subdomain>de</subdomain>
+                        <name>Deutsch</name>
+                        <primary>true</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand>.</thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>it</id>
+                        <locale>it_IT</locale>
+                        <languageCode>it</languageCode>
+                        <subdomain>it</subdomain>
+                        <name>Italiano</name>
+                        <primary>true</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand>.</thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>es</id>
+                        <locale>es_ES</locale>
+                        <languageCode>es</languageCode>
+                        <subdomain>es</subdomain>
+                        <name>Español</name>
+                        <primary>true</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand>.</thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>pt</id>
+                        <locale>pt_BR</locale>
+                        <languageCode>pt</languageCode>
+                        <subdomain>pt</subdomain>
+                        <name>Português</name>
+                        <primary>true</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand>.</thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>no</id>
+                        <locale>nb_NO</locale>
+                        <languageCode>nb</languageCode>
+                        <subdomain>no</subdomain>
+                        <name>Norsk</name>
+                        <primary>false</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand> </thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>dk</id>
+                        <locale>da_DK</locale>
+                        <languageCode>da</languageCode>
+                        <subdomain>dk</subdomain>
+                        <name>Dansk</name>
+                        <primary>false</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand>.</thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>nl</id>
+                        <locale>nl_NL</locale>
+                        <languageCode>nl</languageCode>
+                        <subdomain>nl</subdomain>
+                        <name>Nederlands</name>
+                        <primary>false</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand>.</thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>pl</id>
+                        <locale>pl_PL</locale>
+                        <languageCode>pl</languageCode>
+                        <subdomain>pl</subdomain>
+                        <name>Polski</name>
+                        <primary>false</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand> </thousand>
+                        </currencyFormat>
+                    </Language>
+                    <Language>
+                        <id>se</id>
+                        <locale>sv_SE</locale>
+                        <languageCode>sv</languageCode>
+                        <subdomain>se</subdomain>
+                        <name>Svenska</name>
+                        <primary>false</primary>
+                        <currencyFormat>
+                            <decimal>,</decimal>
+                            <thousand> </thousand>
+                        </currencyFormat>
+                    </Language>
+                </Languages>
+                <OAuthEnabled>false</OAuthEnabled>
+                <OmnitureAccount>wrihostelbookersprod</OmnitureAccount>
+                <ITunesAppKey>559809479</ITunesAppKey>
+                <GooglePlayAppKey>com.hostelbookers.HBApp</GooglePlayAppKey>
+                <GoogleMapsAPIKey>AIzaSyCguG-T4H3_SlJaplgOky5Z-AO1rCYrWIU</GoogleMapsAPIKey>
+                <GoogleAdSenseAPIKey>pub-0050982221130678</GoogleAdSenseAPIKey>
+                <GoogleAnalytics>
+                    <accountId locale="en_GB">UA-28444024-1</accountId>
+                    <accountId locale="fr_FR">UA-28445351-1</accountId>
+                    <accountId locale="de_DE">UA-28446222-1</accountId>
+                    <accountId locale="it_IT">UA-28445171-1</accountId>
+                    <accountId locale="es_ES">UA-28444192-1</accountId>
+                    <accountId locale="pt_BR">UA-28444872-1</accountId>
+                    <accountId locale="nb_NO">UA-28447223-1</accountId>
+                    <accountId locale="da_DK">UA-28447443-1</accountId>
+                    <accountId locale="nl_NL">UA-28445673-1</accountId>
+                    <accountId locale="pl_PL">UA-28447610-1</accountId>
+                    <accountId locale="sv_SE">UA-28446295-1</accountId>
+                </GoogleAnalytics>
+                <facebook>
+                    <appIds>
+                        <appId locale="en_GB">350053261739696</appId>
+                        <appId locale="fr_FR">387021904696849</appId>
+                        <appId locale="de_DE">250253505092131</appId>
+                        <appId locale="it_IT">447935111905496</appId>
+                        <appId locale="es_ES">175924945873247</appId>
+                        <appId locale="pt_BR">260470727401443</appId>
+                    </appIds>
+                </facebook>
+                <bing>
+                    <accountId locale="en_GB">4069616</accountId>
+                    <accountId locale="fr_FR">4069647</accountId>
+                    <accountId locale="de_DE">4069620</accountId>
+                    <accountId locale="it_IT">4069649</accountId>
+                    <accountId locale="es_ES">4069623</accountId>
+                    <accountId locale="nl_NL">4069650</accountId>
+                </bing>
+                <Criteo>
+                    <accountId locale="en_GB">1647</accountId>
+                    <accountId locale="de_DE">2677</accountId>
+                </Criteo>
+                <EnableCriteo>true</EnableCriteo>
+                <EnableAffiliateConversionTags>true</EnableAffiliateConversionTags>
+                <EnableSmartPixel>true</EnableSmartPixel>
+                <EnableGroupEnquirySubmission>true</EnableGroupEnquirySubmission>
+                <EnableTwigCache>true</EnableTwigCache>
+                <Debug>
+                    <enableWebProfiler>false</enableWebProfiler>
+                    <supportUpdateCache>false</supportUpdateCache>
+                    <supportDisablingTranslations>false</supportDisablingTranslations>
+                </Debug>
+                <SecureLocation>
+                    <Protocol>https</Protocol>
+                    <SubdomainPrefix>www</SubdomainPrefix>
+                </SecureLocation>
+
+                <RestrictedAffiliateSettings>
+                    <headers>
+                        <header>X-Requested-With</header>
+                    </headers>
+                </RestrictedAffiliateSettings>
+                <abTesting>
+                    <vwo>
+                        <enable>true</enable>
+                        <accountId>211144</accountId>
+                    </vwo>
+                </abTesting>
+                <webmasterToolsId>qHVpZG74rJWA1YYjUsej5eBFHEOwwzwvSEghhmZ6WNA=</webmasterToolsId>
+            </Config>
+        </Live>
+    </Targets>
+</Config>

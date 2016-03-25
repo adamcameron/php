@@ -1,0 +1,8 @@
+<Response xmlns="http://example.com/ns/">
+   <user>
+      <dateOfBirth>1947-01-08</dateOfBirth>
+      <firstName>Ziggy</firstName>
+      <lastName>Stardust</lastName>
+      <gender>?</gender>
+   </user>
+</Response>

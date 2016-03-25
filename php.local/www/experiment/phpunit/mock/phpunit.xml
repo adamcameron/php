@@ -1,0 +1,9 @@
+<phpunit bootstrap="test/bootstrap.php" backupGlobals="false">
+    <ini name="display_errors" value="true"/>
+
+    <testsuites>
+        <testsuite name="all">
+            <directory suffix="Test.php">test</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
