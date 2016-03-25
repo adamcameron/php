@@ -1,13 +1,17 @@
 {
-    "require": {
-        "twig/twig" : "1.*",
-        "silex/silex" : "1.*",
-        "phpunit/phpunit" : "5.*"
-    },
+	"require" : {
+		"guzzlehttp/guzzle" : "~5.0",
+		"phpunit/phpunit" : "5.*",
+		"silex/silex" : "1.*",
+		"symfony/config" : "~2.6",
+		"symfony/twig-bridge" : "2.3.*",
+		"symfony/yaml" : "~2.6",
+		"twig/twig" : "1.*"
+	},
 	"autoload" : {
 		"psr-4" : {
-            "dump\\" : "src/",
-            "me\\adamcameron\\" : "src/"
-        }
-    }
+			"dump\\" : "src/",
+			"me\\adamcameron\\" : "src/"
+		}
+	}
 }

@@ -1,14 +1,11 @@
 {
-  "config": {
-    "vendor-dir": "d:/apps/php/composer/vendor/"
-  },
-  "require": {
-    "phpunit/phpunit" : "5.*"
-  },
-  "autoload" : {
-    "psr-4" : {
-      "me\\adamcameron\\someapp\\" : "src/",
-      "me\\adamcameron\\someapp\\test\\" : "test/"
-    }
-  }
+	"require" : {
+		"phpunit/phpunit" : "5.*"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"me\\adamcameron\\someapp\\" : "src/",
+			"me\\adamcameron\\someapp\\test\\" : "test/"
+		}
+	}
 }
