@@ -1,0 +1,7 @@
+<phpunit backupGlobals="false" bootstrap="./vendor/autoload.php">
+    <testsuites>
+        <testsuite name="Mock helper">
+            <directory>./test</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
