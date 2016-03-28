@@ -1,6 +1,6 @@
 <phpunit backupGlobals="false" bootstrap="./vendor/autoload.php">
     <testsuites>
-        <testsuite name="Mock helper">
+        <testsuite name="MockHelper">
             <directory>./test</directory>
         </testsuite>
     </testsuites>

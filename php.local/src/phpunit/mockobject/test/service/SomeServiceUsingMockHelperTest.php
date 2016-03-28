@@ -3,8 +3,9 @@
 namespace me\adamcameron\someapp\test\service {
 
     use \me\adamcameron\someapp\service\SomeService;
+    use me\adamcameron\someapp\test\helper\MockHelper;
 
-    class SomeServiceTest extends \PHPUnit_Framework_TestCase
+    class SomeServiceUsingMockHelperTest extends \PHPUnit_Framework_TestCase
     {
 
         private $someService;
@@ -42,25 +43,23 @@ namespace me\adamcameron\someapp\test\service {
 
         private function getMockedSomeRepository()
         {
-            $mockedSomeRepository = $this
-                ->getMockBuilder('\me\adamcameron\someapp\repository\SomeRepository')
-                ->disableOriginalConstructor()
-                ->setMethods(["getTheThing", "setTheThing", "doesTheThingExist"])
-                ->getMock();
-
-            $mockedSomeRepository
-                ->method("getTheThing")
-                ->with($this->testId)
-                ->willReturn($this->mockedGetTheThingResult);
-
-            $mockedSomeRepository
-                ->method("setTheThing")
-                ->with($this->testId, $this->testThing);
-
-            $mockedSomeRepository
-                ->method("doesTheThingExist")
-                ->with($this->testId)
-                ->willReturn($this->mockedDoesTheThingExistResult);
+            $mockHelper = new MockHelper();
+            $mockedSomeRepository = $mockHelper->mockObject(
+                '\me\adamcameron\someapp\repository\SomeRepository',
+                [
+                    "getTheThing" => [
+                        "with" => [$this->testId],
+                        "willReturn" => $this->mockedGetTheThingResult
+                    ],
+                    "setTheThing" => [
+                        "with" => [$this->testId, $this->testThing]
+                    ],
+                    "doesTheThingExist" => [
+                        "with" => [$this->testId],
+                        "willReturn" => $this->mockedDoesTheThingExistResult
+                    ]
+                ]
+            );
 
             return $mockedSomeRepository;
         }
