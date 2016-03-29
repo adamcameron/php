@@ -12,6 +12,7 @@ class MockHelper extends \PHPUnit_Framework_TestCase {
         }else{
             $mockObjectBuilder->setConstructorArgs($constructorArgs);
         }
+
         if (!is_null($methods)){
             $mockObjectBuilder->setMethods(array_keys($methods));
         }
