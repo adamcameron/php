@@ -12,11 +12,14 @@ class MockHelper extends \PHPUnit_Framework_TestCase {
         }else{
             $mockObjectBuilder->setConstructorArgs($constructorArgs);
         }
-
         if (!is_null($methods)){
             $mockObjectBuilder->setMethods(array_keys($methods));
         }
         $mockedObject = $mockObjectBuilder->getMock();
+
+        if (is_null($methods)){
+            return $mockedObject;
+        }
 
         foreach ($methods as $method=>$mock){
             if (array_key_exists("expects", $mock)){
