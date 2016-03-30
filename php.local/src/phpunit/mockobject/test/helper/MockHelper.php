@@ -42,6 +42,7 @@ class MockHelper extends \PHPUnit_Framework_TestCase {
                 $mockedMethod->willReturn($mock["willReturn"]);
             }
         }
+
         return $mockedObject;
     }
 
