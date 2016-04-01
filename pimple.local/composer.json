@@ -1,6 +1,12 @@
 {
+  "minimum-stability": "dev",
+  "repositories" : [{
+    "type" : "vcs",
+    "url" : "c:/src/Pimple"
+  }],
+
   "require" : {
-    "silex/silex" : "1.3.5"
+    "pimple/pimple" : "dev-master"
   },
   "autoload" : {
     "psr-4" : {

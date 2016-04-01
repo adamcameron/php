@@ -2,31 +2,29 @@
 
 namespace me\adamcameron\pimpleBug\app;
 
-use me\adamcameron\pimpleBug\provider\service\ControllerServiceProvider;
-use me\adamcameron\pimpleBug\provider\service\ControllerProviderServiceProvider;
-use me\adamcameron\pimpleBug\provider\service\ServiceProvider;
-use Silex;
-use Silex\Application as SilexApplication;
+use me\adamcameron\pimpleBug\service\MyService;
+use Pimple\Container;
 
+class Application  {
 
-class Application extends SilexApplication {
+    public $di;
 
     function __construct() {
-        parent::__construct();
-        $this["debug"] = true;
-        $this->registerProviders();
-        $this->mountControllers();
+        $this->setDependencies();
     }
 
-    function registerProviders() {
-        $this->register(new Silex\Provider\ServiceControllerServiceProvider());
-        $this->register(new ControllerProviderServiceProvider());
-        $this->register(new ControllerServiceProvider());
-        $this->register(new ServiceProvider());
+    function setDependencies() {
+        $this->di = new Container();
+
+        $this->di["service.viaFunctionLiteral.my"] = function($di){
+            return new MyService();
+        };
+
+        $this->di["service.viaFunctionStatement.my"] = call_user_func([$this, "getMyService"]);
     }
 
-    function mountControllers() {
-        $this->mount("/", $this["provider.controller"]);
+    function getMyService(){
+        return new MyService();
     }
 
 }
