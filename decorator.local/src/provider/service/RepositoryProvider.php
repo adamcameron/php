@@ -25,21 +25,21 @@ class RepositoryProvider extends BaseServiceProvider {
 			return new CachedLoggedUserRepository($app["service.nullLogger"], $app["service.nullCache"]);
 		});
 
-		$app["repository.user"] = $app->share(function() {
-			return new UserRepository();
-		});
+$app["repository.user"] = $app->share(function() {
+	return new UserRepository();
+});
 
-		$app["repository.cachedUser"] = $app->share(function($app) {
-			return new CachedRepository($app["repository.user"], $app["service.basicCache"]);
-		});
+$app["repository.cachedUser"] = $app->share(function($app) {
+	return new CachedRepository($app["repository.user"], $app["service.basicCache"]);
+});
 
-		$app["repository.loggedUser"] = $app->share(function($app) {
-			return new LoggedRepository($app["repository.user"], $app["service.basicLogger"]);
-		});
+$app["repository.loggedUser"] = $app->share(function($app) {
+	return new LoggedRepository($app["repository.user"], $app["service.basicLogger"]);
+});
 
-		$app["repository.loggedCachedUser"] = $app->share(function($app) {
-			return new LoggedRepository($app["repository.cachedUser"], $app["service.basicLogger"]);
-		});
+$app["repository.loggedCachedUser"] = $app->share(function($app) {
+	return new LoggedRepository($app["repository.cachedUser"], $app["service.basicLogger"]);
+});
 
 		$app["repository.cachedLoggedUser"] = $app->share(function($app) {
 			return new CachedRepository($app["repository.loggedUser"], $app["service.basicCache"]);
