@@ -37,6 +37,10 @@ class ControllerServiceProvider extends BaseServiceProvider {
 			return new controller\CacheDecoratedRepositoryExampleController();
 		});
 
+		$app["controller.inheritanceExample"] = $app->share(function() {
+			return new controller\InheritanceExampleController();
+		});
+
 	}
 
 }

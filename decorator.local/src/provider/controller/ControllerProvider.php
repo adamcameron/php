@@ -38,6 +38,10 @@ class ControllerProvider implements ControllerProviderInterface {
 			->method("GET")
 			->bind("route.cacheDecoratedRepositoryExample");
 
+		$controllers->get("inheritanceExample/", "controller.inheritanceExample:doGet")
+			->method("GET")
+			->bind("route.inheritanceExample");
+
 		return $controllers;
 	}
 
