@@ -14,4 +14,9 @@ class MyRepository {
 
     }
 
+    public function testsWithConsecutive($arg)
+    {
+
+    }
+
 }

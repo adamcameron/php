@@ -19,4 +19,12 @@ class MyService {
         $this->repository->testsAtFirstMethod($firstArg, $thirdArg);
     }
 
+    public function usesWithConsecutive($firstArg, $secondArg, $thirdArg)
+    {
+        $args = func_get_args();
+
+        foreach ($args as $arg){
+        }
+    }
+
 }

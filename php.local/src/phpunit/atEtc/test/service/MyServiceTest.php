@@ -8,6 +8,9 @@ class MyServiceTest extends \PHPUnit_Framework_TestCase {
 
     private $mockedRepository;
     private $myService;
+    private $firstArg = 'FIRST_ARG';
+    private $secondArg = 'SECOND_ARG';
+    private $thirdArg = 'THIRD_ARG';
 
     public function setup()
     {
@@ -17,33 +20,48 @@ class MyServiceTest extends \PHPUnit_Framework_TestCase {
 
     public function testUsesAt()
     {
-        $firstArg = 'FIRST_ARG';
-        $secondArg = 'SECOND_ARG';
-        $thirdArg = 'THIRD_ARG';
         $this->mockedRepository
             ->expects($this->at(0))
             ->method('testsAtFirstMethod')
-            ->with($firstArg);
+            ->with($this->firstArg);
         $this->mockedRepository
             ->expects($this->at(1))
             ->method('testsAtSecondMethod')
-            ->with($secondArg);
+            ->with($this->secondArg);
         $this->mockedRepository
             ->expects($this->at(2))
             ->method('testsAtSecondMethod')
-            ->with($secondArg);
+            ->with($this->secondArg);
         $this->mockedRepository
             ->expects($this->at(3))
             ->method('testsAtFirstMethod')
-            ->with($firstArg, $thirdArg);
+            ->with($this->firstArg, $this->thirdArg);
 
-        $this->myService->usesAt($firstArg, $secondArg, $thirdArg);
+        $this->myService->usesAt($this->firstArg, $this->secondArg, $this->thirdArg);
+    }
+
+    /** @throws \PHPUnit_Framework_ExpectationFailedException */
+    public function testUsesAtFail()
+    {
+        $this->mockedRepository
+            ->expects($this->at(0))
+            ->method('testsAtFirstMethod')
+            ->with('INVALID_VALUE');
+
+        $this->myService->usesAt($this->firstArg, $this->secondArg, $this->thirdArg);
+    }
+
+    public function testUsesWithConsecutive()
+    {
+        $this->mockedRepository
+            ->method('testsWithConsecutive')
+            ->withConsecutive([$this->firstArg, $this->secondArg, $this->thirdArg]);
     }
 
     private function getMockedRepository()
     {
         $this->mockedRepository = $this->getMockBuilder('\atEtc\repository\MyRepository')
-            ->setMethods(['testsAtFirstMethod','testsAtSecondMethod','testsAtThirdMethod'])
+            ->setMethods(['testsAtFirstMethod','testsAtSecondMethod','testsAtThirdMethod', 'testsWithConsecutive'])
             ->getMock();
     }
 
