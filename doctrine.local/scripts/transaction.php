@@ -11,7 +11,7 @@ $dbConnection->beginTransaction();
 $deleteStatement = $dbConnection->prepare('DELETE FROM numbers WHERE id=:id');
 $deleteStatement->execute($paramArray);
 
-$selectStatement = $dbConnection->prepare('SELECT * FROM numbers WHERE id <= :id');
+$selectStatement = $dbConnection->prepare('SELECT * FROM numbers WHERE id <= (:id + 1)');
 $selectStatement->execute($paramArray);
 $numbers = $selectStatement->fetchAll();
 
