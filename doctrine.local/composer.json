@@ -1,0 +1,10 @@
+{
+    "name": "doctrineTest",
+    "require": {
+    },
+    "autoload":{
+        "psr-4": {
+            "doctrineTest\\" : ""
+        }
+    }
+}
