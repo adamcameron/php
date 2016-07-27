@@ -3,12 +3,14 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use doctrineTest\pdo\ConnectionFactory;
 
-$upperThreshold = $argv[1];
+$ids = $argv[1];
+$idsArray = explode(',', $ids);
+
+$sqlStatement = "SELECT * FROM numbers WHERE id = ANY :ids";
 
 $dbConnection = ConnectionFactory::createConnection();
-$preparedStatement = $dbConnection->prepare('SELECT * FROM numbers WHERE id <= :upperThreshold');
-$preparedStatement->bindValue(':upperThreshold', $upperThreshold, PDO::PARAM_INT);
-$preparedStatement->execute();
+$preparedStatement = $dbConnection->prepare($sqlStatement);
+$preparedStatement->execute(['ids'=>$ids]);
 $numbers = $preparedStatement->fetchAll();
 
 include __DIR__ . '/../view/numbers.php';

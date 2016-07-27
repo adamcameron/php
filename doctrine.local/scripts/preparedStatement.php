@@ -10,7 +10,4 @@ $preparedStatement->execute(['upperThreshold' => 4]);
 
 $numbers = $preparedStatement->fetchAll();
 
-foreach ($numbers as $row) {
-    printf('%s: English: %s, Maori: %s%s', $row['id'], $row['en'], $row['mi'], PHP_EOL);
-}
-
+include __DIR__ . '/../view/numbers.php';

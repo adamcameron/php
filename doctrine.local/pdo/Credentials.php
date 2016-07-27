@@ -5,6 +5,5 @@ namespace doctrineTest\pdo;
 class Credentials {
 
     public static $login = 'scratch';
-    public static $password = '1234';
-
+    public static $password = 'scratch';
 }
