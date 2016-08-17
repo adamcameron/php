@@ -10,6 +10,7 @@ $preparedStatement = $dbConnection->prepare('SELECT * FROM numbers WHERE id <= :
 $preparedStatement->bindParam(':upperThreshold', $upperThreshold, PDO::PARAM_INT);
 
 $upperThreshold = 10;
+
 $preparedStatement->execute();
 $numbers = $preparedStatement->fetchAll();
 
