@@ -1,0 +1,1 @@
+puts %w(a at cat scat catch).detect{|w| w =~ /.+at/ }
