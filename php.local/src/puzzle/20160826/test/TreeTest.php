@@ -25,11 +25,11 @@ class TreeTest extends \PHPUnit_Framework_TestCase {
 
 		$result = Tree::loadFromCsv($files["src"]);
 		$resultAsJson = json_encode($result);
+		//var_dump($resultAsJson);die;
 		$resultAsArray = json_decode($resultAsJson);
 
 		$expectedJson = file_get_contents($files["expectation"]);
 		$expectedAsArray = json_decode($expectedJson);
-
 		$this->assertEquals($expectedAsArray, $resultAsArray);
 	}
 
@@ -45,7 +45,8 @@ class TreeTest extends \PHPUnit_Framework_TestCase {
 			"puzzle requirements" => ["testSet" => "puzzle"],
 			"one element" => ["testSet" => "one"],
 			"deep" => ["testSet" => "deep"],
-			"flat" => ["testSet" => "flat"]
+			"flat" => ["testSet" => "flat"],
+			"not ordered" => ["testSet" => "notOrdered"]
 		];
 	}
 }

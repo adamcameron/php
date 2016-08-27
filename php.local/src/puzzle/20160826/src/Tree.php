@@ -10,7 +10,7 @@ class Tree implements \JsonSerializable {
 		$tree = [
 			"children" => []
 		];
-		$this->parents[0] = $tree;
+		$this->parents[0] = &$tree;
 	}
 
 	static function loadFromCsv($filePath) {
@@ -25,12 +25,12 @@ class Tree implements \JsonSerializable {
 	}
 
 	private function addNode($nodeText, $id, $parent) {
-		$treeNode = [
-			"nodeText" => $nodeText
-		];
 		$parent = $parent === "" ? 0 : $parent;
-		$this->parents[$id] = &$treeNode;
-		$this->parents[$parent]["children"][] = &$treeNode;
+		if (!array_key_exists($id, $this->parents)){
+			$this->parents[$id] = [];
+		}
+		$this->parents[$id]["nodeText"] = $nodeText;
+		$this->parents[$parent]["children"][] = &$this->parents[$id];
 	}
 
 	function jsonSerialize() {
