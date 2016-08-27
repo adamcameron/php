@@ -7,6 +7,8 @@ component {
 			children = []
 		};
         parents[0] = tree;
+
+        return this;
     }
 
     function loadFromCsv(filePath) {
