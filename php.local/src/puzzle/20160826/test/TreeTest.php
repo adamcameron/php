@@ -25,7 +25,6 @@ class TreeTest extends \PHPUnit_Framework_TestCase {
 
 		$result = Tree::loadFromCsv($files["src"]);
 		$resultAsJson = json_encode($result);
-		//var_dump($resultAsJson);die;
 		$resultAsArray = json_decode($resultAsJson);
 
 		$expectedJson = file_get_contents($files["expectation"]);
