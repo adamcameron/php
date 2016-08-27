@@ -26,9 +26,7 @@ class Tree implements \JsonSerializable {
 
 	private function addNode($nodeText, $id, $parent) {
 		$parent = $parent === "" ? 0 : $parent;
-		if (!array_key_exists($id, $this->parents)){
-			$this->parents[$id] = [];
-		}
+
 		$this->parents[$id]["nodeText"] = $nodeText;
 		$this->parents[$parent]["children"][] = &$this->parents[$id];
 	}
