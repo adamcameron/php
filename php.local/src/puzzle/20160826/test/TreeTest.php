@@ -35,26 +35,17 @@ class TreeTest extends \PHPUnit_Framework_TestCase {
 
 	private function getFilesFromBase($base){
 		return [
-			"src" => sprintf("%s/%s.csv", $this->testDir, $base),
-			"expectation" => sprintf("%s/%s.json", $this->testDir, $base)
+			"src" => sprintf("%s/%s/data.csv", $this->testDir, $base),
+			"expectation" => sprintf("%s/%s/expected.json", $this->testDir, $base)
 		];
 	}
 
 	function provideCasesForLoadFromCsvTests(){
-
 		return [
-			"puzzle requirements" => [
-				"baseFile" => "puzzle"
-			],
-			"one element" => [
-				"baseFile" => "one"
-			],
-			"deep" => [
-				"baseFile" => "deep"
-			],
-			"flat" => [
-				"baseFile" => "flat"
-			]
+			"puzzle requirements" => ["testSet" => "puzzle"],
+			"one element" => ["testSet" => "one"],
+			"deep" => ["testSet" => "deep"],
+			"flat" => ["testSet" => "flat"]
 		];
 	}
 }

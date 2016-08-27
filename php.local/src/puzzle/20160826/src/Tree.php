@@ -4,22 +4,13 @@ namespace puzzle;
 
 class Tree implements \JsonSerializable {
 
-	public $parents = [];
+	private $parents = [];
 
 	function __construct() {
 		$tree = [
 			"children" => []
 		];
 		$this->parents[0] = $tree;
-	}
-
-	function addNode($nodeText, $id, $parent) {
-		$treeNode = [
-			"nodeText" => $nodeText
-		];
-		$parent = $parent === "" ? 0 : $parent;
-		$this->parents[$id] = &$treeNode;
-		$this->parents[$parent]["children"][] = &$treeNode;
 	}
 
 	static function loadFromCsv($filePath) {
@@ -31,6 +22,15 @@ class Tree implements \JsonSerializable {
 		}
 
 		return $tree;
+	}
+
+	private function addNode($nodeText, $id, $parent) {
+		$treeNode = [
+			"nodeText" => $nodeText
+		];
+		$parent = $parent === "" ? 0 : $parent;
+		$this->parents[$id] = &$treeNode;
+		$this->parents[$parent]["children"][] = &$treeNode;
 	}
 
 	function jsonSerialize() {
