@@ -10,7 +10,7 @@ class Tree implements \JsonSerializable {
 		$tree = [
 			"children" => []
 		];
-		$this->parents[0] = &$tree;
+		$this->parents[0] = $tree;
 	}
 
 	static function loadFromCsv($filePath) {
