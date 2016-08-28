@@ -10,10 +10,10 @@ component {
 		return this;
 	}
 
-    static function loadFromCsv(filePath) {
-        var dataFile = fileOpen(filePath, "read");
+	static function loadFromCsv(filePath) {
+		var dataFile = fileOpen(filePath, "read");
 
-        var tree = new Tree();
+		var tree = new Tree();
 		while(!fileIsEof(dataFile)){
 			var line = fileReadLine(dataFile);
 			tree.addNode(
@@ -23,18 +23,18 @@ component {
 			);
 		}
 
-        return tree;
-    }
+		return tree;
+	}
 
-    private function addNode(nodeText, id, parent) {
-        parent = parent == "" ? 0 : parent;
+	private function addNode(nodeText, id, parent) {
+		parent = parent == "" ? 0 : parent;
 
-        parents[id].nodeText = nodeText;
+		parents[id].nodeText = nodeText;
 		parents[parent].children = parents[parent].children ?: [];
 		parents[parent].children.append(parents[id]);
-    }
+	}
 
-    function serializeJson() {
-        return serializeJson(parents[0]["children"]);
-    }
+	function serializeJson() {
+		return serializeJson(parents[0]["children"]);
+	}
 }
