@@ -3,9 +3,7 @@ component {
 	parents = {};
 
 	function init() {
-		parents[0] = {
-			children = []
-		};
+		parents[0]["children"] = [];
 
 		return this;
 	}
