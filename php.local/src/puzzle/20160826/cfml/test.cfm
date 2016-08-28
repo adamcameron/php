@@ -1,6 +1,6 @@
 <cfscript>
-dataFile = expandPath("../test/testfiles/deep/data.csv");
-tree = new Tree().init().loadFromCsv(dataFile);
+dataFile = expandPath("../test/testfiles/notordered/data.csv");
+tree = Tree::loadFromCsv(dataFile);
 treeAsJson = tree.serializeJson();
 jsonAsArray = deserializeJson(treeAsJson);
 writeDump(jsonAsArray);

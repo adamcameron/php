@@ -1,46 +1,38 @@
 component {
 
-    parents = {};
+	parents = {};
 
-    function init() {
-        tree = {
+	function init() {
+		parents[0] = {
 			children = []
 		};
-        parents[0] = tree;
 
-        return this;
-    }
+		return this;
+	}
 
-    function loadFromCsv(filePath) {
+    static function loadFromCsv(filePath) {
         var dataFile = fileOpen(filePath, "read");
 
         var tree = new Tree();
-        while(!fileIsEof(dataFile)){
-			line = fileReadLine(dataFile);
-			var id = line.listFirst();
-			var parent = line.listGetAt(2, ",", true);
-			var nodeText = line.listLast();
-            tree.addNode(nodeText, id, parent);
-        }
+		while(!fileIsEof(dataFile)){
+			var line = fileReadLine(dataFile);
+			tree.addNode(
+				nodeText = line.listLast(),
+				id = line.listFirst(),
+				parent = line.listGetAt(2, ",", true)
+			);
+		}
 
         return tree;
     }
 
-    function addNode(nodeText, id, parent) {
-        var treeNode = {
-                nodeText = nodeText
-		};
+    private function addNode(nodeText, id, parent) {
         parent = parent == "" ? 0 : parent;
-        parents[id] = treeNode;
-		appendChild(parent, treeNode);
+
+        parents[id].nodeText = nodeText;
+		parents[parent].children = parents[parent].children ?: [];
+		parents[parent].children.append(parents[id]);
     }
-	
-	private function appendChild(parent, treeNode){
-		if (!parents[parent].keyExists("children")) {
-			parents[parent].children = [];
-		}
-		parents[parent].children.append(treeNode);
-	}
 
     function serializeJson() {
         return serializeJson(parents[0]["children"]);
