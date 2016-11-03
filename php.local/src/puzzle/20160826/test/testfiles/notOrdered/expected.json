@@ -1,0 +1,50 @@
+[
+  {
+    "nodeText": "Tahi",
+    "children": [
+      {
+        "nodeText": "Rua",
+        "children": [
+          {
+            "nodeText": "Toru",
+            "children": [
+              {
+                "nodeText": "Wha",
+                "children": [
+                  {
+                    "nodeText": "Rima",
+                    "children": [
+                      {
+                        "nodeText": "Ono",
+                        "children": [
+                          {
+                            "nodeText": "Whitu",
+                            "children": [
+                              {
+                                "nodeText": "Waru",
+                                "children": [
+                                  {
+                                    "nodeText": "Iwa",
+                                    "children": [
+                                      {
+                                        "nodeText": "Tekau"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
