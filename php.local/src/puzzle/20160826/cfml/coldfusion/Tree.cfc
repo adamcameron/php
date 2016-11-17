@@ -11,20 +11,18 @@ component {
 	function loadFromCsv(filePath) {
 		var dataFile = fileOpen(filePath, "read");
 
-		var tree = new Tree();
 		while(!fileIsEof(dataFile)){
 			var line = fileReadLine(dataFile);
-			tree.addNode(
+			addNode(
 				nodeText = line.listLast(),
 				id = line.listFirst(),
 				parent = line.listGetAt(2, ",", true)
 			);
 		}
-
-		return tree;
+		return this;
 	}
 
-	function addNode(nodeText, id, parent) {
+	private function addNode(nodeText, id, parent) {
 		parent = parent == "" ? 0 : parent;
 
 		parents[id] = parents.keyExists(id)? parents[id] : {};

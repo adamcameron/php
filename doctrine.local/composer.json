@@ -1,10 +1,16 @@
 {
     "name": "doctrineTest",
     "require": {
+        "doctrine/orm": "v2.5.4",
+        "doctrine/dbal": "v2.5.4",
+        "silex/silex" : "~2.0",
+        "twig/twig" : "~1.0",
+        "symfony/twig-bridge" : "~2.3",
+        "symfony/yaml": "*"
     },
     "autoload":{
         "psr-4": {
-            "doctrineTest\\" : ""
+            "doctrineTest\\" : "src"
         }
     }
 }

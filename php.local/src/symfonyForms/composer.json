@@ -1,0 +1,11 @@
+{
+    "name": "symfonyFormTest",
+    "require": {
+        "symfony/form": "~3.1"
+    },
+    "autoload":{
+        "psr-4": {
+            "symfonyForm\\" : ""
+        }
+    }
+}
