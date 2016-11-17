@@ -1,6 +1,6 @@
 <?php
 
-$ids = ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010"];
+$ids = ["001", "002", "003", "004"];
 
 $thisFile = basename(__FILE__);
 
@@ -12,6 +12,8 @@ foreach ($ids as $id){
     $responses[] = $adapter->get($id);
 }
 $logger->logMessage(sprintf("(%s) Requests made", $thisFile));
+
+sleep(10);
 
 $logger->logMessage(sprintf("(%s) Getting bodies from requests...", $thisFile));
 foreach ($responses as $response){

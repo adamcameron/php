@@ -6,7 +6,9 @@ use \me\adamcameron\testApp\LoggingService;
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-$guzzleAdapter = new GuzzleAdapter();
+$endPoint  = "http://cf2016.local:8516/cfml/misc/guzzleTestEndpoints/getById.cfm?id=";
+
+$guzzleAdapter = new GuzzleAdapter($endPoint);
 $logger = new LoggingService();
 $adapter = new LoggedGuzzleAdapter($guzzleAdapter, $logger);
 
