@@ -4,38 +4,36 @@ require_once __DIR__ . "/../vendor/autoload.php";
 
 use React\Promise\Promise;
 
-$promise = new Promise(function () {
-    try {
-        throw new \Exception('EXCEPTION FROM PROMISE');
-    } catch(Exception $e){
-        return new \React\Promise\RejectedPromise($e);
+$p = new Promise(function () {
+    echo "constructor resolve handler" . PHP_EOL;
+    throw new \Exception('from promise', 1);
+});
+
+$p->then(function(){
+    echo "then() resolve handler: we should not see this" . PHP_EOL;
+}, function($err){
+    echo "then() rejection handler" . PHP_EOL;
+
+    $newException = new Exception(
+        'from catch',
+        2,
+        $err
+    );
+    throw $newException;
+
+    echo "just to be sure we're actually running the exception code above" . PHP_EOL;
+});
+
+$p->done(
+    function(){
+        echo "done() resolve handler: we should not see this" . PHP_EOL;
+    },
+    function($err){
+        echo "done() rejection handler" . PHP_EOL;
+        echo "Caught exception:" . PHP_EOL;
+        var_dump(
+            $err->getMessage(),
+            $err->getCode()
+        );
     }
-});
-
-$promise->then(function(){
-    echo "Not expecting to see this";
-}, function(){
-    echo "well I got this far";
-    throw new \Exception("EXCEPTION FROM REJECTOR");
-});
-
-$promise->done();
-
-/*
-$resolver = function (callable $resolve, callable $reject) {
-    // Do some work, possibly asynchronously, and then
-    // resolve or reject.
-
-    $resolve($awesomeResult);
-    // or $resolve($anotherPromise);
-    // or $reject($nastyError);
-};
-
-$canceller = function (callable $resolve, callable $reject) {
-    // Cancel/abort any running operations like network connections, streams etc.
-
-    $reject(new \Exception('Promise cancelled'));
-};
-
-$promise = new React\Promise\Promise($resolver, $canceller);
- */
+);
