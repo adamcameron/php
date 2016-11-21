@@ -3,7 +3,7 @@
 use \me\adamcameron\testApp\GuzzleAdapter;
 use \me\adamcameron\testApp\StatusToExceptionAdapter;
 
-require_once __DIR__ . "/../vendor/autoload.php";
+require_once __DIR__ . "/../../vendor/autoload.php";
 
 $endPoint  = "http://cf2016.local:8516/cfml/misc/guzzleTestEndpoints/returnStatusCode.cfm?statusCode=";
 
