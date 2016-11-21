@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\testApp;
+namespace me\adamcameron\testApp\service;
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;

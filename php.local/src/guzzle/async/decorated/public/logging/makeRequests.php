@@ -1,24 +1,23 @@
 <?php
 
-$ids = ["001", "002", "003", "004"];
+$rounds = ["no-cached", "cached"];
+$ids = ["001", "002"];
 
-$thisFile = basename(__FILE__);
 
-$logger->logMessage(sprintf("(%s) Making requests...", $thisFile));
-
+echo "Making requests" . PHP_EOL . PHP_EOL;
 $responses = [];
-foreach ($ids as $id){
-    $logger->logMessage(sprintf("(%s) Requesting for %s", $thisFile, $id));
-    $responses[] = $adapter->get($id);
+foreach($rounds as $round) {
+    foreach ($ids as $id) {
+        echo "Requesting: $round/$id" . PHP_EOL;
+        $responses[] = $adapter->get($id);
+    }
 }
-$logger->logMessage(sprintf("(%s) Requests made", $thisFile));
+echo "Requests made" . PHP_EOL . PHP_EOL;
 
-sleep(10);
 
-$logger->logMessage(sprintf("(%s) Getting bodies from requests...", $thisFile));
+echo "Fetching responses" . PHP_EOL . PHP_EOL;
 foreach ($responses as $response){
-    $logger->logMessage(sprintf("(%s) before calling wait()", $thisFile));
-    $body = $response->wait()->getBody()->getContents();
-    $logger->logMessage(sprintf("(%s) Response Bodies: %s", $thisFile, $body));
+    $body = (string) $response->wait()->getBody();
+    echo "Body: $body" . PHP_EOL . PHP_EOL;
 }
-$logger->logMessage("Done");
+echo "Responses fetched" . PHP_EOL . PHP_EOL;
