@@ -43,8 +43,6 @@ class StatusToExceptionAdapter {
                         }
 
                         if (array_key_exists($code, $exceptionMap)){
-                            $mappedException = $exceptionMap[$code];
-
                             throw new $exceptionMap[$code](
                                 (string)$response->getBody(),
                                 $code

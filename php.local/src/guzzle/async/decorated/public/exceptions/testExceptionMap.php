@@ -13,9 +13,7 @@ $exceptionMap = [
     400 => '\me\adamcameron\testApp\exception\BadRequestException',
     503 => '\me\adamcameron\testApp\exception\ServerException'
 ];
-$requestsToMake = [200,400,404,503];
-//$requestsToMake = [503];
-
+$requestsToMake = [200,400,503,404,500];
 
 $adapter = new StatusToExceptionAdapter($guzzleAdapter, $exceptionMap);
 
