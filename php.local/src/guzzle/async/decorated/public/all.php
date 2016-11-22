@@ -10,16 +10,12 @@ use \me\adamcameron\testApp\service\CachingService;
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-$endPoint  = "http://cf2016.local:8516/cfml/misc/guzzleTestEndpoints/returnStatusCode.cfm?statusCode=";
-
-$guzzleAdapter = new GuzzleAdapter($endPoint);
 $loggingService = getLoggingService();
-$loggedAdapter = new LoggedGuzzleAdapter($guzzleAdapter, $loggingService);
 
+$guzzleAdapter = getGuzzleAdapter();
+$loggedAdapter = getLoggedAdapter($guzzleAdapter, $loggingService);
 $statusToExceptionAdapter = getStatusToExceptionAdapter($loggedAdapter, $loggingService);
-
-$cachingService = new CachingService($loggingService);
-$cachedAdapter = new CachingGuzzleAdapter($statusToExceptionAdapter, $cachingService);
+$cachedAdapter = getCachedAdapter($statusToExceptionAdapter, $loggingService);
 
 $loggingService->logMessage("Test: Getting not-yet cached results");
 makeRequests($cachedAdapter, $loggingService);
@@ -60,6 +56,26 @@ function getLoggingService() {
 	$ts = (new DateTime())->format("His");
 	$loggingService = new LoggingService("all_$ts");
 	return $loggingService;
+}
+
+function getGuzzleAdapter(){
+	$endPoint  = "http://cf2016.local:8516/cfml/misc/guzzleTestEndpoints/returnStatusCode.cfm?statusCode=";
+	$guzzleAdapter = new GuzzleAdapter($endPoint);
+
+	return $guzzleAdapter;
+}
+
+function getCachedAdapter($adapter, $loggingService){
+	$cachingService = new CachingService($loggingService);
+	$cachedAdapter = new CachingGuzzleAdapter($adapter, $cachingService);
+
+	return $cachedAdapter;
+}
+
+function getLoggedAdapter($adapter, $loggingService){
+	$loggedAdapter = new LoggedGuzzleAdapter($adapter, $loggingService);
+
+	return $loggedAdapter;
 }
 
 function getStatusToExceptionAdapter($adapterToDecorate, $loggingService) {

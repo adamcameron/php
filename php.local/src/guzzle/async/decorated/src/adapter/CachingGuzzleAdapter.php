@@ -16,14 +16,14 @@ class CachingGuzzleAdapter implements Adapter {
         $this->cache = $cache;
     }
 
-    public function get($id){
+    public function get($id) : Response {
         if ($this->cache->contains($id)) {
             return $this->returnResponseFromCache($id);
         }
         return $this->returnResponseFromWebService($id);
     }
 
-    private function returnResponseFromCache($id) {
+    private function returnResponseFromCache($id) : Promise {
         $p = new Promise(function() use (&$p, $id){
             $cachedResult = $this->cache->get($id);
 
@@ -39,7 +39,7 @@ class CachingGuzzleAdapter implements Adapter {
         return $p;
     }
 
-    private function returnResponseFromWebService($id){
+    private function returnResponseFromWebService($id) : Promise {
         $response = $this->adapter->get($id);
 
         $response->then(function(Response $response) use ($id) {
