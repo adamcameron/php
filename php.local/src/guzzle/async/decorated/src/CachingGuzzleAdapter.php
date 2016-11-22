@@ -17,23 +17,29 @@ class CachingGuzzleAdapter {
 
     public function get($id){
         if ($this->cache->contains($id)) {
-
-            $p = new Promise(function() use (&$p, $id){
-                echo "GETTING FROM CACHE" . PHP_EOL;
-                $cachedResult = $this->cache->get($id);
-
-                $newResponse = new Response(
-                    $cachedResult['status'],
-                    $cachedResult['headers'],
-                    $cachedResult['body']
-                );
-
-                $p->resolve($newResponse);
-            });
-
-            return $p;
+            return $this->returnResponseFromCache($id);
         }
+        return $this->returnResponseFromWebService($id);
+    }
 
+    private function returnResponseFromCache($id) {
+        $p = new Promise(function() use (&$p, $id){
+            echo "GETTING FROM CACHE" . PHP_EOL;
+            $cachedResult = $this->cache->get($id);
+
+            $newResponse = new Response(
+                $cachedResult['status'],
+                $cachedResult['headers'],
+                $cachedResult['body']
+            );
+
+            $p->resolve($newResponse);
+        });
+
+        return $p;
+    }
+
+    private function returnResponseFromWebService($id){
         $response = $this->adapter->get($id);
 
         $response->then(function(Response $response) use ($id) {
