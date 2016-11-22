@@ -1,10 +1,10 @@
 <?php
 
-namespace me\adamcameron\testApp;
+namespace me\adamcameron\testApp\adapter;
 
 use GuzzleHttp\Client;
 
-class GuzzleAdapter {
+class GuzzleAdapter implements Adapter {
 
     private $client;
     private $endPoint;

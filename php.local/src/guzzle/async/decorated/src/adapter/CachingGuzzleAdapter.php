@@ -1,16 +1,17 @@
 <?php
 
-namespace me\adamcameron\testApp;
+namespace me\adamcameron\testApp\adapter;
 
 use GuzzleHttp\Promise\Promise;
 use GuzzleHttp\Psr7\Response;
+use me\adamcameron\testApp\service\CachingService;
 
-class CachingGuzzleAdapter {
+class CachingGuzzleAdapter implements Adapter {
 
     private $adapter;
     private $cache;
 
-    public function __construct($adapter, $cache) {
+    public function __construct(Adapter $adapter, CachingService $cache) {
         $this->adapter = $adapter;
         $this->cache = $cache;
     }
@@ -24,7 +25,6 @@ class CachingGuzzleAdapter {
 
     private function returnResponseFromCache($id) {
         $p = new Promise(function() use (&$p, $id){
-            echo "GETTING FROM CACHE" . PHP_EOL;
             $cachedResult = $this->cache->get($id);
 
             $newResponse = new Response(
@@ -43,7 +43,6 @@ class CachingGuzzleAdapter {
         $response = $this->adapter->get($id);
 
         $response->then(function(Response $response) use ($id) {
-            echo "PUTTING IN CACHE" . PHP_EOL;
 
             $detailsToCache = [
                 'status' => $response->getStatusCode(),
