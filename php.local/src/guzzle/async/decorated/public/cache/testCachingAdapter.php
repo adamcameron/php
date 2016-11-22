@@ -24,6 +24,7 @@ makeRequests($adapter);
 
 
 function makeRequests($adapter){
+	$startTime = time();
 	$ids = ["001", "002"];
 	$responses = [];
 	foreach ($ids as $id) {
@@ -38,4 +39,6 @@ function makeRequests($adapter){
 		echo "Body: $body" . PHP_EOL . PHP_EOL;
 	}
 	echo "Responses fetched" . PHP_EOL . PHP_EOL;
+	$duration = time() - $startTime;
+	echo "Process duration: {$duration}sec" . PHP_EOL . PHP_EOL;
 }
