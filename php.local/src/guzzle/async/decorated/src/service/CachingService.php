@@ -4,7 +4,7 @@ namespace me\adamcameron\testApp\service;
 
 class CachingService {
 
-    private $cache;
+    public $cache;
 
     public function __construct(){
         $this->cache = [];
@@ -15,10 +15,12 @@ class CachingService {
     }
 
     public function get($id){
+        echo "Getting $id from cache" . PHP_EOL . PHP_EOL;
         return $this->cache[$id];
     }
 
     public function put($id, $value){
+        echo "Putting $id into cache" . PHP_EOL . PHP_EOL;
         return $this->cache[$id] = $value;
     }
 }

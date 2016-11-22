@@ -3,6 +3,7 @@
 namespace me\adamcameron\testApp;
 
 use GuzzleHttp\Promise\Promise;
+use GuzzleHttp\Psr7\Response;
 
 class CachingGuzzleAdapter {
 
@@ -18,8 +19,16 @@ class CachingGuzzleAdapter {
         if ($this->cache->contains($id)) {
 
             $p = new Promise(function() use (&$p, $id){
+                echo "GETTING FROM CACHE" . PHP_EOL;
                 $cachedResult = $this->cache->get($id);
-                $p->resolve($cachedResult);
+
+                $newResponse = new Response(
+                    $cachedResult['status'],
+                    $cachedResult['headers'],
+                    $cachedResult['body']
+                );
+
+                $p->resolve($newResponse);
             });
 
             return $p;
@@ -27,9 +36,15 @@ class CachingGuzzleAdapter {
 
         $response = $this->adapter->get($id);
 
-        $response->then(function($response) use ($id) {
-            $result = (string)$response->getBody();
-            $this->cache->put($id, $result);
+        $response->then(function(Response $response) use ($id) {
+            echo "PUTTING IN CACHE" . PHP_EOL;
+
+            $detailsToCache = [
+                'status' => $response->getStatusCode(),
+                'headers' => $response->getHeaders(),
+                'body' => $response->getBody()->getContents()
+            ];
+            $this->cache->put($id, $detailsToCache);
         });
 
         return $response;
