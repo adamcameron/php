@@ -2,8 +2,8 @@
 
 namespace me\adamcameron\testApp\adapter;
 
-use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Promise\Promise;
 
 interface Adapter {
-	public function get($id) : Response;
+	public function get($url, $parameters) : Promise;
 }

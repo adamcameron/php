@@ -2,6 +2,10 @@
 
 namespace me\adamcameron\testApp\adapter;
 
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Promise\Promise;
+use Psr\Http\Message\ResponseInterface;
+
 class HttpErrorMappingAdapter implements Adapter {
 
 	private $adapter;
@@ -14,12 +18,11 @@ class HttpErrorMappingAdapter implements Adapter {
 		$this->replaceClientErrorHandler($exceptionMap);
 	}
 
-	public function get($status){
+	public function get($status) : Promise {
 		return $this->adapter->get($status);
 	}
 
-	private function replaceClientErrorHandler($exceptionMap)
-	{
+	private function replaceClientErrorHandler($exceptionMap) {
 		$stack = $this->adapter->getHandlerStack();
 
 		$stack->remove('http_errors');
@@ -27,8 +30,7 @@ class HttpErrorMappingAdapter implements Adapter {
 		$stack->unshift($this->handleHttpErrors($exceptionMap));
 	}
 
-	private function handleHttpErrors($exceptionMap)
-	{
+	private function handleHttpErrors($exceptionMap) {
 		return function (callable $handler) use ($exceptionMap) {
 			return function ($request, array $options) use ($handler, $exceptionMap) {
 				return $handler($request, $options)->then(
@@ -51,5 +53,4 @@ class HttpErrorMappingAdapter implements Adapter {
 			};
 		};
 	}
-
 }

@@ -3,30 +3,26 @@
 namespace me\adamcameron\testApp\adapter;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Promise\Promise;
 
 class GuzzleAdapter implements Adapter {
 
     private $client;
-    private $endPoint;
 
-    public function __construct($endPoint){
-        $this->endPoint = $endPoint;
+    public function __construct() {
         $this->client = new Client();
     }
 
-    public function get($id){
+    public function get($url, $parameters) : Promise {
+        $fullUrl = sprintf("%s?%s", $url, http_build_query($parameters));
+
         $response = $this->client->requestAsync(
             "get",
-            $this->endPoint . $id,
-            ["http_errors" => true]
+			$fullUrl
         );
 
         return $response;
     }
 
-    public function getHandlerStack()
-    {
-        return $this->client->getConfig('handler');
-    }
 
 }
