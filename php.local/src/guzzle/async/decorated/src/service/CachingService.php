@@ -7,7 +7,7 @@ class CachingService {
     public $loggingService;
     public $cache;
 
-    public function __construct(LoggingService $loggingService){
+    public function __construct(LoggingService $loggingService) {
         $this->loggingService = $loggingService;
         $this->cache = [];
     }
@@ -23,6 +23,7 @@ class CachingService {
 
     public function put($id, $value) {
         $this->loggingService->logMessage("CachingService: put called with $id");
-        return $this->cache[$id] = $value;
+
+        $this->cache[$id] = $value;
     }
 }

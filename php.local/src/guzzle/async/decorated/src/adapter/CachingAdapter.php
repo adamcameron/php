@@ -6,7 +6,7 @@ use GuzzleHttp\Promise\Promise;
 use GuzzleHttp\Psr7\Response;
 use me\adamcameron\testApp\service\CachingService;
 
-class CachingGuzzleAdapter implements Adapter {
+class CachingAdapter implements Adapter {
 
     private $adapter;
     private $cache;
@@ -16,11 +16,12 @@ class CachingGuzzleAdapter implements Adapter {
         $this->cache = $cache;
     }
 
-    public function get($id) : Response {
-        if ($this->cache->contains($id)) {
-            return $this->returnResponseFromCache($id);
+    public function get($url, $parameters) : Promise {
+        $cacheKey = $this->getCacheKeyForParameters($parameters);
+        if ($this->cache->contains($cacheKey)) {
+            return $this->returnResponseFromCache($cacheKey);
         }
-        return $this->returnResponseFromWebService($id);
+        return $this->returnResponseFromWebService($url, $parameters, $cacheKey);
     }
 
     private function returnResponseFromCache($id) : Promise {
@@ -39,19 +40,24 @@ class CachingGuzzleAdapter implements Adapter {
         return $p;
     }
 
-    private function returnResponseFromWebService($id) : Promise {
-        $response = $this->adapter->get($id);
+    private function returnResponseFromWebService($url, $parameters, $cacheKey) : Promise {
+        $response = $this->adapter->get($url, $parameters);
 
-        $response->then(function(Response $response) use ($id) {
+        $response->then(function(Response $response) use ($cacheKey) {
 
             $detailsToCache = [
                 'status' => $response->getStatusCode(),
                 'headers' => $response->getHeaders(),
                 'body' => $response->getBody()->getContents()
             ];
-            $this->cache->put($id, $detailsToCache);
+
+            $this->cache->put($cacheKey, $detailsToCache);
         });
 
         return $response;
+    }
+
+    private function getCacheKeyForParameters($parameters) {
+        return md5(json_encode($parameters));
     }
 }
