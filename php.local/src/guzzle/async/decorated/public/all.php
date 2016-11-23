@@ -58,14 +58,14 @@ function getLoggingService() {
 	return $loggingService;
 }
 
-function getGuzzleAdapter(){
+function getGuzzleAdapter() {
 	$endPoint  = "http://cf2016.local:8516/cfml/misc/guzzleTestEndpoints/returnStatusCode.cfm?statusCode=";
 	$guzzleAdapter = new GuzzleAdapter($endPoint);
 
 	return $guzzleAdapter;
 }
 
-function getCachedAdapter($adapter, $loggingService){
+function getCachedAdapter($adapter, $loggingService) {
 	$cachingService = new CachingService($loggingService);
 	$cachedAdapter = new CachingGuzzleAdapter($adapter, $cachingService);
 
