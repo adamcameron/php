@@ -22,13 +22,19 @@ class LoggingAdapter implements Adapter {
         return $this->performLoggedRequest('get', $logDetails, $url, $parameters);
     }
 
-    public function post($url, $body, $parameters) : Promise {
+    public function post($url, $body) : Promise {
+        $logDetails = json_encode($body);
+
+        return $this->performLoggedRequest('post', $logDetails, $url, $body);
+    }
+
+    public function put($url, $body, $parameters) : Promise {
         $logDetails = json_encode([
             'parameters' => $parameters,
             'body' => $body
         ]);
 
-        return $this->performLoggedRequest('post', $logDetails, $url, $body, $parameters);
+        return $this->performLoggedRequest('put', $logDetails, $url, $body, $parameters);
     }
 
     private function performLoggedRequest($method, $logDetails, ...$requestArgs) : Promise {

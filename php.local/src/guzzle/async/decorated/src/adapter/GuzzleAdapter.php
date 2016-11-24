@@ -21,11 +21,19 @@ class GuzzleAdapter implements Adapter {
         return $response;
     }
 
-    public function post($url, $body, $parameters) : Promise {
+    public function post($url, $body) : Promise {
+        $options = ['form_params' => $body];
+
+        $response = $this->client->requestAsync("post", $url, $options);
+
+        return $response;
+    }
+
+    public function put($url, $body, $parameters) : Promise {
         $fullUrl = sprintf("%s?%s", $url, http_build_query($parameters));
         $options = ['form_params' => $body];
 
-        $response = $this->client->requestAsync("post", $fullUrl, $options);
+        $response = $this->client->requestAsync("put", $fullUrl, $options);
 
         return $response;
     }

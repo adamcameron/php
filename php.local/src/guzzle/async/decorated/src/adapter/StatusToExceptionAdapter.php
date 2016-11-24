@@ -20,19 +20,19 @@ class StatusToExceptionAdapter implements Adapter
     }
 
     public function get($url, $parameters) : Promise {
-        return $this->adapter
-            ->get($url, $parameters)
-            ->then(function (Response $response) {
-                return $this->handleThen($response);
-            })
-            ->otherwise(function ($exception) {
-                $this->handleOtherwise($exception);
-            });
+		return $this->request(__FUNCTION__, $url, $parameters);
     }
 
-    public function post($url, $body, $parameters) : Promise {
-        return $this->adapter
-            ->post($url, $parameters, $body)
+    public function post($url, $body) : Promise {
+        return $this->request(__FUNCTION__, $url, $body);
+    }
+
+    public function put($url, $parameters, $body) : Promise {
+        return $this->request(__FUNCTION__, $url, $parameters, $body);
+    }
+
+    private function request($method, ...$args) : Promise {
+        return call_user_func_array([$this->adapter, $method], $args)
             ->then(function (Response $response) {
                 return $this->handleThen($response);
             })

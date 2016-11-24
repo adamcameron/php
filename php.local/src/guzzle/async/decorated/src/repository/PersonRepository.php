@@ -12,6 +12,7 @@ class PersonRepository {
 
 	private static $getByIdUrl = "getById.php";
 	private static $createUrl = "create.php";
+	private static $updateUrl = "update.php";
 
 	public function __construct(Adapter $adapter, $baseUrl)
 	{
@@ -28,10 +29,20 @@ class PersonRepository {
 		return $response;
 	}
 
-	public function returnStatusCode($statusCode) : Promise {
-		$response = $this->adapter->get(
-			$this->baseUrl . self::$returnStatusCodeUrl,
-			["statusCode" => $statusCode]
+	public function create($details) : Promise {
+		$response = $this->adapter->post(
+			$this->baseUrl . self::$createUrl,
+			$details
+		);
+
+		return $response;
+	}
+
+	public function update($id, $details) : Promise {
+		$response = $this->adapter->put(
+			$this->baseUrl . self::$updateUrl,
+			$details,
+			["id" => $id]
 		);
 
 		return $response;

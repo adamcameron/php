@@ -24,8 +24,12 @@ class CachingAdapter implements Adapter {
         return $this->returnResponseFromWebService($url, $parameters, $cacheKey);
     }
 
-    public function post($url, $body, $parameters) : Promise {
-        return $this->adapter->post($url, $body, $parameters);
+    public function post($url, $body) : Promise {
+        return $this->adapter->post($url, $body);
+    }
+
+    public function put($url, $body, $parameters) : Promise {
+        return $this->adapter->put($url, $body, $parameters);
     }
 
     private function returnResponseFromCache($id) : Promise {

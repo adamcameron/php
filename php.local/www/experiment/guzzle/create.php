@@ -10,7 +10,6 @@ $newPerson = new Person(
 
 $result = (array) $newPerson;
 
-sleep(5);
 $result["retrieved"] = (new DateTime())->format("Y-m-d H:i:s");
 
 header("type:application/json");
