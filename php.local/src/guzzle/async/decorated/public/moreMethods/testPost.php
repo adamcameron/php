@@ -20,12 +20,6 @@ $loggingService->logMessage("Test: Getting not-yet cached results");
 makeRequestsToGetById($personRepository, $loggingService);
 logTestSeparator($loggingService);
 
-makeRequestsToGetByName($personRepository, $loggingService);
-logTestSeparator($loggingService);
-
-makeRequestsToReturnStatusCode($personRepository, $loggingService);
-logTestSeparator($loggingService);
-
 function makeRequestsToGetById(PersonRepository $personRepository, LoggingService $loggingService){
     $id = 4;
 
@@ -60,7 +54,7 @@ function getPersonRepository(LoggingService $loggingService) : PersonRepository 
     $statusToExceptionAdapter = getStatusToExceptionAdapter($loggingAdapter, $loggingService);
     $cachingAdapter = getCachingAdapter($statusToExceptionAdapter, $loggingService);
 
-    $baseUrl = "http://php.local/experiment/guzzle/";
+    $baseUrl = "http://php.local:8070/experiment/guzzle/";
     $personRepository = new PersonRepository($cachingAdapter, $baseUrl);
 
     return $personRepository;
