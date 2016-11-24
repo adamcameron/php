@@ -16,13 +16,8 @@ class GuzzleAdapter implements Adapter {
     public function get($url, $parameters) : Promise {
         $fullUrl = sprintf("%s?%s", $url, http_build_query($parameters));
 
-        $response = $this->client->requestAsync(
-            "get",
-			$fullUrl
-        );
+        $response = $this->client->requestAsync("get", $fullUrl);
 
         return $response;
     }
-
-
 }

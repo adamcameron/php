@@ -168,5 +168,4 @@ function pause($seconds, LoggingService $loggingService) {
 	$loggingService->logMessage("Test: waiting {$seconds}sec");
 	sleep($seconds);
 	$loggingService->logMessage("Test: waited {$seconds}sec");
-
 }
