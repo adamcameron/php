@@ -1,0 +1,5 @@
+[2016-11-24 14:07:54] all_140754.INFO: Test: Getting not-yet cached results [] []
+[2016-11-24 14:07:54] all_140754.INFO: Test (phase: Uncached): calling getById(4) [] []
+[2016-11-24 14:07:54] all_140754.INFO: LoggingAdapter: Requesting for {"id":4} [] []
+[2016-11-24 14:07:54] all_140754.INFO: Test (phase: Uncached): call to getById complete [] []
+[2016-11-24 14:07:54] all_140754.INFO: StatusToExceptionAdapter: remapped status encountered: 503 [] []

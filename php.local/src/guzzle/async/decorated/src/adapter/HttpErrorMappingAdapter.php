@@ -6,7 +6,7 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Promise\Promise;
 use Psr\Http\Message\ResponseInterface;
 
-class HttpErrorMappingAdapter implements Adapter {
+class HttpErrorMappingAdapter {
 
 	private $adapter;
 	private $exceptionMap;

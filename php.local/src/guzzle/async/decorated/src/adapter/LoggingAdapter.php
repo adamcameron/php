@@ -17,14 +17,28 @@ class LoggingAdapter implements Adapter {
     }
 
 	public function get($url, $parameters) : Promise {
-		$encodedParameters = json_encode($parameters);
-        $this->logger->logMessage(sprintf("%s: Requesting for %s", $this->thisFile, $encodedParameters));
+        $logDetails = json_encode($parameters);
 
-        $response = $this->adapter->get($url, $parameters);
+        return $this->performLoggedRequest('get', $logDetails, $url, $parameters);
+    }
 
-        $response->then(function($response) use ($encodedParameters) {
+    public function post($url, $body, $parameters) : Promise {
+        $logDetails = json_encode([
+            'parameters' => $parameters,
+            'body' => $body
+        ]);
+
+        return $this->performLoggedRequest('post', $logDetails, $url, $body, $parameters);
+    }
+
+    private function performLoggedRequest($method, $logDetails, ...$requestArgs) : Promise {
+        $this->logger->logMessage(sprintf("%s: Requesting for %s", $this->thisFile, $logDetails));
+
+        $response = call_user_func_array([$this->adapter, $method], $requestArgs);
+
+        $response->then(function($response) use ($logDetails) {
             $body = $response->getBody();
-            $this->logger->logMessage(sprintf("%s: Response for %s: %s", $this->thisFile, $encodedParameters, $body));
+            $this->logger->logMessage(sprintf("%s: Response for %s: %s", $this->thisFile, $logDetails, $body));
             $body->rewind();
         });
 

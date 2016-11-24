@@ -8,33 +8,21 @@ use me\adamcameron\testApp\adapter\Adapter;
 class PersonRepository {
 
 	private $adapter;
+	private $baseUrl = "http://php.local/experiment/guzzle/";
 
-	private static $baseUrl = "http://cf2016.local:8516/cfml/misc/guzzleTestEndpoints/";
-	private static $getByIdUrl = "getById.cfm";
-	private static $getByNameUrl = "getByName.cfm";
-	private static $returnStatusCodeUrl = "returnStatusCode.cfm";
+	private static $getByIdUrl = "getById.php";
+	private static $createUrl = "create.php";
 
-	public function __construct(Adapter $adapter)
+	public function __construct(Adapter $adapter, $baseUrl)
 	{
 		$this->adapter = $adapter;
+		$this->baseUrl = $baseUrl;
 	}
 
 	public function getById($id) : Promise {
 		$response = $this->adapter->get(
-			self::$baseUrl . self::$getByIdUrl,
+			$this->baseUrl . self::$getByIdUrl,
 			["id" => $id]
-		);
-
-		return $response;
-	}
-
-	public function getByName($firstName, $lastName) : Promise {
-		$response = $this->adapter->get(
-			self::$baseUrl . self::$getByNameUrl,
-			[
-				"firstName" => $firstName,
-				"lastName" => $lastName
-			]
 		);
 
 		return $response;
@@ -42,7 +30,7 @@ class PersonRepository {
 
 	public function returnStatusCode($statusCode) : Promise {
 		$response = $this->adapter->get(
-			self::$baseUrl . self::$returnStatusCodeUrl,
+			$this->baseUrl . self::$returnStatusCodeUrl,
 			["statusCode" => $statusCode]
 		);
 

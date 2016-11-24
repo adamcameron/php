@@ -30,6 +30,17 @@ class StatusToExceptionAdapter implements Adapter
             });
     }
 
+    public function post($url, $body, $parameters) : Promise {
+        return $this->adapter
+            ->post($url, $parameters, $body)
+            ->then(function (Response $response) {
+                return $this->handleThen($response);
+            })
+            ->otherwise(function ($exception) {
+                $this->handleOtherwise($exception);
+            });
+    }
+
     private function handleThen(Response $response) : Response {
         $code = $response->getStatusCode();
         $this->loggingService->logMessage("StatusToExceptionAdapter: non-exception status encountered: $code");
