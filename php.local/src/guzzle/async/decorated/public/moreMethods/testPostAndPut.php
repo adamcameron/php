@@ -22,6 +22,40 @@ logTestSeparator($loggingService);
 testUpdate($personRepository, $loggingService);
 
 
+function testGetById(PersonRepository $personRepository, LoggingService $loggingService){
+    $id = 4;
+
+    testGetByIdByPhase($id, "Uncached", $personRepository, $loggingService);
+    pause(5, $loggingService);
+    testGetByIdByPhase($id, "Cached", $personRepository, $loggingService);
+}
+
+function testGetByIdByPhase($id, $phase, PersonRepository $personRepository, LoggingService $loggingService){
+    $startTime = time();
+
+    $loggingService->logMessage("Test (phase: $phase): calling getById($id)");
+    $response = $personRepository->getById($id);
+    $loggingService->logMessage("Test (phase: $phase): call to getById complete");
+    $body = (string) $response->wait()->getBody();
+    $loggingService->logMessage("Test (phase: $phase): Body: $body");
+
+    $duration = time() - $startTime;
+    $loggingService->logMessage("Test (phase: $phase): Process duration: {$duration}sec");
+}
+
+function testCreate(PersonRepository $personRepository, LoggingService $loggingService) {
+	$personDetails = [
+		'firstName' => 'Donald',
+		'lastName' => 'McLean'
+	];
+
+	$loggingService->logMessage(sprintf("Test: calling create(%s)", json_encode($personDetails)));
+
+	$response = $personRepository->create($personDetails);
+	$body = (string) $response->wait()->getBody();
+
+	$loggingService->logMessage(sprintf("Test: called create(): [%s]", $body));
+}
 
 function testUpdate(PersonRepository $personRepository, LoggingService $loggingService) {
 	testUpdateByPhase("Valid ID", 3, $personRepository, $loggingService);
@@ -62,42 +96,6 @@ function testUpdateByPhase($phase, $id, PersonRepository $personRepository, Logg
 	} finally {
 		$loggingService->logMessage(sprintf("Test (phase %s): complete", $phase));
 	}
-}
-
-
-function testGetById(PersonRepository $personRepository, LoggingService $loggingService){
-    $id = 4;
-
-    testGetByIdByPhase($id, "Uncached", $personRepository, $loggingService);
-    pause(5, $loggingService);
-    testGetByIdByPhase($id, "Cached", $personRepository, $loggingService);
-}
-
-function testGetByIdByPhase($id, $phase, PersonRepository $personRepository, LoggingService $loggingService){
-    $startTime = time();
-
-    $loggingService->logMessage("Test (phase: $phase): calling getById($id)");
-    $response = $personRepository->getById($id);
-    $loggingService->logMessage("Test (phase: $phase): call to getById complete");
-    $body = (string) $response->wait()->getBody();
-    $loggingService->logMessage("Test (phase: $phase): Body: $body");
-
-    $duration = time() - $startTime;
-    $loggingService->logMessage("Test (phase: $phase): Process duration: {$duration}sec");
-}
-
-function testCreate(PersonRepository $personRepository, LoggingService $loggingService) {
-	$personDetails = [
-		'firstName' => 'Donald',
-		'lastName' => 'McLean'
-	];
-
-	$loggingService->logMessage(sprintf("Test: calling create(%s)", json_encode($personDetails)));
-
-	$response = $personRepository->create($personDetails);
-	$body = (string) $response->wait()->getBody();
-
-	$loggingService->logMessage(sprintf("Test: called create(): [%s]", $body));
 }
 
 function getLoggingService() : LoggingService {

@@ -20,7 +20,7 @@ class StatusToExceptionAdapter implements Adapter
     }
 
     public function get($url, $parameters) : Promise {
-		return $this->request(__FUNCTION__, $url, $parameters);
+        return $this->request(__FUNCTION__, $url, $parameters);
     }
 
     public function post($url, $body) : Promise {

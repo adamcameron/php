@@ -16,16 +16,16 @@ class LoggingAdapter implements Adapter {
         $this->thisFile = explode(".", basename(__FILE__))[0];
     }
 
-	public function get($url, $parameters) : Promise {
+    public function get($url, $parameters) : Promise {
         $logDetails = json_encode($parameters);
 
-        return $this->performLoggedRequest('get', $logDetails, $url, $parameters);
+        return $this->performLoggedRequest(__FUNCTION__, $logDetails, $url, $parameters);
     }
 
     public function post($url, $body) : Promise {
         $logDetails = json_encode($body);
 
-        return $this->performLoggedRequest('post', $logDetails, $url, $body);
+        return $this->performLoggedRequest(__FUNCTION__, $logDetails, $url, $body);
     }
 
     public function put($url, $body, $parameters) : Promise {
@@ -34,21 +34,21 @@ class LoggingAdapter implements Adapter {
             'body' => $body
         ]);
 
-        return $this->performLoggedRequest('put', $logDetails, $url, $body, $parameters);
+        return $this->performLoggedRequest(__FUNCTION__, $logDetails, $url, $body, $parameters);
     }
 
-    private function performLoggedRequest($method, $logDetails, ...$requestArgs) : Promise {
-        $this->logger->logMessage(sprintf("%s: Requesting for %s", $this->thisFile, $logDetails));
+private function performLoggedRequest($method, $logDetails, ...$requestArgs) : Promise {
+    $this->logger->logMessage(sprintf("%s: Requesting for %s", $this->thisFile, $logDetails));
 
-        $response = call_user_func_array([$this->adapter, $method], $requestArgs);
+    $response = call_user_func_array([$this->adapter, $method], $requestArgs);
 
-        $response->then(function($response) use ($logDetails) {
-            $body = $response->getBody();
-            $this->logger->logMessage(sprintf("%s: Response for %s: %s", $this->thisFile, $logDetails, $body));
-            $body->rewind();
-        });
+    $response->then(function($response) use ($logDetails) {
+        $body = $response->getBody();
+        $this->logger->logMessage(sprintf("%s: Response for %s: %s", $this->thisFile, $logDetails, $body));
+        $body->rewind();
+    });
 
-        return $response;
-    }
+    return $response;
+}
 
 }
