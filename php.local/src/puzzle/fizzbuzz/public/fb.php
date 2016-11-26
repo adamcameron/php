@@ -4,9 +4,9 @@
 
  */
 
-function getNextFizzBuzz(){
-    $i = -1;
-    while (true) {
+function getFizzBuzzSequence($length){
+    $i = 0;
+    while ($i < $length) {
         $i++;
         $result = "";
 
@@ -25,9 +25,10 @@ function getNextFizzBuzz(){
 }
 
 
-$myFb = getNextFizzBuzz();
+$myFb = getFizzBuzzSequence();
 
-for ($i=0; $i < 20; $i++) {
-    $myFb->next();
-    echo $myFb->current() . PHP_EOL;
+echo get_class($myFb) . PHP_EOL;
+
+forEach(getFizzBuzzSequence(10) as $fbNumber) {
+    echo $fbNumber . PHP_EOL;
 }
