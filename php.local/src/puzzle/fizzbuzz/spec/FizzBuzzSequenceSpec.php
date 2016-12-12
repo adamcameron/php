@@ -31,5 +31,4 @@ class FizzBuzzSequenceSpec extends ObjectBehavior {
     function its_invokeMethodReturnsTheGenerator(){
         $this->__invoke()->shouldHaveType(\Generator::class);
     }
-
 }

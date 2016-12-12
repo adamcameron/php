@@ -18,8 +18,7 @@ class FizzBuzzSequence {
         }
     }
 
-    public function __invoke()
-    {
+    public function __invoke() {
         return $this->getFizzBuzzSequence();
     }
 }
