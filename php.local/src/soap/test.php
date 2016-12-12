@@ -4,7 +4,7 @@ namespace me\adamcameron\accounts;
 
 require __DIR__ . '/model.php';
 
-$wsdl = "http://cf2016.local:8516/cfml/webservices/soap/accounts/public/Invoices.cfc?wsdl";
+$wsdl = "http://localhost:8500/cfml/webservices/soap/accounts/public/Invoices.cfc?wsdl";
 
 
 $options = [
@@ -15,8 +15,8 @@ $options = [
 		'from_xml' => ['\me\adamcameron\accounts\Address', 'createFromXml']
 	],[
 		'type_ns' => 'http://accounts.adamcameron.me',
-		'type_name' => 'PersonalAccount',
-		'from_xml' => ['\me\adamcameron\accounts\PersonalAccount', 'createFromXml']
+		'type_name' => 'Account',
+		'from_xml' => ['\me\adamcameron\accounts\Account', 'createFromXml']
 	],[
 		'type_ns' => 'http://accounts.adamcameron.me',
 		'type_name' => 'Product',

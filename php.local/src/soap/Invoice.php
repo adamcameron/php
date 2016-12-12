@@ -7,23 +7,23 @@ class Invoice {
 	public $id;
 	public $account;
 	public $items;
-	
-	function __construct(int $id, PersonalAccount $account, array $items){
+
+	function __construct(int $id, Account $account, array $items){
 		$this->id = $id;
 		$this->account = $account;
 		$this->items = $items;
 	}
-	
+
 	static function createFromXml($xml) {
 		$sxe = is_string($xml) ? new \SimpleXMLElement($xml) : $xml;
 		$obj = new Invoice(
 			(int)$sxe->id,
-			PersonalAccount::createFromXml($sxe->account),
+			Account::createFromXml($sxe->account),
 			self::createInvoiceLinesFromXml($sxe->items)
 		);
-		return $obj;			
+		return $obj;
 	}
-	
+
 	static function createInvoiceLinesFromXml($xml) {
 		$sxe = is_string($xml) ? new \SimpleXMLElement($xml) : $xml;
 		$items = ((array) $sxe)['items'];
