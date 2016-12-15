@@ -1,8 +1,7 @@
 {
     "name" : "fizzBuzzChallenge",
     "require-dev" : {
-        "phpspec/phpspec" : "dev-master",
-        "bossa/phpspec2-expect" : "^2.0"
+        "phpspec/phpspec" : "^3.0"
     },
     "config": {
         "bin-dir": "bin"
