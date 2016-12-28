@@ -1,0 +1,4 @@
+[2016-12-28 13:58:05] app.INFO: Matched route "{route}". {"route":"GET_testLog","route_parameters":{"_controller":"community\\controller\\TestLogController::doGet","_route":"GET_testLog"},"request_uri":"http://community.local:8710/index.php/testLog","method":"GET"} []
+[2016-12-28 13:58:05] app.DEBUG: > GET /index.php/testLog [] []
+[2016-12-28 13:58:05] app.INFO: hi! [] []
+[2016-12-28 13:58:05] app.DEBUG: < 200 [] []
