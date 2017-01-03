@@ -2,22 +2,24 @@
 
 namespace me\adamcameron\cor\handler;
 
-use me\adamcameron\cor\service\LoggingService;
-
-abstract class PersonRetrievalHandler {
+abstract class PersonRetrievalHandler implements Handler {
 
     protected $nextHandler;
     protected $logger;
 
     public function __construct() {
-        $this->nextHandler = new class {
-            function getById(){
-                return null;
-            }
-        };
+        $this->nextHandler = $this->getPassThroughHandler();
     }
 
     public function setNextHandler(PersonRetrievalHandler $nextHandler) {
         $this->nextHandler = $nextHandler;
+    }
+
+    private function getPassThroughHandler(){
+        return new class  {
+            function perform($_, $response){
+                return $response;
+            }
+        };
     }
 }

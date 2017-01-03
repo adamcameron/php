@@ -26,6 +26,6 @@ class PersonRepository {
             return $this->data[$id];
         }
         $this->logger->info("Database miss for $id");
-        return [];
+        return null;
     }
 }

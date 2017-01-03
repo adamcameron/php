@@ -14,7 +14,7 @@ class PersonService {
     }
 
     public function getById($id) : Person {
-        $record = $this->retrievalHandler->getById($id);
+        $record = $this->retrievalHandler->perform($id);
 
         if (is_array($record)){
             $person = new Person($record['firstName'], $record['lastName']);

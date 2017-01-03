@@ -13,7 +13,6 @@ class CacheService {
     }
 
     public function get($key) {
-        $this->logger->info("Cache hit for $key");
         return $this->cache[$key];
     }
 
@@ -26,6 +25,7 @@ class CacheService {
     }
 
     public function put(string $key, $value) {
+        $this->logger->info("Cache put for $key");
         $this->cache[$key] = $value;
     }
 }

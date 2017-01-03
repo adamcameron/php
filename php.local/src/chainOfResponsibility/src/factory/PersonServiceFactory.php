@@ -2,6 +2,7 @@
 
 namespace me\adamcameron\cor\factory;
 
+use me\adamcameron\cor\handler\CacheablePersonHandler;
 use me\adamcameron\cor\handler\CachedPersonHandler;
 use me\adamcameron\cor\handler\DatabasePersonHandler;
 use me\adamcameron\cor\repository\PersonRepository;
@@ -19,12 +20,13 @@ class PersonServiceFactory {
 
         $cachedHandler = new CachedPersonHandler($cacheService);
         $databaseHandler = new DatabasePersonHandler($personRepository);
+        $cacheableHandler = new CacheablePersonHandler($cacheService);
 
+        $databaseHandler->setNextHandler($cacheableHandler);
         $cachedHandler->setNextHandler($databaseHandler);
 
         $personService = new PersonService($cachedHandler);
 
         return $personService;
     }
-
 }

@@ -13,12 +13,12 @@ class DatabasePersonHandler extends PersonRetrievalHandler {
         $this->repository = $repository;
     }
 
-    public function getById($id) {
-        $record = $this->repository->getById($id);
-        if (count($record)) {
-            return $record;
+    public function perform($request, $response=null) {
+        if (is_null($response)){
+            $id = $request;
+            $response = $this->repository->getById($id);
         }
 
-        return $this->nextHandler->getById($id);
+        return $this->nextHandler->perform($request, $response);
     }
 }

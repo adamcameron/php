@@ -4,7 +4,7 @@ namespace me\adamcameron\cor\handler;
 
 use me\adamcameron\cor\service\CacheService;
 
-class CachedPersonHandler extends PersonRetrievalHandler {
+class CacheablePersonHandler extends PersonRetrievalHandler {
 
     private $cacheService;
 
@@ -14,9 +14,9 @@ class CachedPersonHandler extends PersonRetrievalHandler {
     }
 
     public function perform($request, $response=null) {
-        $id = $request;
-        if ($this->cacheService->exists($id)) {
-            $response = $this->cacheService->get($id);
+        if (!is_null($response)) {
+            $id = $request;
+            $this->cacheService->put($id, $response);
         }
 
         return $this->nextHandler->perform($request, $response);
