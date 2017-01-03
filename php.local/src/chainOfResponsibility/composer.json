@@ -1,0 +1,8 @@
+{
+	"autoload" : {
+		"psr-4" : {
+			"me\\adamcameron\\cor\\" : "src/",
+			"me\\adamcameron\\cor\\test\\" : "test/"
+		}
+	}
+}

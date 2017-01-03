@@ -1,0 +1,16 @@
+<phpunit backupGlobals="false">
+    <ini name="display_errors" value="true"/>
+    <ini name="date.timezone" value="Europe/London"/>
+
+    <testsuites>
+        <testsuite name="all">
+            <directory suffix="Test.php">test</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src</directory>
+        </whitelist>
+    </filter>
+</phpunit>
