@@ -4,7 +4,7 @@ namespace me\adamcameron\accounts;
 
 require __DIR__ . '/model.php';
 
-$wsdl = "http://localhost:8500/cfml/webservices/soap/accounts/public/Invoices.cfc?wsdl";
+$wsdl = "http://localhost:8516/cfml/webservices/soap/accounts/public/Invoices.cfc?wsdl";
 
 
 $options = [
@@ -34,7 +34,7 @@ $options = [
 
 $client = new \SoapClient($wsdl, $options);
 
-$invoice = $client->getByIdAsWddx(2011);
+$invoice = $client->getById(2011);
 
 var_dump($invoice);
 echo "==============================" . PHP_EOL . PHP_EOL;
