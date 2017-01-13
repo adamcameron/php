@@ -16,7 +16,9 @@ class CacheablePersonHandler extends PersonRetrievalHandler {
     public function perform($request, $response=null) {
         if (!is_null($response)) {
             $id = $request;
-            $this->cacheService->put($id, $response);
+            if (!$this->cacheService->exists($id)) {
+                $this->cacheService->put($id, $response);
+            }
         }
 
         return $this->nextHandler->perform($request, $response);
