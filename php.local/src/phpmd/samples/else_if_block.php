@@ -6,7 +6,7 @@ function takeAChance(){
 
 	if ($firstChance) {
 		echo "firstChance was true; don't care what secondChance was";
-	}else {
+	}else{
 		if($secondChance){
 			echo "well at least secondChance was true";
 		}
