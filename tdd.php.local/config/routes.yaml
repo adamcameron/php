@@ -1,0 +1,4 @@
+_helloRoute:
+    path:       /hello/{name}
+    defaults:   { _controller: 'controller.hello:doGet'}
+    methods:    GET

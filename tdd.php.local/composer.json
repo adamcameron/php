@@ -1,0 +1,21 @@
+{
+    "require" : {
+        "silex/silex" : "^2.0",
+        "symfony/yaml" : "^3.0",
+        "symfony/config" : "^3.0",
+        "reva2/config-service-provider" : "^2.0"
+    },
+    "require-dev" : {
+        "phpunit/phpunit" : "^5.0"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "me\\adamcameron\\tdd\\" : "src/"
+        }
+    },
+    "autoload-dev" : {
+        "psr-4" : {
+            "me\\adamcameron\\tdd\\test\\" : "test/"
+        }
+    }
+}
