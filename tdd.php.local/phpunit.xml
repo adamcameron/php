@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="test/bootstrap.php"
+         beStrictAboutTestsThatDoNotTestAnything="true"
+         beStrictAboutChangesToGlobalState="true"
+         checkForUnintentionallyCoveredCode="false"
+         forceCoversAnnotation="true"
+         stopOnRisky="false"
+         backupGlobals="false">
+    <ini name="display_errors" value="true"/>
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src</directory>
+        </whitelist>
+    </filter>
+
+    <testsuites>
+        <testsuite name="All Tests">
+            <directory>./test</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
