@@ -2,6 +2,7 @@
 
 namespace me\adamcameron\tdd\model;
 
+/** @codeCoverageIgnore */
 class Person
 {
     public $id;

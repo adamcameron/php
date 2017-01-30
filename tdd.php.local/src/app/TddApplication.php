@@ -11,6 +11,8 @@ use me\adamcameron\tdd\provider\ServiceProvider;
 
 class TddApplication extends Application
 {
+
+    /** @codeCoverageIgnore */
     public function __construct(array $values)
     {
         parent::__construct($values);
@@ -19,6 +21,7 @@ class TddApplication extends Application
         $this->loadRoutes();
     }
 
+    /** @codeCoverageIgnore */
     private function registerProviders()
     {
         $this->register(new ConfigProvider());
