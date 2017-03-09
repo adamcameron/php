@@ -5,17 +5,18 @@ namespace me\adamcameron\myApp;
 class MyService
 {
 
-    private $myDependency;
+    private $myDecorator;
 
-    public function __construct(MyDependency $myDependency)
+    public function __construct(MyDecorator $myDecorator)
     {
-        $this->myDependency = $myDependency;
+        $this->myDecorator = $myDecorator;
     }
 
-    public function testMe($message)
+    public function decorateMessage($message)
     {
-        $decoratedMessage = $this->myDependency->decorate($message);
-        return "(PREFIX ADDED BY METHOD) $decoratedMessage";
+        $message = $this->myDecorator->addPrefix($message);
+        $message = $this->myDecorator->addSuffix($message);
+        return $message;
     }
 
 }

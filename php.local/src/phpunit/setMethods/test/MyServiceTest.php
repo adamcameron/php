@@ -2,90 +2,127 @@
 
 namespace me\adamcameron\myApp\test;
 
-use me\adamcameron\myApp\MyDependency;
+use me\adamcameron\myApp\MyDecorator;
 use me\adamcameron\myApp\MyService;
 
 class MyServiceTest extends \PHPUnit_Framework_TestCase
 {
-    public function testWithExplicitMock()
+    public function testWithExplicitMocks()
     {
-        $dependency = $this
-            ->getMockBuilder(MyDependency::class)
-            ->setMethods(['decorate'])
+        $decorator = $this
+            ->getMockBuilder(MyDecorator::class)
+            ->setMethods(['addPrefix', 'addSuffix'])
             ->getMock();
 
-        $dependency
-            ->method('decorate')
-            ->willReturn('MOCKED DECORATION');
+        $decorator
+            ->method('addPrefix')
+            ->willReturn('(MOCKED PREFIX)');
 
-        $service = new MyService($dependency);
+        $decorator
+            ->method('addSuffix')
+            ->willReturn('(MOCKED SUFFIX)');
 
-        $result = $service->testMe('TEST MESSAGE');
+        $service = new MyService($decorator);
+
+        $result = $service->decorateMessage('TEST MESSAGE');
 
         $this->assertSame(
-            '(PREFIX ADDED BY METHOD) MOCKED DECORATION',
+            '(MOCKED SUFFIX)',
             $result
         );
     }
 
-    public function testWithImplicitMock()
+    public function testWithOneExplicitMock()
     {
-        $dependency = $this
-            ->getMockBuilder(MyDependency::class)
+        $decorator = $this
+            ->getMockBuilder(MyDecorator::class)
+            ->setMethods(['addPrefix'])
+            ->getMock();
+
+        $decorator
+            ->method('addPrefix')
+            ->willReturn('(MOCKED PREFIX)');
+
+        $service = new MyService($decorator);
+
+        $result = $service->decorateMessage('TEST MESSAGE');
+
+        $this->assertSame(
+            '(MOCKED PREFIX) (ACTUAL SUFFIX)',
+            $result
+        );
+    }
+
+    public function testWithImplicitMocks()
+    {
+        $decorator = $this
+            ->getMockBuilder(MyDecorator::class)
             ->setMethods([])
             ->getMock();
 
-        $dependency
-            ->method('decorate')
-            ->willReturn('MOCKED DECORATION');
+        $decorator
+            ->method('addPrefix')
+            ->willReturn('(MOCKED PREFIX)');
 
-        $service = new MyService($dependency);
+        $decorator
+            ->method('addSuffix')
+            ->willReturn('(MOCKED SUFFIX)');
 
-        $result = $service->testMe('TEST MESSAGE');
+        $service = new MyService($decorator);
+
+        $result = $service->decorateMessage('TEST MESSAGE');
 
         $this->assertSame(
-            '(PREFIX ADDED BY METHOD) MOCKED DECORATION',
+            '(MOCKED SUFFIX)',
             $result
         );
     }
 
     public function testWithNull()
     {
-        $dependency = $this
-            ->getMockBuilder(MyDependency::class)
+        $decorator = $this
+            ->getMockBuilder(MyDecorator::class)
             ->setMethods(null)
             ->getMock();
 
-        $dependency
-            ->method('decorate')
-            ->willReturn('MOCKED DECORATION');
+        $decorator
+            ->method('addPrefix')
+            ->willReturn('(MOCKED PREFIX)');
 
-        $service = new MyService($dependency);
+        $decorator
+            ->method('addSuffix')
+            ->willReturn('(MOCKED SUFFIX)');
 
-        $result = $service->testMe('TEST MESSAGE');
+        $service = new MyService($decorator);
+
+        $result = $service->decorateMessage('TEST MESSAGE');
 
         $this->assertSame(
-            '(PREFIX ADDED BY METHOD) THE ACTUAL MESSAGE IS: TEST MESSAGE',
+            '(ACTUAL PREFIX) TEST MESSAGE (ACTUAL SUFFIX)',
             $result
         );
     }
 
     public function testWithoutSetMethods()
     {
-        $dependency = $this
-            ->getMockBuilder(MyDependency::class)
+        $decorator = $this
+            ->getMockBuilder(MyDecorator::class)
             ->getMock();
 
-        $dependency
-            ->method('decorate')
-            ->willReturn('MOCKED DECORATION');
+        $decorator
+            ->method('addPrefix')
+            ->willReturn('(MOCKED PREFIX)');
 
-        $service = new MyService($dependency);
+        $decorator
+            ->method('addSuffix')
+            ->willReturn('(MOCKED SUFFIX)');
 
-        $result = $service->testMe('TEST MESSAGE');
+        $service = new MyService($decorator);
+
+        $result = $service->decorateMessage('TEST MESSAGE');
 
         $this->assertSame(
-            '(PREFIX ADDED BY METHOD) MOCKED DECORATION',
+            '(MOCKED SUFFIX)',
             $result
         );
     }
