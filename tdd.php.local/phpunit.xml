@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="test/bootstrap.php"
+         beStrictAboutTestsThatDoNotTestAnything="true"
+         beStrictAboutChangesToGlobalState="true"
+         beStrictAboutCoversAnnotation="false"
+         forceCoversAnnotation="true"
+         stopOnRisky="false"
+         backupGlobals="false">
+
+    <php>
+        <ini name="display_errors" value="On" />
+        <ini name="display_startup_errors" value="On" />
+    </php>
+
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src</directory>
+            <exclude><file>src/app/bootstrap.php</file></exclude>
+        </whitelist>
+    </filter>
+
+    <testsuites>
+        <testsuite name="All Tests">
+            <directory>./test</directory>
+
+
+        </testsuite>
+    </testsuites>
+</phpunit>

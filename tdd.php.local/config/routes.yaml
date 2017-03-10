@@ -2,3 +2,7 @@ _helloRoute:
     path:       /hello/{name}
     defaults:   { _controller: 'controller.hello:doGet'}
     methods:    GET
+_helloByIdRoute:
+    path:       /person/{id}
+    defaults:   { _controller: 'controller.person:doGet'}
+    methods:    GET
