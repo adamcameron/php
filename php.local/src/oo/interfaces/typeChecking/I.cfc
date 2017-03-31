@@ -1,0 +1,5 @@
+interface {
+
+	function f(x);
+	
+}
