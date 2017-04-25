@@ -75,26 +75,26 @@ public function update(int $id, array $parameters): void
         }
     }
 
-public function update3(int $id, array $parameters): void
-{
-    $this->propertyRepository->update($id, $parameters);
+    public function update3(int $id, array $parameters): void
+    {
+        $this->propertyRepository->update($id, $parameters);
 
-    $this->updateOptional($id, $parameters, 'media', $this->mediaRepository);
-    $this->updateOptional($id, $parameters, 'metadata', $this->metadataRepository);
-    $this->updateOptional($id, $parameters, 'social', $this->socialRepository);
-    $this->updateOptional($id, $parameters, 'personnel', $this->personnelRepository);
-    $this->updateOptional($id, $parameters, 'availability', $this->availabilityRepo);
-}
+        $this->updateOptional($id, $parameters, 'media', $this->mediaRepository);
+        $this->updateOptional($id, $parameters, 'metadata', $this->metadataRepository);
+        $this->updateOptional($id, $parameters, 'social', $this->socialRepository);
+        $this->updateOptional($id, $parameters, 'personnel', $this->personnelRepository);
+        $this->updateOptional($id, $parameters, 'availability', $this->availabilityRepo);
+    }
 
     private function keyExistsAndIsArray(string $key, array $array) : bool
     {
         return array_key_exists($key, $array) && is_array($array[$key]);
     }
 
-private function updateOptional($id, $parameters, $optional, $repository)
-{
-    if (array_key_exists($optional, $parameters) && is_array($parameters[$optional])) {
-        $repository->update($id, $parameters[$optional]);
+    private function updateOptional($id, $parameters, $optional, $repository)
+    {
+        if (array_key_exists($optional, $parameters) && is_array($parameters[$optional])) {
+            $repository->update($id, $parameters[$optional]);
+        }
     }
-}
 }
