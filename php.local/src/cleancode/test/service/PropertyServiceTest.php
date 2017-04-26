@@ -21,6 +21,8 @@ class PropertyServiceTest extends TestCase
     private $personnelRepository;
     private $availabilityRepository;
 
+    private $simple = 'DEFAULT';
+
     private $service;
 
     private static $testId = 2011;
@@ -38,8 +40,16 @@ class PropertyServiceTest extends TestCase
         'availability'
     ];
 
-    public function setup()
+    public function __construct($name = null, array $data = [], $dataName = '')
     {
+        error_log("IN CONSTRUCTOR: [" . $this->simple . ']' . PHP_EOL, 3, 'C:\temp\err.log');
+        parent::__construct($name, $data, $dataName);
+    }
+
+    public function setupTests()
+    {
+        $this->simple = "SETUP";
+        error_log("IN DP: [" . $this->simple . ']' . PHP_EOL, 3, 'C:\temp\err.log');
         $this->setMockedDependencies();
         $this->service = new PropertyService(
             $this->propertyRepository,
@@ -55,8 +65,9 @@ class PropertyServiceTest extends TestCase
      * @covers ::update
      * @dataProvider provideCasesForUpdateTests
      */
-    public function testUpdate($parameters)
+    public function _testUpdate($parameters)
     {
+        $this->setupTests();
         $this->mockExpectationsForUpdateTests($parameters);
 
         $this->service->update(self::$testId, $parameters);
@@ -67,8 +78,9 @@ class PropertyServiceTest extends TestCase
      * @covers ::keyExistsAndIsArray
      * @dataProvider provideCasesForUpdateTests
      */
-    public function testUpdate2($parameters)
+    public function _testUpdate2($parameters)
     {
+        $this->setupTests();
         $this->mockExpectationsForUpdateTests($parameters);
 
         $this->service->update2(self::$testId, $parameters);
@@ -79,8 +91,9 @@ class PropertyServiceTest extends TestCase
      * @covers ::updateOptional
      * @dataProvider provideCasesForUpdateTests
      */
-    public function testUpdate3($parameters)
+    public function _testUpdate3($parameters)
     {
+        $this->setupTests();
         $this->mockExpectationsForUpdateTests($parameters);
 
         $this->service->update3(self::$testId, $parameters);
@@ -120,6 +133,7 @@ class PropertyServiceTest extends TestCase
      */
     public function testUpdateImproved($parameters, $repoCalls)
     {
+        error_log("IN TEST: [" . $this->simple . ']' . PHP_EOL, 3, 'C:\temp\err.log');
         $this->mockExpectationsForImprovedUpdateTests($parameters, $repoCalls);
 
         $this->service->update3(self::$testId, $parameters);
@@ -127,6 +141,10 @@ class PropertyServiceTest extends TestCase
 
     public function provideCasesForImprovedUpdateTests()
     {
+        $this->setupTests();
+
+        echo "IN DP: [" . $this->simple . ']' . PHP_EOL;
+        echo 'OBJECT: [' . spl_object_hash($this) . ']' . PHP_EOL;
         $allParameters = [
             'id' => self::$testId,
             'media' => [self::$mediaParameter],
@@ -136,20 +154,43 @@ class PropertyServiceTest extends TestCase
             'availability' => [self::$availabilityParameter],
         ];
 
+        $noRepoCalls = [
+            'media' => ['repo'=>$this->mediaRepository, 'calls' => 0],
+            'metadata' => ['repo'=>$this->metadataRepository, 'calls' => 0],
+            'social' => ['repo'=>$this->socialRepository, 'calls' => 0],
+            'personnel' => ['repo'=>$this->personnelRepository, 'calls' => 0],
+            'availability' => ['repo'=>$this->availabilityRepository, 'calls' => 0]
+        ];
+        $mediaRepoCall = $noRepoCalls;
+        $mediaRepoCall['media']['calls'] = 1;
+        $metadataRepoCall = $noRepoCalls;
+        $metadataRepoCall['metadata']['calls'] = 1;
+        $socialRepoCall = $noRepoCalls;
+        $socialRepoCall['social']['calls'] = 1;
+        $personnelRepoCall = $noRepoCalls;
+        $personnelRepoCall['personnel']['calls'] = 1;
+        $availabilityRepoCall = $noRepoCalls;
+        $availabilityRepoCall['availability']['calls'] = 1;
+
+        $allRepoCalls = array_map(function($call){
+            $call['calls'] = 1;
+            return $call;
+        }, $noRepoCalls);
+
         return [
             'no optionals' => ['parameters' => [], 'repoCalls' => []],
-            'media is simple' => ['parameters' => ['media' => self::$mediaParameter], 'repoCalls' => []],
-            'media is array' => ['parameters' => ['media' => [self::$mediaParameter]], 'repoCalls' => [self::$repositories[0]]],
+            'media is simple' => ['parameters' => ['media' => self::$mediaParameter], 'repoCalls' => $noRepoCalls],
+            /*'media is array' => ['parameters' => ['media' => [self::$mediaParameter]], 'repoCalls' => $mediaRepoCall],
             'metadata is simple' => ['parameters' => ['metadata' => self::$metadataParameter], 'repoCalls' => []],
-            'metadata is array' => ['parameters' => ['metadata' => [self::$metadataParameter]], 'repoCalls' => [self::$repositories[1]]],
+            'metadata is array' => ['parameters' => ['metadata' => [self::$metadataParameter]], 'repoCalls' => $metadataRepoCall],
             'social is simple' => ['parameters' => ['social' => self::$socialParameter], 'repoCalls' => []],
-            'social is array' => ['parameters' => ['social' => [self::$socialParameter]], 'repoCalls' => [self::$repositories[2]]],
+            'social is array' => ['parameters' => ['social' => [self::$socialParameter]], 'repoCalls' => $socialRepoCall],
             'personnel is simple' => ['parameters' => ['personnel' => self::$personnelParameter], 'repoCalls' => []],
-            'personnel is array' => ['parameters' => ['personnel' => [self::$personnelParameter]], 'repoCalls' => [self::$repositories[3]]],
+            'personnel is array' => ['parameters' => ['personnel' => [self::$personnelParameter]], 'repoCalls' => $personnelRepoCall],
             'availability is simple' => ['parameters' => ['availability' => self::$availabilityParameter], 'repoCalls' => []],
-            'availability is array' => ['parameters' => ['availability' => [self::$availabilityParameter]], 'repoCalls' => [self::$repositories[4]]],
-            'all optionals' => ['parameters' => $allParameters, 'repoCalls' => self::$repositories]
-        ];
+            'availability is array' => ['parameters' => ['availability' => [self::$availabilityParameter]], 'repoCalls' => $availabilityRepoCall],
+            'all optionals' => ['parameters' => $allParameters, 'repoCalls' => $allRepoCalls]
+ */       ];
     }
 
     private function setMockedDependencies()
@@ -157,6 +198,9 @@ class PropertyServiceTest extends TestCase
         $this->propertyRepository = $this
             ->getMockBuilder(PropertyRepository::class)
             ->getMock();
+
+        echo "but was set here";
+
         $this->mediaRepository = $this
             ->getMockBuilder(MediaRepository::class)
             ->getMock();
@@ -197,21 +241,18 @@ class PropertyServiceTest extends TestCase
 
     private function mockExpectationsForImprovedUpdateTests($parameters, $repoCalls)
     {
+
         $this->propertyRepository
             ->expects($this->once())
             ->method('update')
             ->with(self::$testId, $parameters);
 
-        foreach (self::$repositories as $optional) {
-            $repoObject = "{$optional}Repository";
-
-            $expectCall = in_array($optional, $repoCalls);
-
-            $mockedMethod = $this->$repoObject
-                ->expects($this->exactly($expectCall ? 1 : 0))
+        foreach ($repoCalls as $parameter => $repoCall) {
+            $mockedMethod = $repoCall['repo']
+                ->expects($this->exactly($repoCall['calls']))
                 ->method('update');
-            if ($expectCall) {
-                $mockedMethod->with(self::$testId, $parameters[$optional]);
+            if ($repoCall['calls'] == 1) {
+                $mockedMethod->with(self::$testId, $parameters[$parameter]);
             }
         }
     }
