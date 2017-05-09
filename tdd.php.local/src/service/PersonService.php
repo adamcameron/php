@@ -10,13 +10,13 @@ class PersonService
     private $personFactory;
 
     /** @codeCoverageIgnore */
-    function __construct(PersonRepository $personRepository, $personFactory)
+    public function __construct(PersonRepository $personRepository, $personFactory)
     {
         $this->repo = $personRepository;
         $this->personFactory = $personFactory;
     }
 
-    function getById($id)
+    public function getById($id)
     {
         $raw = $this->repo->getById($id);
 
