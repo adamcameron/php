@@ -1,10 +1,10 @@
 <?php
 
-namespace me\adamcameron\phpunitdiff\test\service;
+namespace me\adamcameron\dataprovider\test\service;
 
 use PHPUnit\Framework\TestCase;
 
-class MyServiceTest extends TestCase
+class MyServiceLoggedTest extends TestCase
 {
 
     public function __construct($name = null, array $data = [], $dataName = '')
