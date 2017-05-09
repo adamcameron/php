@@ -3,7 +3,7 @@
 namespace me\adamcameron\silexApp\test\functional\app;
 
 use me\adamcameron\silexApp\app\SilexApp;
-use Silex\patch\WebTestCase;
+use Silex\WebTestCase;
 
 class SilexAppTest extends WebTestCase
 {
