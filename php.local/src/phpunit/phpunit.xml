@@ -1,6 +1,6 @@
 <phpunit backupGlobals="false" bootstrap="./autoload.php">
     <testsuites>
-        <testsuite name="atEtc">
+        <!--<testsuite name="atEtc">
             <directory>./test/atEtc</directory>
         </testsuite>
         <testsuite name="dataprovider">
@@ -14,6 +14,9 @@
         </testsuite>
         <testsuite name="typecheck">
             <directory>./test/typecheck</directory>
+        </testsuite>-->
+        <testsuite name="callLog">
+            <directory>./test/callLog</directory>
         </testsuite>
     </testsuites>
 </phpunit>
