@@ -21,30 +21,29 @@ class MyServiceTest extends TestCase
         $this->sut = new MyService($this->logger, $this->helper);
     }
 
+
     function testMyMethodUsingAt()
     {
         $exceptionMessage = "EXPECT_THIS";
         $this->expectException(\RuntimeException::class);
         $this->expectExceptionMessage($exceptionMessage);
+
         $testIterations = 6;
         $errorAt = $testIterations / 2;
+
         $this->helper
             ->expects($this->at($errorAt))
             ->method("doThing")
             ->willThrowException(new \RuntimeException($exceptionMessage));
 
         $this->logger
-            ->expects($this->at(4))
-            ->method("logMessage")
-            ->with("All done");
+             ->expects($this->at(8))
+             ->method("logMessage")
+             ->with("Something went wrong: $exceptionMessage");
         $this->logger
-            ->expects($this->at(5))
-            ->method("logMessage")
-            ->with("Something went wrong: $exceptionMessage");
-        $this->logger
-            ->expects($this->at(6))
-            ->method("logMessage")
-            ->with("All done");
+             ->expects($this->at(9))
+             ->method("logMessage")
+             ->with("All done");
 
         $this->sut->myMethod($testIterations);
     }
@@ -54,6 +53,7 @@ class MyServiceTest extends TestCase
         $exceptionMessage = "EXPECT_THIS";
         $this->expectException(\RuntimeException::class);
         $this->expectExceptionMessage($exceptionMessage);
+
         $testIterations = 6;
         $errorAt = $testIterations / 2;
 
