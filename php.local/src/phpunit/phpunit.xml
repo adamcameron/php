@@ -1,0 +1,19 @@
+<phpunit backupGlobals="false" bootstrap="./autoload.php">
+    <testsuites>
+        <testsuite name="atEtc">
+            <directory>./test/atEtc</directory>
+        </testsuite>
+        <testsuite name="dataprovider">
+            <directory>./test/dataprovider</directory>
+        </testsuite>
+        <testsuite name="mockobject">
+            <directory>./test/mockobject</directory>
+        </testsuite>
+        <testsuite name="setMethods">
+            <directory>./test/setMethods</directory>
+        </testsuite>
+        <testsuite name="typecheck">
+            <directory>./test/typecheck</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
