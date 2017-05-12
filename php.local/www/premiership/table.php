@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,58 +8,48 @@
     <link rel="stylesheet" type="text/css" href="./styles.css" />
 </head>
 <body>
+<h1>Zachary’s Hand-Football Premiership Points Table 2017</h1>
 <table class="season">
     <thead>
-    <tr><th>&nbsp;</th><th>&nbsp;</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th></tr>
+    <tr><th>&nbsp;</th><th class="teamName">Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th></tr>
     </thead>
     <tbody>
     <?php
-    $squads = [
-        'BOU' => 'Bournemouth',
-        'ARS' => 'Arsenal',
-        'BUR' => 'Burnley',
-        'CHE' => 'Chelsea',
-        'CRY' => 'Crystal Palace',
-        'EVE' => 'Everton',
-        'HUL' => 'Hull City',
-        'LEI' => 'Leicester City',
-        'LIV' => 'Liverpool',
-        'MCI' => 'Manchester City',
-        'MUN' => 'Manchester United',
-        'MID' => 'Middlesbrough',
-        'SOU' => 'Southampton',
-        'STO' => 'Stoke City',
-        'SUN' => 'Sunderland',
-        'SWA' => 'Swansea City',
-        'TOT' => 'Tottenham Hotspur',
-        'WAT' => 'Watford',
-        'WBA' => 'West Bromwich Albion',
-        'WHU' => 'West Ham'
-    ];
-    $i = 0;
-    $squadCount = count($squads);
-    foreach ($squads as $abbrev => $name) {
-        $i++;
-        $position = $i;
-        $previous = ($squadCount+1) - $position;
+    $connectionString = sprintf('mysql:host=%s;port=%s;dbname=%s', 'localhost', 3306, 'handFootball');
+    $dbConnection = new \PDO($connectionString, 'handFootball', 'handFootball');
+    $table = $dbConnection->query('
+        SELECT tbl.*, team.abbrev
+        FROM handFootball.tableWeek5 tbl
+        INNER JOIN team ON tbl.name = team.name
+        ORDER BY tbl.rank
+    ');
+
+    foreach ($table as $team) {
         printf(
             '<tr class="%s">
-                <td>%d</td>
-                <td class="previous">%d</td>
+                <td class="rank">%d<span class="prev">(%d)</span></td>
                 <td class="teamName">%s</td>
-                <td>31</td>
-                <td>29</td>
-                <td>23</td>
-                <td>19</td>
-                <td>17</td>
-                <td>13</td>
-                <td>11</td>
-                <td>7</td>
+                <td>%d</td>
+                <td>%d</td>
+                <td>%d</td>
+                <td>%d</td>
+                <td>%d</td>
+                <td>%d</td>
+                <td>%d</td>
+                <td>%d</td>
             <tr>',
-            $abbrev,
-            $position,
-            $previous,
-            $name
+            $team['abbrev'],
+            $team['rank'],
+            $team['prev'],
+            $team['name'],
+            $team['p'],
+            $team['w'],
+            $team['d'],
+            $team['l'],
+            $team['gf'],
+            $team['ga'],
+            $team['gd'],
+            $team['pts']
         );
     }
     ?>
@@ -66,3 +57,7 @@
 </table>
 </body>
 </html>
+<?php
+$html = ob_get_clean();
+echo $html;
+file_put_contents('C:\temp\table.html', $html);
