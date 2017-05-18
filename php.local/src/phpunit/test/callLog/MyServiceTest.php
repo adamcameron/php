@@ -13,14 +13,12 @@ class MyServiceTest extends TestCase
     private $sut;
     private $logger;
     private $helper;
-    private $callLog;
 
     function setup()
     {
         $this->mockDependencies();
         $this->sut = new MyService($this->logger, $this->helper);
     }
-
 
     function testMyMethodUsingAt()
     {
@@ -36,6 +34,10 @@ class MyServiceTest extends TestCase
             ->method("doThing")
             ->willThrowException(new \RuntimeException($exceptionMessage));
 
+        $this->logger
+             ->expects($this->at(7))
+             ->method("logMessage")
+             ->with("Starting processing iteration 4");
         $this->logger
              ->expects($this->at(8))
              ->method("logMessage")
@@ -61,23 +63,25 @@ class MyServiceTest extends TestCase
             ->expects($this->at($errorAt))
             ->method("doThing")
             ->willThrowException(new \RuntimeException($exceptionMessage));
+
+        $callLog = [];
         $this->logger
             ->method("logMessage")
-            ->will($this->returnCallback(function($message) {
-                $this->callLog[] = $message;
+            ->will($this->returnCallback(function ($message) use (&$callLog) {
+                $callLog[] = $message;
             }));
 
         try {
             $this->sut->myMethod($testIterations);
         }
         catch (\Exception $e) {
-            $this->assertSame("All done", array_pop($this->callLog));
-            $this->assertSame("Something went wrong: $exceptionMessage", array_pop($this->callLog));
-            $this->assertNotSame("Finishing off", array_pop($this->callLog));
+            $this->assertSame("All done", array_pop($callLog));
+            $this->assertSame("Something went wrong: $exceptionMessage", array_pop($callLog));
+            $this->assertNotSame("Finishing off", array_pop($callLog));
+
             throw $e;
         }
     }
-
 
     private function mockDependencies()
     {

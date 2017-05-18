@@ -2,21 +2,22 @@
 
 namespace me\adamcameron\phpunit\test\dataprovider\service;
 
+use me\adamcameron\phpunit\dataprovider\repository\AuditRepository;
 use me\adamcameron\phpunit\dataprovider\repository\DatabaseRepository;
 use me\adamcameron\phpunit\dataprovider\repository\SocialMediaRepository;
 use me\adamcameron\phpunit\dataprovider\service\MyService;
 use PHPUnit\Framework\TestCase;
 
-class MyServiceWorkingTest extends TestCase
+class MyServiceBrokenTest extends TestCase
 {
 
     private $dbRepository;
     private $smRepository;
+    private $auditRepository;
     private $myService;
 
     public function setup()
     {
-        $this->setMockedDependencies();
         $this->myService = new MyService($this->dbRepository, $this->smRepository);
     }
 
@@ -44,11 +45,23 @@ class MyServiceWorkingTest extends TestCase
 
     public function provideCasesForMyMethodTests()
     {
+        $this->dbRepository = $this
+            ->getMockBuilder(DatabaseRepository::class)
+            ->getMock();
+        $this->smRepository = $this
+            ->getMockBuilder(SocialMediaRepository::class)
+            ->getMock();
+
+        $this->auditRepository = $this
+            ->getMockBuilder(AuditRepository::class)
+            ->getMock();
+
+
         return [
             'no optionals' => [
                 'data' => [],
                 'expected' => ['dbRepository' => 0, 'smRepository' => 0]
-            ],
+            ]/*,
             'db optional present' => [
                 'data' => [
                     'db' => 'TEST_DB_VALUE'
@@ -67,7 +80,7 @@ class MyServiceWorkingTest extends TestCase
                     'social' => 'TEST_SOCIAL_VALUE'
                 ],
                 'expected' => ['dbRepository' => 1, 'smRepository' => 1]
-            ]
+            ]*/
         ];
     }
 

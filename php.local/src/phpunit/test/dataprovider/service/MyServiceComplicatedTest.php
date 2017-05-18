@@ -7,7 +7,7 @@ use me\adamcameron\phpunit\dataprovider\repository\SocialMediaRepository;
 use me\adamcameron\phpunit\dataprovider\service\MyService;
 use PHPUnit\Framework\TestCase;
 
-class MyServiceWorkingTest extends TestCase
+class MyServiceWMyServiceComplicatedTest extends TestCase
 {
 
     private $dbRepository;
