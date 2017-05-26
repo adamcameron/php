@@ -18,13 +18,7 @@ table.season {
 }
 
 th {
-	border-top : solid 1px black;
-	border-right : solid 1px black;
 	padding : 7px;
-}
-
-th:first-child {
-	border-left : solid 1px black;
 }
 
 td {
@@ -41,7 +35,7 @@ td {
 }
 
 .teamName {
-	width : 75%;
+	width : 30%;
 	text-align : left;
 	padding-left : 1em;
 }
@@ -50,7 +44,26 @@ td .prev {
 	padding-left : 0.5em;
 	font-size : 75%;
 	vertical-align : top;
+}
 
+td.changeUp, td.changeDown, td.changeSame {
+	border: 0px;
+	background-color: white;
+	color : black;
+	background-repeat : no-repeat;
+	background-position: center;
+}
+
+td.changeUp {
+	background-image: url("./up.png");
+}
+
+td.changeDown {
+	background-image: url("./down.png");
+}
+
+td.changeSame {
+	background-image: url("./same.png");
 }
 
 tr.BOU {
@@ -62,6 +75,14 @@ tr.BOU td {
 	border-color : #0543d1;
 }
 
+tr.BOU td.teamName {
+	border-left-color : #0543d1;
+}
+
+tr.BOU td.rank{
+	border-right-color : #0543d1;
+}
+
 tr.ARS {
 	background-color : #ED1B24;
 	color: #FFFDFA;
@@ -69,6 +90,14 @@ tr.ARS {
 
 tr.ARS td {
 	border-color : rgb(252,220,39);
+}
+
+tr.ARS td.teamName {
+	border-left-color : black;
+}
+
+tr.ARS td.rank{
+	border-right-color : black;
 }
 
 tr.BUR {
@@ -80,6 +109,14 @@ tr.BUR td {
 	border-color : 	#98ccff;
 }
 
+tr.BUR td.teamName {
+	border-left-color : darkblue;
+}
+
+tr.BUR td.rank{
+	border-right-color : darkblue;
+}
+
 tr.CHE {
 	background-color : rgb(14,30,125);
 	color: white;
@@ -87,6 +124,14 @@ tr.CHE {
 
 tr.CHE td {
 	border-color : 	black;
+}
+
+tr.CHE td.teamName {
+	border-left-color : black;
+}
+
+tr.CHE td.rank{
+	border-right-color : black;
 }
 
 tr.CRY {
@@ -98,6 +143,14 @@ tr.CRY td {
 	border-color : 	#ffd801;
 }
 
+tr.CRY td.teamName {
+	border-left-color : #ffd801;
+}
+
+tr.CRY td.rank{
+	border-right-color : #ffd801;
+}
+
 tr.EVE {
 	background-color : #274488;
 	color: white;
@@ -105,6 +158,14 @@ tr.EVE {
 
 tr.EVE td {
 	border-color : 	black;
+}
+
+tr.EVE td.teamName {
+	border-left-color : black;
+}
+
+tr.EVE td.rank{
+	border-right-color : black;
 }
 
 tr.HUL {
@@ -116,6 +177,14 @@ tr.HUL td {
 	border-color : 	black;
 }
 
+tr.HUL td.teamName {
+	border-left-color : black;
+}
+
+tr.HUL td.rank{
+	border-right-color : black;
+}
+
 tr.LEI {
 	background-color : #0053A0;
 	color: white;
@@ -123,6 +192,13 @@ tr.LEI {
 
 tr.LEI td {
 	border-color : red;
+}
+
+tr.LEI td.teamName {
+	border-left-color : red;
+}
+tr.LEI td.rank{
+	border-right-color : red;
 }
 
 tr.LIV {
@@ -134,6 +210,14 @@ tr.LIV td {
 	border-color : #1d1e22;
 }
 
+tr.LIV td.teamName {
+	border-left-color : black;
+}
+
+tr.LIV td.rank{
+	border-right-color : black;
+}
+
 tr.MCI {
 	background-color : #6CADDF;
 	color: white;
@@ -141,6 +225,14 @@ tr.MCI {
 
 tr.MCI td {
 	border-color : black;
+}
+
+tr.MCI td.teamName {
+	border-left-color : yellow;
+}
+
+tr.MCI td.rank{
+	border-right-color : yellow;
 }
 
 tr.MUN {
@@ -153,6 +245,14 @@ tr.MUN td {
 
 }
 
+tr.MUN td.teamName {
+	border-left-color : darkblue;
+}
+
+tr.MUN td.rank{
+	border-right-color : darkblue;
+}
+
 tr.MID {
 	background-color : red;
 	color: white;
@@ -160,7 +260,14 @@ tr.MID {
 
 tr.MID td {
 	border-color : #0a0d26;
+}
 
+tr.MID td.teamName {
+	border-left-color : darkblue;
+}
+
+tr.MID td.rank{
+	border-right-color : darkblue;
 }
 
 tr.SOU {
@@ -170,7 +277,14 @@ tr.SOU {
 
 tr.SOU td {
 	border-color : black;
+}
 
+tr.SOU td.teamName {
+	border-left-color : LightSlateGrey;
+}
+
+tr.SOU td.rank{
+	border-right-color : LightSlateGrey;
 }
 
 tr.STO {
@@ -180,7 +294,14 @@ tr.STO {
 
 tr.STO td {
 	border-color : #3399ff;
+}
 
+tr.STO td.teamName {
+	border-left-color : #3399ff;
+}
+
+tr.STO td.rank{
+	border-right-color : #3399ff;
 }
 
 tr.SUN {
@@ -190,7 +311,14 @@ tr.SUN {
 
 tr.SUN td {
 	border-color : white;
+}
 
+tr.SUN td.teamName {
+	border-left-color : white;
+}
+
+tr.SUN td.rank{
+	border-right-color : white;
 }
 
 tr.SWA {
@@ -200,7 +328,14 @@ tr.SWA {
 
 tr.SWA td {
 	border-color : #2ab8ff;
+}
 
+tr.SWA td.teamName {
+	border-left-color : darkblue;
+}
+
+tr.SWA td.rank{
+	border-right-color : darkblue;
 }
 
 tr.TOT {
@@ -212,6 +347,14 @@ tr.TOT td {
 	border-color : #000040;
 }
 
+tr.TOT td.teamName {
+	border-left-color : #000040;
+}
+
+tr.TOT td.rank{
+	border-right-color : #000040;
+}
+
 tr.WAT {
 	background-color : #FBEE23;
 	color: black;
@@ -219,6 +362,14 @@ tr.WAT {
 
 tr.WAT td {
 	border-color : white;
+}
+
+tr.WAT td.teamName {
+	border-left-color : white;
+}
+
+tr.WAT td.rank{
+	border-right-color : white;
 }
 
 tr.WBA {
@@ -230,6 +381,14 @@ tr.WBA td {
 	border-color : black;
 }
 
+tr.WBA td.teamName {
+	border-left-color : black;
+}
+
+tr.WBA td.rank{
+	border-right-color : black;
+}
+
 tr.WHU {
 	background-color : #7C2C3B;
 	color: white;
@@ -237,4 +396,12 @@ tr.WHU {
 
 tr.WHU td {
 	border-color : white;
+}
+
+tr.WHU td.teamName {
+	border-left-color : #9DBAFC;
+}
+
+tr.WHU td.rank{
+	border-right-color : #9DBAFC;
 }
