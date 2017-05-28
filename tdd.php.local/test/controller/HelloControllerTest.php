@@ -3,9 +3,10 @@
 namespace me\adamcameron\tdd\test\controller;
 
 use me\adamcameron\tdd\controller\HelloController;
+use PHPUnit\Framework\TestCase;
 
 /** @coversDefaultClass me\adamcameron\tdd\controller\HelloController */
-class HelloControllerTest extends \PHPUnit_Framework_TestCase
+class HelloControllerTest extends TestCase
 {
     private $controller;
 

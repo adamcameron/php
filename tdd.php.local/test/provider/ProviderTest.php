@@ -2,9 +2,10 @@
 
 namespace me\adamcameron\tdd\test\provider;
 
+use PHPUnit\Framework\TestCase;
 use Pimple\Container;
 
-abstract class ProviderTest extends \PHPUnit_Framework_TestCase
+abstract class ProviderTest extends TestCase
 {
     protected $sut;
     protected $provider;

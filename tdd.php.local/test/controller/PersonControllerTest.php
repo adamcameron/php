@@ -5,10 +5,11 @@ namespace me\adamcameron\tdd\test\controller;
 use me\adamcameron\tdd\controller\PersonController;
 use me\adamcameron\tdd\model\Person;
 use me\adamcameron\tdd\service\PersonService;
+use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 
 /** @coversDefaultClass me\adamcameron\tdd\controller\PersonController */
-class PersonControllerTest extends \PHPUnit_Framework_TestCase
+class PersonControllerTest extends TestCase
 {
     private $controller;
     private $service;

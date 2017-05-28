@@ -2,9 +2,7 @@
 
 namespace me\adamcameron\tdd\app;
 
-/**
- * @codeCoverageIgnore
- */
+/** @codeCoverageIgnore */
 
 require realpath(__DIR__ . '/../../vendor/autoload.php');
 
