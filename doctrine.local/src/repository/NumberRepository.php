@@ -2,12 +2,16 @@
 
 namespace doctrineTest\repository;
 
+use Doctrine\DBAL\Connection;
+use doctrineTest\factory\ConnectionFactory;
+
 class NumberRepository {
 
+    /** @var Connection  */
 	private $connection;
 	private $parameterHelper;
 
-	function __construct($connectionFactory, $parameterHelper) {
+	function __construct(ConnectionFactory $connectionFactory, $parameterHelper) {
 		$this->connection = $connectionFactory->createConnection();
 		$this->parameterHelper = $parameterHelper;
 	}

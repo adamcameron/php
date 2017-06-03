@@ -1,0 +1,240 @@
+body {
+	font-family : "Coming Soon";
+}
+
+h1 {
+	color : CornflowerBlue;
+	padding-left : 10em;
+	font-size : 36px;
+	text-decoration : underline;
+	text-shadow : 2px 2px black;
+}
+
+table.season {
+	font-size : 24px;
+	font-weight : bold;
+	width : 100%;
+	border-spacing : 0;
+}
+
+th {
+	border-top : solid 1px black;
+	border-right : solid 1px black;
+	padding : 7px;
+}
+
+th:first-child {
+	border-left : solid 1px black;
+}
+
+td {
+	border-top : 4px solid;
+	border-bottom : 4px solid;
+	border-left : 2px solid;
+	border-right : 2px solid;
+	padding : 7px;
+}
+
+td {
+	min-width : 2em;
+	text-align : center;
+}
+
+.teamName {
+	width : 75%;
+	text-align : left;
+	padding-left : 1em;
+}
+
+td .prev {
+	padding-left : 0.5em;
+	font-size : 75%;
+	vertical-align : top;
+
+}
+
+tr.BOU {
+	background-color : red;
+	color: black;
+}
+
+tr.BOU td {
+	border-color : white;
+}
+
+tr.ARS {
+	background-color : #ED1B24;
+	color: #FFFDFA;
+}
+
+tr.ARS td {
+	border-color : #9B8347;
+}
+
+tr.BUR {
+	background-color : #7f1734;
+	color: #9DBAFC;
+}
+
+tr.BUR td {
+	border-color : 	white;
+}
+
+tr.CHE {
+	background-color : rgb(14,30,125);
+	color: white;
+}
+
+tr.CHE td {
+	border-color : 	rgb(217,152,8);
+}
+
+tr.CRY {
+	background-color : blue;
+	color: red;
+}
+
+tr.CRY td {
+	border-color : 	white;
+}
+
+tr.EVE {
+	background-color : #274488;
+	color: white;
+}
+
+tr.EVE td {
+	border-color : 	#FFDF19;
+}
+
+tr.HUL {
+	background-color : #F5971D;
+	color: black;
+}
+
+tr.HUL td {
+	border-color : 	white;
+}
+
+tr.LEI {
+	background-color : #0053A0;
+	color: white;
+}
+
+tr.LEI td {
+	border-color : #FDBE11;
+}
+
+tr.LIV {
+	background-color : #D00027;
+	color: white;
+}
+
+tr.LIV td {
+	border-color : #fef667;
+}
+
+tr.MCI {
+	background-color : #6CADDF;
+	color: white;
+}
+
+tr.MCI td {
+	border-color : #4E6A93;
+}
+
+tr.MUN {
+	background-color : red;
+	color: white;
+}
+
+tr.MUN td {
+	border-color : black;
+
+}
+
+tr.MID {
+	background-color : red;
+	color: white;
+}
+
+tr.MID td {
+	border-color : blue;
+
+}
+
+tr.SOU {
+	background-color : red;
+	color: white;
+}
+
+tr.SOU td {
+	border-color : black;
+
+}
+
+tr.STO {
+	background-color : red;
+	color: white;
+}
+
+tr.STO td {
+	border-color : #1B449C;
+
+}
+
+tr.SUN {
+	background-color : red;
+	color: white;
+}
+
+tr.SUN td {
+	border-color : black;
+
+}
+
+tr.SWA {
+	background-color : white;
+	color: black;
+}
+
+tr.SWA td {
+	border-color : black;
+
+}
+
+tr.TOT {
+	background-color : white;
+	color: #0F204B;
+}
+
+tr.TOT td {
+	border-color : gold;
+}
+
+tr.WAT {
+	background-color : #FBEE23;
+	color: black;
+}
+
+tr.WAT td {
+	border-color : #ED2127;
+}
+
+tr.WBA {
+	background-color : white;
+	color: #00003A;
+}
+
+tr.WBA td {
+	border-color : #8484AA;
+}
+
+tr.WHU {
+	background-color : #7C2C3B;
+	color: white;
+}
+
+tr.WHU td {
+	border-color : #2CAFE5;
+}

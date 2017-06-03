@@ -14,7 +14,6 @@ class MyServiceWorkingTest extends TestCase
     private $smRepository;
     private $myService;
 
-
     public function setup()
     {
         $this->setMockedDependencies();

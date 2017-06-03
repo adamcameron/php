@@ -12,10 +12,10 @@ class ServiceProviderTest extends ProviderTest
     protected $sut = ServiceProvider::class;
 
     public function setup()
-	{
-		parent::setup();
-		$this->setPersonRepositoryInApplication();
-	}
+    {
+        parent::setup();
+        $this->setPersonRepositoryInApplication();
+    }
 
     /** @covers ::register */
     public function testRegister()
@@ -25,6 +25,4 @@ class ServiceProviderTest extends ProviderTest
         $this->assertArrayHasKey('service.person', $this->container);
         $this->assertInstanceOf(PersonRepository::class, $this->container['service.person']);
     }
-
-    private function set
 }
