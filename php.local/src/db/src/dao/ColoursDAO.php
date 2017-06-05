@@ -14,7 +14,7 @@ class ColoursDAO
         $this->connection = $connection;
     }
 
-    public function getColourById(int $id) : Colour
+    public function getColourById($id)
     {
         $dbColour = $this->connection->executeQuery('
             SELECT id, en, mi
@@ -29,7 +29,7 @@ class ColoursDAO
         return $colour;
     }
 
-    public function getColourByIdAndCloseConnection(int $id) : Colour
+    public function getColourByIdAndCloseConnection($id)
     {
         $colour = $this->getColourById($id);
         $this->connection->close();

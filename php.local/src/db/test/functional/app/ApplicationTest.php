@@ -6,9 +6,8 @@ namespace me\adamcameron\db\test\app;
 use Doctrine\DBAL\Connections\MasterSlaveConnection;
 use me\adamcameron\db\app\Application;
 use me\adamcameron\db\dao\ColoursDAO;
-use PHPUnit\Framework\TestCase;
 
-class ApplicationTest extends TestCase
+class ApplicationTest extends \PHPUnit_Framework_TestCase
 {
 
     private $app;

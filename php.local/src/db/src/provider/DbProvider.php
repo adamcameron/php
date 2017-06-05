@@ -2,7 +2,6 @@
 
 namespace me\adamcameron\db\provider;
 
-use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Connections\MasterSlaveConnection;
 use Doctrine\DBAL\DriverManager;
 use me\adamcameron\db\dao\ColoursDAO;
@@ -15,15 +14,15 @@ class DbProvider implements ServiceProviderInterface
 
     public function register(Container $pimple)
     {
-        $pimple['db.connection'] = function($pimple) {
+        $pimple['db.connection'] = function ($pimple) {
             return self::getMasterSlaveConnection($pimple['config.db']);
         };
-        $pimple['dao.colours'] = function($pimple) {
+        $pimple['dao.colours'] = function ($pimple) {
             return new ColoursDAO($pimple['db.connection']);
         };
     }
 
-    public static function getMasterSlaveConnection(DbConfig $dbConfig) : Connection
+    public static function getMasterSlaveConnection(DbConfig $dbConfig)
     {
         return DriverManager::getConnection([
             'wrapperClass' => MasterSlaveConnection::class,

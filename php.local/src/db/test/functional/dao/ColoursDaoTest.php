@@ -4,13 +4,14 @@ namespace me\adamcameron\db\test\functional\dao;
 
 use Doctrine\DBAL\DBALException;
 use me\adamcameron\db\model\Colour;
-use PHPUnit\Framework\TestCase;
 
-abstract class ColoursDaoTest extends TestCase
+abstract class ColoursDaoTest extends \PHPUnit_Framework_TestCase
 {
 
     protected $dao;
     protected $connection;
+
+    private static $expectedDbWaitTimeout = 20;
 
     public function testBasicConnection()
     {
@@ -30,7 +31,7 @@ abstract class ColoursDaoTest extends TestCase
         $this->assertEquals($expected, $result);
     }
 
-    public function testConnectionAfterTimeout()
+    public function testConnectionAfterDefaultTimeout()
     {
         $this->verifyDbWaitTimeout();
 
@@ -40,14 +41,12 @@ abstract class ColoursDaoTest extends TestCase
 
         sleep(25);
 
-        $this->expectException(DBALException::class);
+        $this->setExpectedException(DBALException::class);
         $this->dao->getColourById(5);
     }
 
     public function testConnectionAfterShortenedDaoTimeout()
     {
-        $this->verifyDbWaitTimeout();
-
         $timeout = 5;
         $result = $this->dao->getColourByIdWithShortenedTimeout(5, $timeout);
 
@@ -56,15 +55,13 @@ abstract class ColoursDaoTest extends TestCase
 
         sleep($timeout + 1);
 
-        $this->expectException(DBALException::class);
+        $this->setExpectedException(DBALException::class);
 
         $this->dao->getColourById(6);
     }
 
     public function testConnectionAfterShortenedTestTimeout()
     {
-        $this->verifyDbWaitTimeout();
-
         $timeout = 5;
 
         $stmt = $this->connection->prepare('SET SESSION WAIT_TIMEOUT = :timeout');
@@ -78,15 +75,13 @@ abstract class ColoursDaoTest extends TestCase
 
         sleep($timeout + 1);
 
-        $this->expectException(DBALException::class);
+        $this->setExpectedException(DBALException::class);
 
         $this->dao->getColourById(7);
     }
 
     public function testConnectionAfterShortenedTimeoutUsingClosedConnection()
     {
-        $this->verifyDbWaitTimeout();
-
         $timeout = 5;
 
         $stmt = $this->connection->prepare('SET SESSION WAIT_TIMEOUT = :timeout');
@@ -105,10 +100,14 @@ abstract class ColoursDaoTest extends TestCase
 
     private function verifyDbWaitTimeout()
     {
+        $expectedDbWaitTimeout = self::$expectedDbWaitTimeout;
+
         $currentWaitTimeout = (int) $this->connection->executeQuery('SELECT @@WAIT_TIMEOUT AS WAIT_TIMEOUT')->fetchColumn();
-        if ($currentWaitTimeout !== 20) {
-            $message = "DB timeout not set correctly for test. Expects WAIT_TIMEOUT to be 20, but found $currentWaitTimeout";
-            echo $message;
+        if ($currentWaitTimeout !== $expectedDbWaitTimeout) {
+            $message = "DB timeout not set correctly for test. Expects WAIT_TIMEOUT to be $expectedDbWaitTimeout, but found $currentWaitTimeout";
+            if (in_array('--debug', $_SERVER['argv'], true)) {
+                echo $message;
+            }
             $this->markTestSkipped($message);
         }
     }
