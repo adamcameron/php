@@ -1,0 +1,14 @@
+{
+    "driver" : "pdo_mysql",
+    "host" : "localhost",
+    "port" : 3306,
+    "dbname" : "scratch",
+    "master" : {
+        "username" : "scratch",
+        "password" : "scratch"
+    },
+    "slave" : {
+        "username" : "scratch_slave",
+        "password" : "scratch_slave"
+    }
+}
