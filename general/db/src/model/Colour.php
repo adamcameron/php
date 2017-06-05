@@ -8,7 +8,7 @@ class Colour
     public $en;
     public $mi;
 
-    public function __construct(int $id, string $en, string $mi)
+    public function __construct($id, $en, $mi)
     {
         $this->id = $id;
         $this->en = $en;

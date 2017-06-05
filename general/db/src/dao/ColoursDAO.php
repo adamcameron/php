@@ -37,7 +37,7 @@ class ColoursDAO
         return $colour;
     }
 
-    public function getColourByIdWithShortenedTimeout(int $id, int $timeout) : Colour
+    public function getColourByIdWithShortenedTimeout($id, $timeout)
     {
         $stmt = $this->connection->prepare('SET SESSION WAIT_TIMEOUT = :timeout');
         $stmt->bindValue("timeout", $timeout, \PDO::PARAM_INT);
