@@ -1,4 +1,4 @@
-<phpunit bootstrap="test/bootstrap.php"
+<phpunit bootstrap="./autoload.php"
          beStrictAboutTestsThatDoNotTestAnything="true"
          beStrictAboutChangesToGlobalState="true"
          checkForUnintentionallyCoveredCode="false"
@@ -21,9 +21,4 @@
             <directory suffix=".php">src</directory>
         </whitelist>
     </filter>
-    <groups>
-        <exclude>
-            <group>connectionStatusTests</group>
-        </exclude>
-    </groups>
 </phpunit>

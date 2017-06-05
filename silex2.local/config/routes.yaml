@@ -1,0 +1,4 @@
+_homeRoute:
+    path:       /
+    defaults:   { _controller: 'controller.home:doGet'}
+    methods:    GET

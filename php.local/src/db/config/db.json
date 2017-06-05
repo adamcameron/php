@@ -1,14 +1,16 @@
 {
-    "driver" : "pdo_mysql",
-    "host" : "localhost",
-    "port" : 3306,
-    "dbname" : "scratch",
     "master" : {
-        "username" : "scratch",
-        "password" : "scratch"
+        "host" : "master.db",
+        "port" : 3306,
+        "user" : "scratch_master",
+        "password" : "scratch_master",
+        "dbname" : "scratch"
     },
     "slave" : {
-        "username" : "scratch_slave",
-        "password" : "scratch_slave"
+        "host" : "slave.db",
+        "port" : 3306,
+        "user" : "scratch_slave",
+        "password" : "scratch_slave",
+        "dbname" : "scratch"
     }
 }

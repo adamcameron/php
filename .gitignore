@@ -4,6 +4,7 @@
 **/reveal.js/**
 **/__pycache__/**
 **/vendor/**
+codecoverage
 **/composer.lock
 **/*.sublime-*
 wri.local
