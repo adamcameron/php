@@ -1,5 +1,12 @@
 {
 	"debug" : true,
 	"TEST_CONFIG_VALUE" : true,
-	"env" : "test"
+	"env" : "test",
+	"db" : {
+		"host" : "localhost",
+		"port" : "3306",
+		"database" : "scratch",
+		"login" : "scratch",
+		"password" : "scratch"
+	}
 }

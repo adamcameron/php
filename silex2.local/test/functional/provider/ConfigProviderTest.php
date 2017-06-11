@@ -21,6 +21,7 @@ class ConfigProviderTest extends TestCase
     /** @covers ::register */
     public function testRegister()
     {
+        putenv('deployment_environment=test');
         $this->provider->register($this->container);
         $this->assertArrayHasKey('TEST_CONFIG_VALUE', $this->container);
         $this->assertSame(true, $this->container['TEST_CONFIG_VALUE']);

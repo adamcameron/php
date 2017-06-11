@@ -2,48 +2,40 @@
 
 namespace me\adamcameron\silex2\test\acceptance;
 
+use me\adamcameron\silex2\app\Application;
 use PHPUnit\Framework\TestCase;
+use Silex\WebTestCase;
 use Symfony\Component\HttpFoundation\Response;
 
-class PageTest extends TestCase
+class PageTest extends WebTestCase
 {
+
+    public function createApplication()
+    {
+        return new Application([]);
+    }
 
     public function testHomePage()
     {
-        $this->markAsRisky(); //relies on hard coded environment. TODO: replace
+        $client = $this->createClient();
+        $crawler = $client->request('GET', '/');
 
-        $ch = curl_init();
-        curl_setopt_array($ch, [
-            CURLOPT_URL => 'http://silex2.local/',
-            CURLOPT_RETURNTRANSFER => true
-        ]);
-        $content = curl_exec($ch);
-        $info = curl_getinfo($ch);
-        $code = $info['http_code'];
-
-        $this->assertSame(Response::HTTP_OK, $code);
-        $this->assertContains('This is the Home Page', $content);
+        $this->assertTrue($client->getResponse()->isOk());
+        $this->assertCount(1, $crawler->filter('body:contains("This is the Home Page")'));
     }
 
     public function testNumberByIdAndLanguagePage()
     {
-        $this->markAsRisky(); //relies on hard coded environment. TODO: replace
+        $client = $this->createClient();
+        $client->request('GET', '/number/1/lang/mi');
 
-        $ch = curl_init();
-        curl_setopt_array($ch, [
-            CURLOPT_URL => 'http://silex2.local/number/1/lang/mi',
-            CURLOPT_RETURNTRANSFER => true
-        ]);
-        $content = curl_exec($ch);
-        $info = curl_getinfo($ch);
-        $code = $info['http_code'];
+        $response = $client->getResponse();
 
-        $this->assertSame(Response::HTTP_OK, $code);
-        $result = json_decode($content);
+        $this->assertTrue($response->isOk());
+        $result = json_decode($response->getContent());
         $expected = (object) [
             'id' => 1,
-            'lang' => 'mi',
-            'number' => 'PLACEHOLDER'
+            'name' => 'TAHI'
         ];
         $this->assertEquals($expected, $result);
     }

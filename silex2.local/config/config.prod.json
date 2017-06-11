@@ -1,4 +1,11 @@
 {
     "debug" : false,
-    "env" : "prod"
+    "env" : "prod",
+    "db" : {
+        "host" : "localhost",
+        "port" : "3306",
+        "database" : "scratch",
+        "login" : "scratch",
+        "password" : "scratch"
+    }
 }

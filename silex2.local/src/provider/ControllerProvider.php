@@ -17,8 +17,8 @@ class ControllerProvider implements ServiceProviderInterface
             return new HomeController($container['twig']);
         };
 
-        $container['controller.number'] = function () {
-            return new NumberController();
+        $container['controller.number'] = function ($container) {
+            return new NumberController($container['repository.number']);
         };
     }
 }

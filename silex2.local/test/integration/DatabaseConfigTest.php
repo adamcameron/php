@@ -12,7 +12,6 @@ class DatabaseConfigTest extends TestCase
 
     public function setup()
     {
-        putenv('deployment_environment=dev');
         $container = new Container();
         $provider = new ConfigProvider();
         $provider->register($container);

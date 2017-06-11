@@ -28,6 +28,7 @@ class ApplicationTest extends TestCase
      */
     public function testConfigIsSet()
     {
+        putenv('deployment_environment=test');
         $app = new Application([]);
 
         $this->assertArrayHasKey('env', $app);
