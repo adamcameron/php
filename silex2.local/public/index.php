@@ -1,3 +1,3 @@
 <?php
 
-require realpath(__DIR__ . '/../src/app/bootstrap.php');
+require __DIR__ . '/../src/app/bootstrap.php';

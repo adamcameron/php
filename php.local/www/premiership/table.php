@@ -11,7 +11,7 @@
 <h1>Zachary’s Hand-Football Premiership Points Table 2017</h1>
 <table class="season">
     <thead>
-    <tr><th>&nbsp;</th><th>Pos</th><th class="teamName">Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th></tr>
+    <tr><th>&nbsp;</th><th>Pos</th><th class="teamName">Club</th><th>Pl</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th></tr>
     </thead>
     <tbody>
     <?php

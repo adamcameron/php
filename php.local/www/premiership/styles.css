@@ -26,7 +26,10 @@ td {
 	border-bottom : 4px solid;
 	border-left : 2px solid;
 	border-right : 2px solid;
-	padding : 7px;
+	padding-left : 7px;
+	padding-right : 7px;
+	padding-top: 10px;
+	padding-bottom: 4px;
 }
 
 td {
@@ -35,7 +38,7 @@ td {
 }
 
 .teamName {
-	width : 30%;
+	width : 40%;
 	text-align : left;
 	padding-left : 1em;
 }
@@ -47,7 +50,7 @@ td .prev {
 }
 
 td.changeUp, td.changeDown, td.changeSame {
-	border: 0px;
+	border: 1px solid black;
 	background-color: white;
 	color : black;
 	background-repeat : no-repeat;
@@ -63,7 +66,7 @@ td.changeDown {
 }
 
 td.changeSame {
-	background-image: url("./same.png");
+	background-image: url("./same_dot.png");
 }
 
 tr.BOU {
