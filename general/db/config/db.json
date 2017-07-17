@@ -1,0 +1,16 @@
+{
+    "master" : {
+        "host" : "master.db",
+        "port" : 3306,
+        "user" : "scratch_master",
+        "password" : "scratch_master",
+        "dbname" : "scratch"
+    },
+    "slave" : {
+        "host" : "slave.db",
+        "port" : 3306,
+        "user" : "scratch_slave",
+        "password" : "scratch_slave",
+        "dbname" : "scratch"
+    }
+}

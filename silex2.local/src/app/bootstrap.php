@@ -2,7 +2,8 @@
 
 namespace me\adamcameron\silex2\app;
 
-require realpath(__DIR__ . '/../../vendor/autoload.php');
+require __DIR__ . '/../../vendor/autoload.php';
 
-$app = new Application([]);
+$app = new Application(['debug' => false]);
+$app['debug'] = true;
 $app->run();

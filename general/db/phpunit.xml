@@ -1,0 +1,24 @@
+<phpunit bootstrap="./autoload.php"
+         beStrictAboutTestsThatDoNotTestAnything="true"
+         beStrictAboutChangesToGlobalState="true"
+         checkForUnintentionallyCoveredCode="false"
+         forceCoversAnnotation="true"
+         stopOnRisky="false"
+         backupGlobals="false">
+    <testsuites>
+        <testsuite name="Unit Tests">
+            <directory>./test/unit</directory>
+        </testsuite>
+        <testsuite name="Integration Tests">
+            <directory>./test/integration</directory>
+        </testsuite>
+        <testsuite name="Functional Tests">
+            <directory>./test/functional</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src</directory>
+        </whitelist>
+    </filter>
+</phpunit>
