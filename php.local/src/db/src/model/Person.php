@@ -2,7 +2,7 @@
 
 namespace me\adamcameron\db\model;
 
-class Name
+class Person
 {
     public $id;
     public $firstName;

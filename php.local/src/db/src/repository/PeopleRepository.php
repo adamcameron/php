@@ -3,7 +3,7 @@
 namespace me\adamcameron\db\repository;
 
 use me\adamcameron\db\dao\PeopleDAO;
-use me\adamcameron\db\model\Name;
+use me\adamcameron\db\model\Person;
 
 class PeopleRepository
 {
@@ -21,7 +21,7 @@ class PeopleRepository
 
         $names = [];
         foreach ($rawNames as $name => $details) {
-            $names[] = new Name($details['id'], $name, $details['rank'], $details['gender']);
+            $names[] = new Person($details['id'], $name, $details['rank'], $details['gender']);
         }
         return $names;
     }

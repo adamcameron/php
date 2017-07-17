@@ -4,6 +4,7 @@ namespace me\adamcameron\db\test\unit\repository;
 
 use me\adamcameron\db\dao\PeopleDAO;
 use me\adamcameron\db\model\Name;
+use me\adamcameron\db\model\Person;
 use me\adamcameron\db\repository\PeopleRepository;
 use PHPUnit\Framework\TestCase;
 
@@ -35,21 +36,21 @@ class PeopleRepositoryTest extends TestCase
             ->willReturn($data);
 
         $testLetter = 'a';
-        $names = $this->repo->getNameByFirstChar($testLetter);
+        $people = $this->repo->getNameByFirstChar($testLetter);
 
-        $this->assertCount(count($data), $names);
+        $this->assertCount(count($data), $people);
 
         reset($data);
 
-        /** @var $name Name */
-        foreach ($names as $i =>  $name) {
-            $this->assertInstanceOf(Name::class, $name);
+        /** @var $person Person */
+        foreach ($people as $i =>  $person) {
+            $this->assertInstanceOf(Person::class, $person);
 
-            $this->assertSame(key($data), $name->firstName);
+            $this->assertSame(key($data), $person->firstName);
             $row = current($data);
-            $this->assertSame($row['id'], $name->id);
-            $this->assertSame($row['rank'], $name->rank);
-            $this->assertSame($row['gender'], $name->gender);
+            $this->assertSame($row['id'], $person->id);
+            $this->assertSame($row['rank'], $person->rank);
+            $this->assertSame($row['gender'], $person->gender);
             next($data);
         }
     }
