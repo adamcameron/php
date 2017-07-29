@@ -1,7 +1,7 @@
 <?php
 
-use \me\adamcameron\testApp\GuzzleAdapter;
-use \me\adamcameron\testApp\StatusToExceptionAdapterOld;
+use \me\adamcameron\general\testApp\GuzzleAdapter;
+use \me\adamcameron\general\testApp\StatusToExceptionAdapterOld;
 
 require_once __DIR__ . "/../../vendor/autoload.php";
 

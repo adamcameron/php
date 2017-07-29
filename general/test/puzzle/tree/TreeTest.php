@@ -1,8 +1,8 @@
 <?php
 
-namespace test\puzzle;
+namespace me\adamcameron\general\test\puzzle\tree;
 
-use puzzle\Tree;
+use me\adamcameron\general\puzzle\tree\Tree;
 
 /** @coversDefaultClass \puzzle\Tree */
 class TreeTest extends \PHPUnit_Framework_TestCase {

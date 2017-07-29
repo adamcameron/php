@@ -1,8 +1,8 @@
 <?php
 
-namespace me\adamcameron\cor\repository;
+namespace me\adamcameron\general\chainOfResponsibility\repository;
 
-use me\adamcameron\cor\service\LoggingService;
+use me\adamcameron\general\chainOfResponsibility\service\LoggingService;
 
 class PersonRepository {
 

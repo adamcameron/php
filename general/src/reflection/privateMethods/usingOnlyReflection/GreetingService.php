@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\reflection\privateMethods\usingOnlyReflection;
+namespace me\adamcameron\general\reflection\privateMethods\usingOnlyReflection;
 
 class GreetingService {
 

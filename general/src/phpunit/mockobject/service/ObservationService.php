@@ -1,8 +1,8 @@
 <?php
 
-namespace me\adamcameron\phpunit\mockobject\service;
+namespace me\adamcameron\general\phpunit\mockobject\service;
 
-use me\adamcameron\phpunit\mockobject\repository\ObservedRepository;
+use me\adamcameron\general\phpunit\mockobject\repository\ObservedRepository;
 
 class ObservationService
 {

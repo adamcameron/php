@@ -1,6 +1,6 @@
 <?php
 
-use me\adamcameron\myApp\MyService;
+use me\adamcameron\general\myApp\MyService;
 
 require_once __DIR__ . '/../autoload.php';
 

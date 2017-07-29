@@ -1,8 +1,8 @@
 <?php
 
-use \me\adamcameron\testApp\GuzzleAdapter;
-use \me\adamcameron\testApp\LoggedGuzzleAdapter;
-use \me\adamcameron\testApp\service\LoggingService;
+use \me\adamcameron\general\testApp\GuzzleAdapter;
+use \me\adamcameron\general\testApp\LoggedGuzzleAdapter;
+use \me\adamcameron\general\testApp\service\LoggingService;
 
 require_once __DIR__ . "/../../vendor/autoload.php";
 

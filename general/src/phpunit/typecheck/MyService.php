@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\phpunit\typecheck;
+namespace me\adamcameron\general\phpunit\typecheck;
 
 class MyService {
 

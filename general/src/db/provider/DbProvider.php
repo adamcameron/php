@@ -1,11 +1,11 @@
 <?php
 
-namespace me\adamcameron\db\provider;
+namespace me\adamcameron\general\db\provider;
 
 use Doctrine\DBAL\Connections\MasterSlaveConnection;
 use Doctrine\DBAL\DriverManager;
-use me\adamcameron\db\dao\ColoursDAO;
-use me\adamcameron\db\model\DbConfig;
+use me\adamcameron\general\db\dao\ColoursDAO;
+use me\adamcameron\general\db\model\DbConfig;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 

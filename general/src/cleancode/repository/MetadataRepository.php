@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\cleancode\repository;
+namespace me\adamcameron\general\cleancode\repository;
 
 class MetadataRepository
 {

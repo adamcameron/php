@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\reflectionTest;
+namespace me\adamcameron\general\reflection;
 
 interface SomeBehaviour {
 	function myMethod(string $myArg) : \stdClass;

@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\phpunit\mockobject\repository;
+namespace me\adamcameron\general\phpunit\mockobject\repository;
 
 class SomeRepository
 {

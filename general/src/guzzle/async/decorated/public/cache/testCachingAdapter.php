@@ -1,8 +1,8 @@
 <?php
 
-use \me\adamcameron\testApp\GuzzleAdapter;
-use \me\adamcameron\testApp\CachingGuzzleAdapter;
-use \me\adamcameron\testApp\service\CachingService;
+use \me\adamcameron\general\testApp\GuzzleAdapter;
+use \me\adamcameron\general\testApp\CachingGuzzleAdapter;
+use \me\adamcameron\general\testApp\service\CachingService;
 
 require_once __DIR__ . "/../../vendor/autoload.php";
 

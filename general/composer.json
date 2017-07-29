@@ -2,7 +2,8 @@
 	"autoload" : {
 		"psr-4" : {
 			"me\\adamcameron\\general\\" : "src/",
-			"me\\adamcameron\\generat\\test\\" : "test/"
+			"me\\adamcameron\\generat\\test\\" : "test/",
+			"com\\example\\other" : "src/oo/classConstant/other/"
 		}
 	},
 	 "require" : {

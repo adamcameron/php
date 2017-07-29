@@ -1,7 +1,7 @@
 <?php
-namespace me\adamcameron\silexApp\provider;
+namespace me\adamcameron\general\silexApp\provider;
 
-use me\adamcameron\silexApp\controller\HelloController;
+use me\adamcameron\general\silexApp\controller\HelloController;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use Silex\Provider\ServiceControllerServiceProvider;

@@ -1,5 +1,6 @@
 <?php
-	private function setTranslator($translator, $app)
+
+	function setTranslator($translator, $app)
 	{
 $translator->setLocale($app['locales_current']);
 

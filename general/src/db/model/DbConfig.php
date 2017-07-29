@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\db\model;
+namespace me\adamcameron\general\db\model;
 
 class DbConfig
 {

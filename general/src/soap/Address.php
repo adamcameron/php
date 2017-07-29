@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\accounts;
+namespace me\adamcameron\geneal\soap;
 
 class Address {
 
@@ -17,9 +17,9 @@ class Address {
 	}
 	
 	function getMailingAddress(){
-		return "${this.localPart}" . PHP_EOL
-		. "${this.country}" . PHP_EOL
-		. "${this.postcode}" . PHP_EOL;
+		return "{$this->localPart}" . PHP_EOL
+		. "{$this->country}" . PHP_EOL
+		. "{$this->postcode}" . PHP_EOL;
 	}
 	
 	static function createFromXml($xml){

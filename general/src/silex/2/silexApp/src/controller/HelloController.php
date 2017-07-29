@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\silexApp\controller;
+namespace me\adamcameron\general\silexApp\controller;
 
 class HelloController
 {

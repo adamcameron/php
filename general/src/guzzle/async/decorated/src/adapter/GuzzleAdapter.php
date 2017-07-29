@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\testApp\adapter;
+namespace me\adamcameron\general\testApp\adapter;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise\Promise;

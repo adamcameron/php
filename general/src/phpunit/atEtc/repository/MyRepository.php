@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\phpunit\atEtc\repository;
+namespace me\adamcameron\general\phpunit\atEtc\repository;
 
 class MyRepository {
 

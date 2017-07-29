@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\cor\service;
+namespace me\adamcameron\general\chainOfResponsibility\service;
 
 class LoggingService {
 

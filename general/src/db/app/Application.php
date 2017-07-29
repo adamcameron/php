@@ -1,9 +1,9 @@
 <?php
 
-namespace me\adamcameron\db\app;
+namespace me\adamcameron\general\db\app;
 
-use me\adamcameron\db\provider\ConfigProvider;
-use me\adamcameron\db\provider\DbProvider;
+use me\adamcameron\general\db\provider\ConfigProvider;
+use me\adamcameron\general\db\provider\DbProvider;
 use Silex\Application as SilexApplication;
 
 class Application extends SilexApplication

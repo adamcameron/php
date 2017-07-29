@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\reflection\privateMethods\usingPhpUnit;
+namespace me\adamcameron\general\reflection\privateMethods\usingPhpUnit;
 
 /**
  * @coversDefaultClass \me\adamcameron\reflection\privateMethods\usingPhpUnit\GreetingService

@@ -1,6 +1,6 @@
 <?php
 
-use me\adamcameron\cor\factory\PersonServiceFactory;
+use me\adamcameron\general\chainOfResponsibility\factory\PersonServiceFactory;
 
 require_once realpath(__DIR__ . '/../vendor/autoload.php');
 

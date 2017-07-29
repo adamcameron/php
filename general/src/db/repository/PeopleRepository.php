@@ -1,9 +1,9 @@
 <?php
 
-namespace me\adamcameron\db\repository;
+namespace me\adamcameron\general\db\repository;
 
-use me\adamcameron\db\dao\PeopleDAO;
-use me\adamcameron\db\model\Person;
+use me\adamcameron\general\db\dao\PeopleDAO;
+use me\adamcameron\general\db\model\Person;
 
 class PeopleRepository
 {

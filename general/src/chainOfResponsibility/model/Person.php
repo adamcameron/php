@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\cor\model;
+namespace me\adamcameron\general\chainOfResponsibility\model;
 
 class Person {
 

@@ -1,7 +1,7 @@
 <?php
 
-use \me\adamcameron\testApp\GuzzleAdapter;
-use \me\adamcameron\testApp\StatusToExceptionAdapter;
+use \me\adamcameron\general\testApp\GuzzleAdapter;
+use \me\adamcameron\general\testApp\StatusToExceptionAdapter;
 use \React\Promise\Promise;
 
 require_once __DIR__ . "/../../vendor/autoload.php";

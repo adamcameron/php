@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\accounts;
+namespace me\adamcameron\general\soap;
 
 class Account {
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\test;
+namespace me\adamcameron\general\reflection;
 
 class MyClass{
 

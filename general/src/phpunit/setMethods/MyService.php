@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\phpunit\setMethods;
+namespace me\adamcameron\general\phpunit\setMethods;
 
 class MyService
 {

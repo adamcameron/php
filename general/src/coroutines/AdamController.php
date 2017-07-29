@@ -1,6 +1,6 @@
 <?php
 
-namespace wri\bookingEngines\controller;
+namespace me\adamcameron\general\coroutines;
 
 use Icicle\Coroutine\Coroutine;
 use Icicle\Loop;

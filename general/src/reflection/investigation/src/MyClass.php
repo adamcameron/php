@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\reflection\investigation;
+namespace me\adamcameron\general\reflection\investigation;
 
 /** annotation on class */
 class MyClass extends MyBaseClass implements SomeBehaviour {

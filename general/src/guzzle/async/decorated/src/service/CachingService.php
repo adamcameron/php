@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\testApp\service;
+namespace me\adamcameron\general\testApp\service;
 
 class CachingService {
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\cor\handler;
+namespace me\adamcameron\general\chainOfResponsibility\handler;
 
 abstract class PersonRetrievalHandler implements Handler {
 

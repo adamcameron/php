@@ -1,9 +1,9 @@
 <?php
 
-namespace me\adamcameron\db\dao;
+namespace me\adamcameron\general\db\dao;
 
 use Doctrine\DBAL\Connection;
-use me\adamcameron\db\model\Colour;
+use me\adamcameron\general\db\model\Colour;
 
 class ColoursDAO
 {

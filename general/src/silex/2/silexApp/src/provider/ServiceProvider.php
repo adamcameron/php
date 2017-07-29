@@ -1,7 +1,7 @@
 <?php
-namespace me\adamcameron\silexApp\provider;
+namespace me\adamcameron\general\silexApp\provider;
 
-use me\adamcameron\silexApp\service\RouteService;
+use me\adamcameron\general\silexApp\service\RouteService;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 

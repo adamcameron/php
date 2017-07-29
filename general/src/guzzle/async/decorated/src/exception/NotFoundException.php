@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\testApp\exception;
+namespace me\adamcameron\general\testApp\exception;
 
 class NotFoundException extends \Exception {
 

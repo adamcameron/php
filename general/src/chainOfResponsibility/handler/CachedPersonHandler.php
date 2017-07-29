@@ -1,8 +1,8 @@
 <?php
 
-namespace me\adamcameron\cor\handler;
+namespace me\adamcameron\general\chainOfResponsibility\handler;
 
-use me\adamcameron\cor\service\CacheService;
+use me\adamcameron\general\chainOfResponsibility\service\CacheService;
 
 class CachedPersonHandler extends PersonRetrievalHandler {
 

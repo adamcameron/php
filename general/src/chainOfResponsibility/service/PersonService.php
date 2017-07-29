@@ -1,9 +1,9 @@
 <?php
 
-namespace me\adamcameron\cor\service;
+namespace me\adamcameron\general\chainOfResponsibility\service;
 
-use me\adamcameron\cor\handler\PersonRetrievalHandler;
-use me\adamcameron\cor\model\Person;
+use me\adamcameron\general\chainOfResponsibility\handler\PersonRetrievalHandler;
+use me\adamcameron\general\chainOfResponsibility\model\Person;
 
 class PersonService {
 

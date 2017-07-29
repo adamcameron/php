@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\phpunit\atEtc\service;
+namespace me\adamcameron\general\phpunit\atEtc\service;
 
 class MyService {
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\phpunit\callLog;
+namespace me\adamcameron\general\phpunit\callLog;
 
 class MyLogger
 {

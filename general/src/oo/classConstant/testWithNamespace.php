@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\cc;
+namespace me\adamcameron\general\oo\classConstant;
 
 use com\example\other\SomeClassToAlias as AliasedClass;
 use com\example\other\SomeClassToAlias;

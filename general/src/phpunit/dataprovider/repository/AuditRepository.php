@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\phpunit\dataprovider\repository;
+namespace me\adamcameron\general\phpunit\dataprovider\repository;
 
 class AuditRepository
 {

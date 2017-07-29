@@ -1,8 +1,8 @@
 <?php
 
-namespace me\adamcameron\puzzle\test;
+namespace me\adamcameron\general\puzzle\test;
 
-use me\adamcameron\puzzle\Puzzle;
+use me\adamcameron\general\puzzle\Puzzle;
 use PHPUnit\Framework\TestCase;
 
 /** @coversDefaultClass \me\adamcameron\puzzle\Puzzle */

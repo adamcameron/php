@@ -1,9 +1,9 @@
 <?php
 
-namespace me\adamcameron\testApp\repository;
+namespace me\adamcameron\general\testApp\repository;
 
 use GuzzleHttp\Promise\Promise;
-use me\adamcameron\testApp\adapter\Adapter;
+use me\adamcameron\general\testApp\adapter\Adapter;
 
 class PersonRepository {
 

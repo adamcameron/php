@@ -2,12 +2,12 @@
 
 namespace me\adamcameron\cor;
 
-use me\adamcameron\cor\handler\CacheablePersonHandler;
-use me\adamcameron\cor\handler\DatabasePersonHandler;
-use me\adamcameron\cor\repository\PersonRepository;
-use me\adamcameron\cor\service\CacheService;
-use me\adamcameron\cor\service\LoggingService;
-use me\adamcameron\cor\service\PersonService;
+use me\adamcameron\general\chainOfResponsibility\handler\CacheablePersonHandler;
+use me\adamcameron\general\chainOfResponsibility\handler\DatabasePersonHandler;
+use me\adamcameron\general\chainOfResponsibility\repository\PersonRepository;
+use me\adamcameron\general\chainOfResponsibility\service\CacheService;
+use me\adamcameron\general\chainOfResponsibility\service\LoggingService;
+use me\adamcameron\general\chainOfResponsibility\service\PersonService;
 
 require_once realpath(__DIR__ . '/../vendor/autoload.php');
 

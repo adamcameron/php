@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\silexApp\app;
+namespace me\adamcameron\general\silexApp\app;
 
 require realpath(__DIR__ . '/../../vendor/autoload.php');
 

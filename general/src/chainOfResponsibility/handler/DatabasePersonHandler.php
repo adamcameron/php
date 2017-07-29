@@ -1,8 +1,8 @@
 <?php
 
-namespace me\adamcameron\cor\handler;
+namespace me\adamcameron\general\chainOfResponsibility\handler;
 
-use me\adamcameron\cor\repository\PersonRepository;
+use me\adamcameron\general\chainOfResponsibility\repository\PersonRepository;
 
 class DatabasePersonHandler extends PersonRetrievalHandler {
 

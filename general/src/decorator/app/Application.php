@@ -1,5 +1,5 @@
 <?php
-namespace me\adamcameron\decorator\app;
+namespace me\adamcameron\general\decorator\app;
 
 class Application extends \Silex\Application {
 

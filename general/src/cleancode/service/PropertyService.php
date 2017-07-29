@@ -1,13 +1,13 @@
 <?php
 
-namespace me\adamcameron\cleancode\service;
+namespace me\adamcameron\general\cleancode\service;
 
-use me\adamcameron\cleancode\repository\MediaRepository;
-use me\adamcameron\cleancode\repository\MetadataRepository;
-use me\adamcameron\cleancode\repository\PersonnelRepository;
-use me\adamcameron\cleancode\repository\PropertyRepository;
-use me\adamcameron\cleancode\repository\SocialRepository;
-use me\adamcameron\cleancode\repository\AvailabilityRepository;
+use me\adamcameron\general\cleancode\repository\MediaRepository;
+use me\adamcameron\general\cleancode\repository\MetadataRepository;
+use me\adamcameron\general\cleancode\repository\PersonnelRepository;
+use me\adamcameron\general\cleancode\repository\PropertyRepository;
+use me\adamcameron\general\cleancode\repository\SocialRepository;
+use me\adamcameron\general\cleancode\repository\AvailabilityRepository;
 
 class PropertyService
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\accounts;
+namespace me\adamcameron\geneal\soap;
 
 require __DIR__ . '/model.php';
 
@@ -12,23 +12,23 @@ $options = [
 	'typemap' => [[
 		'type_ns' => 'http://accounts.adamcameron.me',
 		'type_name' => 'Address',
-		'from_xml' => ['\me\adamcameron\accounts\Address', 'createFromXml']
+		'from_xml' => ['\me\adamcameron\geneal\soap\Address', 'createFromXml']
 	],[
 		'type_ns' => 'http://accounts.adamcameron.me',
 		'type_name' => 'Account',
-		'from_xml' => ['\me\adamcameron\accounts\Account', 'createFromXml']
+		'from_xml' => ['\me\adamcameron\geneal\soap\Account', 'createFromXml']
 	],[
 		'type_ns' => 'http://accounts.adamcameron.me',
 		'type_name' => 'Product',
-		'from_xml' => ['\me\adamcameron\accounts\Product', 'createFromXml']
+		'from_xml' => ['\me\adamcameron\geneal\soap\Product', 'createFromXml']
 	],[
 		'type_ns' => 'http://accounts.adamcameron.me',
 		'type_name' => 'InvoiceLine',
-		'from_xml' => ['\me\adamcameron\accounts\InvoiceLine', 'createFromXml']
+		'from_xml' => ['\me\adamcameron\geneal\soap\InvoiceLine', 'createFromXml']
 	],[
 		'type_ns' => 'http://accounts.adamcameron.me',
 		'type_name' => 'Invoice',
-		'from_xml' => ['\me\adamcameron\accounts\Invoice', 'createFromXml']
+		'from_xml' => ['\me\adamcameron\geneal\soap\Invoice', 'createFromXml']
 	]]
 ];
 

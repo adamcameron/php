@@ -1,6 +1,6 @@
 <?php
 
-namespace puzzle;
+namespace me\adamcameron\general\puzzle\tree;
 
 class Tree implements \JsonSerializable {
 

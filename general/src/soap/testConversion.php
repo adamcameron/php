@@ -1,5 +1,5 @@
 <?php
-namespace me\adamcameron\accounts;
+namespace me\adamcameron\geneal\soap;
 
 require __DIR__ . '/model.php';
 

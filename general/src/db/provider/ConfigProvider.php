@@ -1,8 +1,8 @@
 <?php
 
-namespace me\adamcameron\db\provider;
+namespace me\adamcameron\general\db\provider;
 
-use me\adamcameron\db\model\DbConfig;
+use me\adamcameron\general\db\model\DbConfig;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 

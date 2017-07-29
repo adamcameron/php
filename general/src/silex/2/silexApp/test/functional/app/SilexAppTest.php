@@ -1,8 +1,8 @@
 <?php
 
-namespace me\adamcameron\silexApp\test\functional\app;
+namespace me\adamcameron\general\silexApp\test\functional\app;
 
-use me\adamcameron\silexApp\app\SilexApp;
+use me\adamcameron\general\silexApp\app\SilexApp;
 use Silex\WebTestCase;
 
 class SilexAppTest extends WebTestCase

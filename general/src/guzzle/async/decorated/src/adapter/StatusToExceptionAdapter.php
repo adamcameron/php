@@ -1,10 +1,10 @@
 <?php
 
-namespace me\adamcameron\testApp\adapter;
+namespace me\adamcameron\general\testApp\adapter;
 
 use GuzzleHttp\Promise\Promise;
 use GuzzleHttp\Psr7\Response;
-use me\adamcameron\testApp\service\LoggingService;
+use me\adamcameron\general\testApp\service\LoggingService;
 
 class StatusToExceptionAdapter implements Adapter
 {

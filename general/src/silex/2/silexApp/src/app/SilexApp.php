@@ -1,9 +1,9 @@
 <?php
 
-namespace me\adamcameron\silexApp\app;
+namespace me\adamcameron\general\silexApp\app;
 
-use me\adamcameron\silexApp\provider\ControllerProvider;
-use me\adamcameron\silexApp\provider\ServiceProvider;
+use me\adamcameron\general\silexApp\provider\ControllerProvider;
+use me\adamcameron\general\silexApp\provider\ServiceProvider;
 use Silex\Application;
 
 class SilexApp extends Application

@@ -1,6 +1,6 @@
 <?php
 
-namespace me\adamcameron\silexApp\service;
+namespace me\adamcameron\general\silexApp\service;
 
 use Silex\Application;
 use Symfony\Component\Config\FileLocator;

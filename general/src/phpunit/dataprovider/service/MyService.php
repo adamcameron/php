@@ -1,10 +1,10 @@
 <?php
 
-namespace me\adamcameron\phpunit\dataprovider\service;
+namespace me\adamcameron\general\phpunit\dataprovider\service;
 
-use me\adamcameron\phpunit\dataprovider\repository\AuditRepository;
-use me\adamcameron\phpunit\dataprovider\repository\DatabaseRepository;
-use me\adamcameron\phpunit\dataprovider\repository\SocialMediaRepository;
+use me\adamcameron\general\phpunit\dataprovider\repository\AuditRepository;
+use me\adamcameron\general\phpunit\dataprovider\repository\DatabaseRepository;
+use me\adamcameron\general\phpunit\dataprovider\repository\SocialMediaRepository;
 
 class MyService
 {

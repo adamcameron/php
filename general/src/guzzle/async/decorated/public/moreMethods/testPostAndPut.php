@@ -1,13 +1,13 @@
 <?php
 
-use \me\adamcameron\testApp\repository\PersonRepository;
-use \me\adamcameron\testApp\adapter\Adapter;
-use \me\adamcameron\testApp\adapter\GuzzleAdapter;
-use \me\adamcameron\testApp\adapter\LoggingAdapter;
-use \me\adamcameron\testApp\adapter\StatusToExceptionAdapter;
-use \me\adamcameron\testApp\adapter\CachingAdapter;
-use \me\adamcameron\testApp\service\LoggingService;
-use \me\adamcameron\testApp\service\CachingService;
+use \me\adamcameron\general\testApp\repository\PersonRepository;
+use \me\adamcameron\general\testApp\adapter\Adapter;
+use \me\adamcameron\general\testApp\adapter\GuzzleAdapter;
+use \me\adamcameron\general\testApp\adapter\LoggingAdapter;
+use \me\adamcameron\general\testApp\adapter\StatusToExceptionAdapter;
+use \me\adamcameron\general\testApp\adapter\CachingAdapter;
+use \me\adamcameron\general\testApp\service\LoggingService;
+use \me\adamcameron\general\testApp\service\CachingService;
 
 require_once __DIR__ . "/../../vendor/autoload.php";
 
