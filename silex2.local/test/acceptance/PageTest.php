@@ -3,9 +3,7 @@
 namespace me\adamcameron\silex2\test\acceptance;
 
 use me\adamcameron\silex2\app\Application;
-use PHPUnit\Framework\TestCase;
 use Silex\WebTestCase;
-use Symfony\Component\HttpFoundation\Response;
 
 class PageTest extends WebTestCase
 {
