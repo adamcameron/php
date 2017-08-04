@@ -1,0 +1,4 @@
+suites:
+    fizzBuzzChallenge_suite:
+        namespace: me\adamcameron\fizzBuzzChallenge
+        psr4_prefix: me\adamcameron\fizzBuzzChallenge

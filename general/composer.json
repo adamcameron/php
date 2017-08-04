@@ -1,0 +1,19 @@
+{
+	"autoload" : {
+		"psr-4" : {
+			"me\\adamcameron\\general\\" : "src/",
+			"me\\adamcameron\\generat\\test\\" : "test/",
+			"com\\example\\other" : "src/oo/classConstant/other/"
+		}
+	},
+	 "require" : {
+        "silex/silex" : "^2.0",
+        "doctrine/dbal" : "^2.5",
+		"monolog/monolog": "^1.0",
+		"phpspec/phpspec": "^3.0",
+		"symfony/form": "^3.1"
+    },
+	 "require-dev" : {
+        "phpunit/phpunit" : "^6.0"
+    }
+}
