@@ -1,0 +1,18 @@
+<?xmi version="1.0" encoding="UTF-8"?>
+<ruleset name="General">
+    <description>
+    </description>
+    <rule ref="PSR2"/>
+
+    <rule ref="Generic.CodeAnalysis.EmptyStatement" />
+    <rule ref="Generic.Classes.DuplicateClassName"/>
+    <rule ref="Generic.CodeAnalysis.EmptyStatement"/>
+    <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
+    <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
+    <rule ref="Generic.CodeAnalysis.UselessOverridingMethod"/>
+    <rule ref="Generic.ControlStructures.InlineControlStructure"/>
+    <rule ref="Squiz.PHP.NonExecutableCode"/>
+
+    <file>./src</file>
+    <file>./test</file>
+</ruleset>

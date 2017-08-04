@@ -1,0 +1,22 @@
+{
+    "name": "wri/adobe-campaign-synchronization-job",
+    "require": {
+        "pimple/pimple" : "^3.0",
+        "doctrine/dbal" : "^2.0",
+        "monolog/monolog" : "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "^6.0",
+        "kahlan/kahlan" : "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "me\\adamcameron\\kahlan\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "me\\adamcameron\\kahlan\\test\\": "test/"
+        }
+    }
+}

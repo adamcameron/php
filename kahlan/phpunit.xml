@@ -1,0 +1,18 @@
+<phpunit bootstrap="./vendor/autoload.php"
+         beStrictAboutTestsThatDoNotTestAnything="true"
+         beStrictAboutChangesToGlobalState="true"
+         checkForUnintentionallyCoveredCode="false"
+         forceCoversAnnotation="true"
+         stopOnRisky="false"
+         backupGlobals="false">
+    <testsuites>
+        <testsuite name="Acceptance Tests">
+            <directory>./test/phpunit/acceptance</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src</directory>
+        </whitelist>
+    </filter>
+</phpunit>
