@@ -18,6 +18,12 @@ abstract class SyncDataJobTest extends TestCase
 	protected $recordsToProcess;
 	protected $job;
 
+	protected abstract function mockJobDaoBehaviour($dao);
+
+	protected abstract function mockBookingDaoBehaviour($dao);
+
+	protected abstract function mockCustomerDaoBehaviour($dao);
+
 	public function setup()
 	{
 		$this->loadTestData();
@@ -79,8 +85,7 @@ abstract class SyncDataJobTest extends TestCase
 		$container['service.logger'] = $log;
 	}
 
-
-	protected function setMockedJobDao($container)
+	private function setMockedJobDao($container)
 	{
 		$container['dao.job'] = function () {
 			$dao = $this->getMockBuilder(JobDAO::class)
@@ -93,9 +98,7 @@ abstract class SyncDataJobTest extends TestCase
 		};
 	}
 
-	protected abstract function mockJobDaoBehaviour($dao);
-
-	protected function setMockedBookingDao($container)
+	private function setMockedBookingDao($container)
 	{
 		$container['dao.booking'] = function () {
 			$dao = $this->getMockBuilder(BookingDAO::class)
@@ -108,9 +111,7 @@ abstract class SyncDataJobTest extends TestCase
 		};
 	}
 
-	protected abstract function mockBookingDaoBehaviour($dao);
-
-	protected function setMockedCustomerDao($container)
+	private function setMockedCustomerDao($container)
 	{
 		$container['dao.customer'] = function () {
 			$dao = $this->getMockBuilder(CustomerDAO::class)
@@ -122,8 +123,6 @@ abstract class SyncDataJobTest extends TestCase
 			return $dao;
 		};
 	}
-
-	protected abstract function mockCustomerDaoBehaviour($dao);
 
 	private function loadTestData()
 	{
@@ -146,6 +145,7 @@ abstract class SyncDataJobTest extends TestCase
 
 		return json_decode(file_get_contents($dataFile), true);
 	}
+
 	private function getTestDataSubDir()
 	{
 		$classPathComponents = explode('\\', get_called_class());
