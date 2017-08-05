@@ -1,7 +1,0 @@
-[
-    {"id" : "1", "emailAddress" : "amy.ahearn@example.com", "created" : "2001-01-01 01:01:01"},
-    {"id" : "2", "emailAddress" : "ben.brady@example.com", "created" : "2002-02-02 02:02:02"},
-    {"id" : "3", "emailAddress" : "caoimhe.curran@example.com", "created" : "2003-03-03 03:03:03"},
-    {"id" : "4", "emailAddress" : "donal.delaney@example.com", "created" : "2004-04-04 04:04:04"},
-    {"id" : "5", "emailAddress" : "emma.egan@example.com", "created" : "2005-05-05 05:05:05"}
-]

@@ -2,6 +2,7 @@
 
 namespace me\adamcameron\kahlan\model;
 
+/** @codeCoverageIgnore */
 class Job
 {
     public $id;

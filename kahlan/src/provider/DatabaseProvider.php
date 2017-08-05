@@ -9,6 +9,7 @@ use me\adamcameron\kahlan\dao\JobDAO;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
+/** @codeCoverageIgnore */
 class DatabaseProvider implements ServiceProviderInterface
 {
     public function register(Container $container)

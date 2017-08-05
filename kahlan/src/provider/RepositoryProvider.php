@@ -9,6 +9,7 @@ use me\adamcameron\kahlan\repository\JobRepository;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
+/** @codeCoverageIgnore */
 class RepositoryProvider implements ServiceProviderInterface
 {
 

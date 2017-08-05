@@ -4,6 +4,7 @@ namespace me\adamcameron\kahlan\dao;
 
 use Doctrine\DBAL\Connection;
 
+/** @codeCoverageIgnore */
 class CustomerDAO
 {
     public $dbConnection;

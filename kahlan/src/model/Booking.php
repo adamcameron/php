@@ -2,6 +2,7 @@
 
 namespace me\adamcameron\kahlan\model;
 
+/** @codeCoverageIgnore */
 class Booking
 {
     public $id;

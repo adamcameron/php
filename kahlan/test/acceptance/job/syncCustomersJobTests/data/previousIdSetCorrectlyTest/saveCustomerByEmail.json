@@ -1,0 +1,12 @@
+[
+		["amy.ahearn@example.com", 1, null],
+		["ben.brady@example.com", 2, null],
+		["caoimhe.curran@example.com", 3, null],
+		["donal.delaney@example.com", 4, null],
+		["emma.egan@example.com", 5, null],
+		["frank.finnegan@example.com", 6, null],
+		["ben.brady@example.com", 7, null],
+		["caoimhe.curran@example.com", 8, 3],
+		["isabelle.ivors@example.com", 9, null],
+		["emma.egan@example.com", 10, 5]
+]

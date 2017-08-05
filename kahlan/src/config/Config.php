@@ -2,6 +2,7 @@
 
 namespace me\adamcameron\kahlan\config;
 
+/** @codeCoverageIgnore */
 class Config
 {
     public $database;

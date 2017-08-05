@@ -7,6 +7,7 @@ use Monolog\Logger;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
+/** @codeCoverageIgnore */
 class LoggingProvider implements ServiceProviderInterface
 {
     public function register(Container $container)

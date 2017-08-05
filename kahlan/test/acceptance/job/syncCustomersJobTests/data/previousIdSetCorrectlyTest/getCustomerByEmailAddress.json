@@ -1,0 +1,12 @@
+[
+	null,
+	null,
+	null,
+	null,
+	null,
+	null,
+	{"bookingId" : 7, "emailAddress" : "ben.brady@example.com", "previousBookingId" : null},
+	{"bookingId" : 3, "emailAddress" : "caoimhe.curran@example.com", "previousBookingId" : -3},
+	null,
+	{"bookingId" : 5, "emailAddress" : "emma.egan@example.com", "previousBookingId" : null}
+]
