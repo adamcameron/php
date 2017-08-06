@@ -16,8 +16,10 @@ class JobDAO
         $this->dbConnection = $dbConnection;
     }
 
-    public function getLastRunForJob($id) : ?string
+    public function getLastRunForJob(int $id) : ?string
     {
+		throw new \Exception('getLastRunForJob not mocked-out');
+
         $sql = "SELECT lastRun FROM job WHERE id = :id";
         $values = ['id' => $id];
         $types = ['id' => \PDO::PARAM_INT];
@@ -27,8 +29,12 @@ class JobDAO
         return $statement->fetchColumn(0);
     }
 
-    public function setLastRunForJob($id, $lastRun) : void
+    public function setLastRunForJob(int $id, string $lastRun) : void
     {
+    	var_dump([get_class($this), func_get_args()]);
+    	die;
+
+
         $sql = "UPDATE job SET lastRun = :lastRun WHERE id = :id";
         $values = [
             'lastRun' => $lastRun,

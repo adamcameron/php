@@ -3,6 +3,7 @@
 namespace me\adamcameron\kahlan\provider;
 
 
+use me\adamcameron\kahlan\dao\BookingDAO;
 use me\adamcameron\kahlan\repository\BookingRepository;
 use me\adamcameron\kahlan\repository\CustomerRepository;
 use me\adamcameron\kahlan\repository\JobRepository;
@@ -16,7 +17,7 @@ class RepositoryProvider implements ServiceProviderInterface
     public function register(Container $container)
     {
         $container['repository.booking'] = function ($container) {
-            return new BookingRepository($container['dao.booking']);
+			return new BookingRepository($container['dao.booking']);
         };
 
         $container['repository.customer'] = function ($container) {
