@@ -13,7 +13,7 @@ class JobRepository
 
     public function __construct(JobDAO $dao)
     {
-        $this->dao = $dao;
+		$this->dao = $dao;
     }
 
     public function getLastRunForJob($id) : Job

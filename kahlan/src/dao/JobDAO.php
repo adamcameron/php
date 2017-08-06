@@ -29,12 +29,9 @@ class JobDAO
         return $statement->fetchColumn(0);
     }
 
-    public function setLastRunForJob(int $id, string $lastRun) : void
+    public function setLastRunForJob(int $id, string $lastRun)
     {
-    	var_dump([get_class($this), func_get_args()]);
-    	die;
-
-
+		throw new \Exception('setLastRunForJob not mocked-out');
         $sql = "UPDATE job SET lastRun = :lastRun WHERE id = :id";
         $values = [
             'lastRun' => $lastRun,
@@ -46,5 +43,7 @@ class JobDAO
         ];
 
         $this->dbConnection->executeUpdate($sql, $values, $types);
+
+        return null;
     }
 }
