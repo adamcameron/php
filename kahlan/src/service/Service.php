@@ -11,12 +11,21 @@ class Service
 		$this->dependency = $dependency;
 	}
 
-	public function main($arg)
+	public function firstTest($arg)
 	{
-		$firstResult = $this->dependency->first($arg);
-//return $firstResult;
-		$secondResult = $this->dependency->second($firstResult);
+		$firstResult = $this->dependency->firstTestMethod1($arg);
+		$secondResult = $this->dependency->firstTestMethod2($firstResult);
 
 		return $secondResult;
+	}
+
+	public function secondTest($arg)
+	{
+		$this->dependency->secondTestMethod1($arg);
+	}
+
+	public function thirdTest($arg)
+	{
+		$this->dependency->thirdTestMethod1($arg);
 	}
 }

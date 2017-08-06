@@ -6,7 +6,7 @@ use Kahlan\Plugin\Double;
 use me\adamcameron\kahlan\service\Dependency;
 use me\adamcameron\kahlan\service\Service;
 
-describe('actual test', function () {
+xdescribe('actual test', function () {
 	given('service', function () {
 		return new Service(new Dependency());
 	});
@@ -35,12 +35,18 @@ describe('mocked tests', function () {
 		]);
 
 		allow($dependency)
-			->toReceive('first')
+			->toReceive('firstTestMethod1')
 			->andReturn($this->intermediaryValue);
 
 		allow($dependency)
-			->toReceive('second')
+			->toReceive('firstTestMethod2')
 			->andReturn($this->expectedResult);
+
+		allow($dependency)
+			->toReceive('secondTestMethod1');
+
+		allow($dependency)
+			->toReceive('thirdTestMethod1');
 
 		return $dependency;
 	});
@@ -49,18 +55,37 @@ describe('mocked tests', function () {
 		return new Service($this->dependency);
 	});
 
-	it ('actually mocks the damned methods', function () {
+	it ('successfully mocks methods', function () {
 		expect($this->dependency)
-			->toReceive('first')
+			->toReceive('firstTestMethod1')
 			->with($this->testValue);
 
 		expect($this->dependency)
-			->toReceive('second')
+			->toReceive('firstTestMethod2')
 			->with($this->intermediaryValue);
 
-
-		$result = $this->service->main($this->testValue);
+		$result = $this->service->firstTest($this->testValue);
 
 		expect($result)->toBe($this->expectedResult);
+	});
+
+	it ('does not like type-checked void methods', function () {
+		expect($this->dependency)
+			->toReceive('secondTestMethod1')
+			->with($this->testValue);
+
+		$result = $this->service->secondTest($this->testValue);
+
+		expect($result)->toBeNull();
+	});
+
+	it ('does like implicit void methods', function () {
+		expect($this->dependency)
+			->toReceive('thirdTestMethod1')
+			->with($this->testValue);
+
+		$result = $this->service->thirdTest($this->testValue);
+
+		expect($result)->toBeNull();
 	});
 });
