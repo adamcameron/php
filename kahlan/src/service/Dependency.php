@@ -4,25 +4,13 @@ namespace me\adamcameron\kahlan\service;
 
 class Dependency
 {
-	public function firstTestMethod1(string $arg) : string
+	public function isImplicitVoidMethod()
 	{
-		//throw new \Exception('firstTestMethod1 was not mocked');
-		return "first: $arg";
+		throw new \Exception("isImplicitVoidMethod was not mocked");
 	}
 
-	public function firstTestMethod2(string $arg) : string
+	public function isExplicitVoidMethod() : void
 	{
-		//throw new \Exception('firstTestMethod2 was not mocked');
-		return "second: $arg";
-	}
-
-	public function secondTestMethod1(string $arg) : void
-	{
-		throw new \Exception("secondTestMethod1 with $arg was not mocked");
-	}
-
-	public function thirdTestMethod1(string $arg)
-	{
-		throw new \Exception("thirdTestMethod1 with $arg was not mocked");
+		throw new \Exception("isExplicitVoidMethod was not mocked");
 	}
 }

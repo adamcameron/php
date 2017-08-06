@@ -11,21 +11,13 @@ class Service
 		$this->dependency = $dependency;
 	}
 
-	public function firstTest($arg)
+	public function callImplicitVoidMethod()
 	{
-		$firstResult = $this->dependency->firstTestMethod1($arg);
-		$secondResult = $this->dependency->firstTestMethod2($firstResult);
-
-		return $secondResult;
+		$this->dependency->isImplicitVoidMethod();
 	}
 
-	public function secondTest($arg)
+	public function callExplicitVoidMethod()
 	{
-		$this->dependency->secondTestMethod1($arg);
-	}
-
-	public function thirdTest($arg)
-	{
-		$this->dependency->thirdTestMethod1($arg);
+		$this->dependency->isExplicitVoidMethod();
 	}
 }
