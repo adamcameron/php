@@ -1,7 +1,5 @@
 <?php
 
-namespace me\adamcameron\kahlan\spec\unit\service;
-
 use Kahlan\Plugin\Double;
 use me\adamcameron\kahlan\service\Dependency;
 use me\adamcameron\kahlan\service\Service;
@@ -37,5 +35,4 @@ describe('mocked tests', function () {
 
 		$this->service->callExplicitVoidMethod();
 	});
-
 });
