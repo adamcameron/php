@@ -28,6 +28,6 @@ class ConfigProvider implements ServiceProviderInterface
 
     public static function getDefaultConfigDirectory()
     {
-        return realpath(__DIR__ . '/../../config/');
+        return realpath(__DIR__ . '/../config/');
     }
 }

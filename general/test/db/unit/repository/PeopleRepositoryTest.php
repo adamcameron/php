@@ -1,11 +1,11 @@
 <?php
 
-namespace me\adamcameron\db\test\unit\repository;
+namespace me\adamcameron\general\db\test\unit\repository;
 
-use me\adamcameron\db\dao\PeopleDAO;
-use me\adamcameron\db\model\Name;
-use me\adamcameron\db\model\Person;
-use me\adamcameron\db\repository\PeopleRepository;
+use me\adamcameron\general\db\dao\PeopleDAO;
+use me\adamcameron\general\db\model\Name;
+use me\adamcameron\general\db\model\Person;
+use me\adamcameron\general\db\repository\PeopleRepository;
 use PHPUnit\Framework\TestCase;
 
 class PeopleRepositoryTest extends TestCase

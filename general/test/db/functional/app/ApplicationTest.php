@@ -1,13 +1,14 @@
 <?php
 
 
-namespace me\adamcameron\db\test\app;
+namespace me\adamcameron\general\db\test\app;
 
 use Doctrine\DBAL\Connections\MasterSlaveConnection;
-use me\adamcameron\db\app\Application;
-use me\adamcameron\db\dao\ColoursDAO;
+use me\adamcameron\general\db\app\Application;
+use me\adamcameron\general\db\dao\ColoursDAO;
+use PHPUnit\Framework\TestCase;
 
-class ApplicationTest extends \PHPUnit_Framework_TestCase
+class ApplicationTest extends TestCase
 {
 
     private $app;

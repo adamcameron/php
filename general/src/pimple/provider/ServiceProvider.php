@@ -11,8 +11,10 @@ class ServiceProvider implements ServiceProviderInterface
 {
     public function register(Container $pimple)
     {
-        $pimple['service.config'] = function () {
-            return new ConfigService();
+        $config = new ConfigService();;
+
+        $pimple['service.config'] = function () use ($config) {
+            return $config;
         };
         $pimple['service.other'] = function ($pimple) {
             return new OtherService($pimple['service.config']);
