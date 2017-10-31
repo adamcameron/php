@@ -6,7 +6,7 @@
     <meta http-equiv="cache-control" content="no-cache" />
     <title></title>
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Coming+Soon" />
-    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <link rel="stylesheet" type="text/css" href="./styles.css?random=<?php echo uniqid() ?>" />
 </head>
 <body>
 <h1>Zachary’s Hand-Football Premiership Table 17/18</h1>
@@ -20,7 +20,7 @@
     $dbConnection = new \PDO($connectionString, 'handFootball', 'handFootball');
     $table = $dbConnection->query('
         SELECT tbl.*, team.abbrev
-        FROM handFootball.tableWeek2 tbl
+        FROM handFootball.tableWeek6 tbl
         INNER JOIN team ON tbl.name = team.name
         ORDER BY tbl.rank
     ');
@@ -38,8 +38,8 @@
         }
         printf(
             '<tr class="%s">
-                <td class="change%s">&nbsp;</td>
-                <td class="rank">%d<span class="prev">(%d)</span></td>
+                <td class="change%s">&nbsp;<span class="prev">%d</span></td>
+                <td class="rank">%d</td>
                 <td class="teamName">%s</td>
                 <td>%d</td>
                 <td>%d</td>
@@ -52,8 +52,8 @@
             <tr>',
             $team['abbrev'],
             $change,
-            $team['rank'],
             $team['prev'],
+            $team['rank'],
             $team['name'],
             $team['p'],
             $team['w'],

@@ -47,6 +47,7 @@ td .prev {
 	padding-left : 0.5em;
 	font-size : 75%;
 	vertical-align : top;
+	text-align :left;
 }
 
 td.changeUp, td.changeDown, td.changeSame {
@@ -55,6 +56,7 @@ td.changeUp, td.changeDown, td.changeSame {
 	color : black;
 	background-repeat : no-repeat;
 	background-position: center;
+	text-align :right;
 }
 
 td.changeUp {
@@ -79,11 +81,11 @@ tr.BOU td {
 }
 
 tr.BOU td.teamName {
-	border-left-color : skyblue;
+	/*border-left-color : skyblue;*/
 }
 
 tr.BOU td.rank{
-	border-right-color : skyblue;
+	/*border-right-color : skyblue;*/
 }
 
 tr.ARS {
@@ -96,11 +98,11 @@ tr.ARS td {
 }
 
 tr.ARS td.teamName {
-	border-left-color : royalblue;
+	/*border-left-color : royalblue;*/
 }
 
 tr.ARS td.rank{
-	border-right-color : royalblue;
+	/*border-right-color : royalblue;*/
 }
 
 tr.BUR {
@@ -113,10 +115,11 @@ tr.BUR td {
 }
 
 tr.BUR td.changeUp, tr.BUR td.changeDown, tr.BUR td.changeSame {
-	border-left: 4px solid #9DBAFC;
-	border-right: 2px solid #9DBAFC;
-	border-top: 2px solid #9DBAFC;
-	border-bottom: 2px solid #9DBAFC;
+	border-left: 4px solid;
+	border-right: 2px solid;
+	border-top: 2px solid;
+	border-bottom: 2px solid;
+	border-color: #7f1734;
 	background-color: white;
 	color : black;
 	background-repeat : no-repeat;
@@ -124,11 +127,11 @@ tr.BUR td.changeUp, tr.BUR td.changeDown, tr.BUR td.changeSame {
 }
 
 tr.BUR td.teamName {
-	border-left-color : darkblue;
+	/*border-left-color : darkblue;*/
 }
 
 tr.BUR td.rank{
-	border-right-color : darkblue;
+	/*border-right-color : darkblue;*/
 }
 
 tr.CHE {
@@ -141,18 +144,19 @@ tr.CHE td {
 }
 
 tr.CHE td.teamName {
-	border-left-color : white;
+	/*border-left-color : white;*/
 }
 
 tr.CHE td.rank{
-	border-right-color : white;
+	/*border-right-color : white;*/
 }
 
 tr.CHE td.changeUp, tr.CHE td.changeDown, tr.CHE td.changeSame {
-	border-left: 4px solid rgb(14,30,125);
-	border-right: 2px solid rgb(14,30,125);
-	border-top: 2px solid rgb(14,30,125);
-	border-bottom: 2px solid rgb(14,30,125);
+	border-left: 4px solid;
+	border-right: 2px solid;
+	border-top: 2px solid;
+	border-bottom: 2px solid;
+	border-color: rgb(14,30,125);
 	background-color: white;
 	color : black;
 	background-repeat : no-repeat;
@@ -165,15 +169,15 @@ tr.CRY {
 }
 
 tr.CRY td {
-	border-color : 	#ffd801;
+	border-color : 	black;
 }
 
 tr.CRY td.teamName {
-	border-left-color : black;
+	/*border-left-color : black;*/
 }
 
 tr.CRY td.rank{
-	border-right-color : black;
+	/*border-right-color : black;*/
 }
 
 tr.EVE {
@@ -182,15 +186,27 @@ tr.EVE {
 }
 
 tr.EVE td {
-	border-color : 	#274488;
+	border-color : 	white;
 }
 
 tr.EVE td.teamName {
-	border-left-color : GAINSBORO;
+	/*border-left-color : GAINSBORO;*/
 }
 
 tr.EVE td.rank{
-	border-right-color : GAINSBORO;
+	/*border-right-color : GAINSBORO;*/
+}
+
+tr.EVE td.changeUp, tr.EVE td.changeDown, tr.EVE td.changeSame {
+	border-left: 4px solid;
+	border-right: 2px solid;
+	border-top: 2px solid;
+	border-bottom: 2px solid;
+	border-color: blue;
+	background-color: white;
+	color : black;
+	background-repeat : no-repeat;
+	background-position: center;
 }
 
 tr.HUL {
@@ -203,27 +219,39 @@ tr.HUL td {
 }
 
 tr.HUL td.teamName {
-	border-left-color : black;
+	/*border-left-color : black;*/
 }
 
 tr.HUL td.rank{
-	border-right-color : black;
+	/*border-right-color : black;*/
 }
 
 tr.LEI {
 	background-color : #0053A0;
-	color: yellow;
+	color: black;
 }
 
 tr.LEI td {
-	border-color : yellow;
+	border-color : white;
 }
 
 tr.LEI td.teamName {
-	border-left-color : black;
+	/*border-left-color : black;*/
 }
 tr.LEI td.rank{
-	border-right-color : black;
+	/*border-right-color : black;*/
+}
+
+tr.LEI td.changeUp, tr.LEI td.changeDown, tr.LEI td.changeSame {
+	border-left: 4px solid;
+	border-right: 2px solid;
+	border-top: 2px solid;
+	border-bottom: 2px solid;
+	border-color: #0053A0;
+	background-color: white;
+	color : black;
+	background-repeat : no-repeat;
+	background-position: center;
 }
 
 tr.LIV {
@@ -232,27 +260,28 @@ tr.LIV {
 }
 
 tr.LIV td {
-	border-color : white;
+	border-color : black;
 }
 
 tr.LIV td.teamName {
-	border-left-color : white;
+	/*border-left-color : white;*/
 }
 
 tr.LIV td.rank{
-	border-right-color : white;
+	/*border-right-color : white;*/
 }
 
-tr.LIV td.changeUp, tr.LIV td.changeDown, tr.LIV td.changeSame {
-	border-left: 4px solid FIREBRICK;
-	border-right: 2px solid FIREBRICK;
-	border-top: 2px solid FIREBRICK;
-	border-bottom: 2px solid FIREBRICK;
+/*tr.LIV td.changeUp, tr.LIV td.changeDown, tr.LIV td.changeSame {
+	border-left: 4px solid;
+	border-right: 2px solid;
+	border-top: 2px solid;
+	border-bottom: 2px solid;
+	border-color: FIREBRICK;
 	background-color: white;
 	color : black;
 	background-repeat : no-repeat;
 	background-position: center;
-}
+}*/
 
 tr.MCI {
 	background-color : #6CADDF;
@@ -264,29 +293,41 @@ tr.MCI td {
 }
 
 tr.MCI td.teamName {
-	border-left-color : PURPLE;
+	/*border-left-color : PURPLE;*/
 }
 
 tr.MCI td.rank{
-	border-right-color : PURPLE;
+	/*border-right-color : PURPLE;*/
 }
 
 tr.MUN {
 	background-color : red;
-	color: white;
+	color: black;
 }
 
 tr.MUN td {
-	border-color : black;
+	border-color : white;
 
 }
 
 tr.MUN td.teamName {
-	border-left-color : black;
+	/*border-left-color : black;*/
 }
 
 tr.MUN td.rank{
-	border-right-color : black;
+	/*border-right-color : black;*/
+}
+
+tr.MUN td.changeUp, tr.MUN td.changeDown, tr.MUN td.changeSame {
+	border-left: 4px solid;
+	border-right: 2px solid;
+	border-top: 2px solid;
+	border-bottom: 2px solid;
+	border-color: red;
+	background-color: white;
+	color : black;
+	background-repeat : no-repeat;
+	background-position: center;
 }
 
 tr.MID {
@@ -299,11 +340,11 @@ tr.MID td {
 }
 
 tr.MID td.teamName {
-	border-left-color : darkblue;
+	/*border-left-color : darkblue;*/
 }
 
 tr.MID td.rank{
-	border-right-color : darkblue;
+	/*border-right-color : darkblue;*/
 }
 
 tr.SOU {
@@ -316,11 +357,11 @@ tr.SOU td {
 }
 
 tr.SOU td.teamName {
-	border-left-color : CADETBLUE;
+	/*border-left-color : CADETBLUE;*/
 }
 
 tr.SOU td.rank{
-	border-right-color : CADETBLUE;
+	/*border-right-color : CADETBLUE;*/
 }
 
 tr.STO {
@@ -333,11 +374,23 @@ tr.STO td {
 }
 
 tr.STO td.teamName {
-	border-left-color : DODGERBLUE;
+	/*border-left-color : DODGERBLUE;*/
 }
 
 tr.STO td.rank{
-	border-right-color : DODGERBLUE;
+	/*border-right-color : DODGERBLUE;*/
+}
+
+tr.STO td.changeUp, tr.STO td.changeDown, tr.STO td.changeSame {
+	border-left: 4px solid;
+	border-right: 2px solid;
+	border-top: 2px solid;
+	border-bottom: 2px solid;
+	border-color: red;
+	background-color: white;
+	color : black;
+	background-repeat : no-repeat;
+	background-position: center;
 }
 
 tr.SUN {
@@ -350,67 +403,67 @@ tr.SUN td {
 }
 
 tr.SUN td.teamName {
-	border-left-color : white;
+	/*border-left-color : white;*/
 }
 
 tr.SUN td.rank{
-	border-right-color : white;
+	/*border-right-color : white;*/
 }
 
 tr.SWA {
 	background-color : white;
-	color: black;
+	color: red;
 }
 
 tr.SWA td {
-	border-color : red;
+	border-color : black;
 }
 
 tr.SWA td.teamName {
-	border-left-color : red;
+	/*border-left-color : red;*/
 }
 
 tr.SWA td.rank{
-	border-right-color : red;
+	/*border-right-color : red;*/
 }
 
 tr.TOT {
 	background-color : white;
-	color: NAVY;
+	color: MIDNIGHTBLUE;
 }
 
 tr.TOT td {
-	border-color : MIDNIGHTBLUE;
+	border-color : NAVY;
 }
 
 tr.TOT td.teamName {
-	border-left-color : MIDNIGHTBLUE;
+	/*border-left-color : MIDNIGHTBLUE;*/
 }
 
 tr.TOT td.rank{
-	border-right-color : MIDNIGHTBLUE;
+	/*border-right-color : MIDNIGHTBLUE;*/
 }
 
 tr.WAT {
 	background-color : #FBEE23;
-	color: black;
+	color: red;
 }
 
 tr.WAT td {
-	border-color : red;
+	border-color : black;
 }
 
 tr.WAT td.teamName {
-	border-left-color : red;
+	/*border-left-color : red;*/
 }
 
 tr.WAT td.rank{
-	border-right-color : red;
+	/*border-right-color : red;*/
 }
 
 tr.WBA {
-	background-color : white;
-	color: #00003A;
+	background-color : rgb(14,30,125);
+	color: white;
 }
 
 tr.WBA td {
@@ -418,11 +471,11 @@ tr.WBA td {
 }
 
 tr.WBA td.teamName {
-	border-left-color : FIREBRICK;
+	/*border-left-color : FIREBRICK;*/
 }
 
 tr.WBA td.rank{
-	border-right-color : FIREBRICK;
+	/*border-right-color : FIREBRICK;*/
 }
 
 tr.WHU {
@@ -435,16 +488,16 @@ tr.WHU td {
 }
 
 tr.WHU td.teamName {
-	border-left-color : black;
+	/*border-left-color : black;*/
 }
 
 tr.WHU td.rank{
-	border-right-color : black;
+	/*border-right-color : black;*/
 }
 
 tr.BHA {
-	background-color : blue;
-	color: skyblue;
+	background-color : #0053A0;
+	color: white;
 }
 
 tr.BHA td {
@@ -452,18 +505,19 @@ tr.BHA td {
 }
 
 tr.BHA td.teamName {
-	border-left-color : yellow;
+	/*border-left-color : yellow;*/
 }
 
 tr.BHA td.rank{
-	border-right-color : yellow;
+	/*border-right-color : yellow;*/
 }
 
 tr.BHA td.changeUp, tr.BHA td.changeDown, tr.BHA td.changeSame {
-	border-left: 4px solid skyblue;
-	border-right: 2px solid white;
-	border-top: 2px solid skyblue;
-	border-bottom: 2px solid skyblue;
+	border-left: 4px solid;
+	border-right: 2px solid;
+	border-top: 2px solid;
+	border-bottom: 2px solid;
+	border-color: skyblue;
 	background-color: white;
 	color : black;
 	background-repeat : no-repeat;
@@ -480,13 +534,25 @@ tr.NEW td {
 }
 
 tr.NEW td.teamName {
-	border-left-color : white;
+	/*border-left-color : white;*/
 }
 
 tr.NEW td.rank{
-	border-right-color : white;
+	/*border-right-color : white;*/
 }
-
+/*
+tr.NEW td.changeUp, tr.NEW td.changeDown, tr.NEW td.changeSame {
+	border-left: 4px solid;
+	border-right: 2px solid;
+	border-top: 2px solid;
+	border-bottom: 2px solid;
+	border-color: black;
+	background-color: white;
+	color : black;
+	background-repeat : no-repeat;
+	background-position: center;
+}
+*/
 tr.HUD {
 	background-color : CORNFLOWERBLUE;
 	color: white;
@@ -497,10 +563,10 @@ tr.HUD td {
 }
 
 tr.HUD td.teamName {
-	border-left-color : red;
+	/*border-left-color : red;*/
 }
 
 tr.HUD td.rank{
-	border-right-color : red;
+	/*border-right-color : red;*/
 }
 
