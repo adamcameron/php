@@ -1,10 +1,10 @@
 <?php
 
-namespace me\adamcameron\db\test\functional\dao;
+namespace me\adamcameron\general\test\db\functional\dao;
 
-use me\adamcameron\db\dao\ColoursDAO;
-use me\adamcameron\db\provider\ConfigProvider;
-use me\adamcameron\db\provider\DbProvider;
+use me\adamcameron\general\db\dao\ColoursDAO;
+use me\adamcameron\general\db\provider\ConfigProvider;
+use me\adamcameron\general\db\provider\DbProvider;
 
 class ColoursDaoDirectTest extends ColoursDaoTest
 {

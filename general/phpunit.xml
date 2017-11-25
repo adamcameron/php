@@ -1,4 +1,4 @@
-<phpunit bootstrap="./autoload.php"
+<phpunit bootstrap="./vendor/autoload.php"
          beStrictAboutTestsThatDoNotTestAnything="true"
          beStrictAboutChangesToGlobalState="true"
          checkForUnintentionallyCoveredCode="false"

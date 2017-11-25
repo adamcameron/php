@@ -1,11 +1,12 @@
 <?php
 
-namespace me\adamcameron\db\test\functional\dao;
+namespace me\adamcameron\general\test\db\functional\dao;
 
 use Doctrine\DBAL\DBALException;
-use me\adamcameron\db\model\Colour;
+use me\adamcameron\general\db\model\Colour;
+use PHPUnit\Framework\TestCase;
 
-abstract class ColoursDaoTest extends \PHPUnit_Framework_TestCase
+abstract class ColoursDaoTest extends TestCase
 {
 
     protected $dao;
@@ -41,7 +42,7 @@ abstract class ColoursDaoTest extends \PHPUnit_Framework_TestCase
 
         sleep(25);
 
-        $this->setExpectedException(DBALException::class);
+        $this->expectException(DBALException::class);
         $this->dao->getColourById(5);
     }
 
@@ -55,7 +56,7 @@ abstract class ColoursDaoTest extends \PHPUnit_Framework_TestCase
 
         sleep($timeout + 1);
 
-        $this->setExpectedException(DBALException::class);
+        $this->expectException(DBALException::class);
 
         $this->dao->getColourById(6);
     }
@@ -75,7 +76,7 @@ abstract class ColoursDaoTest extends \PHPUnit_Framework_TestCase
 
         sleep($timeout + 1);
 
-        $this->setExpectedException(DBALException::class);
+        $this->expectException(DBALException::class);
 
         $this->dao->getColourById(7);
     }

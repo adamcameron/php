@@ -1,8 +1,8 @@
 <?php
 
-namespace me\adamcameron\db\test\functional\dao;
+namespace me\adamcameron\general\test\db\functional\dao;
 
-use me\adamcameron\db\app\Application;
+use me\adamcameron\general\db\app\Application;
 
 class ColoursDaoViaSilexTest extends ColoursDaoTest
 {

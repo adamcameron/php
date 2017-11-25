@@ -1,11 +1,11 @@
 <?php
 
-namespace me\adamcameron\db\test\integration\dao;
+namespace me\adamcameron\general\db\test\integration\dao;
 
 use Doctrine\DBAL\Connection;
-use me\adamcameron\db\dao\PeopleDAO;
-use me\adamcameron\db\provider\ConfigProvider;
-use me\adamcameron\db\provider\DbProvider;
+use me\adamcameron\general\db\dao\PeopleDAO;
+use me\adamcameron\general\db\provider\ConfigProvider;
+use me\adamcameron\general\db\provider\DbProvider;
 use PHPUnit\Framework\TestCase;
 
 class PeopleDaoTest extends TestCase
