@@ -3,15 +3,16 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="cache-control" content="no-cache" />
     <title></title>
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Coming+Soon" />
-    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <link rel="stylesheet" type="text/css" href="./styles.css?random=<?php echo uniqid() ?>" />
 </head>
 <body>
-<h1>Zachary’s Hand-Football Premiership Points Table 2017</h1>
+<h1>Zachary’s Hand-Football Premiership Table 17/18</h1>
 <table class="season">
     <thead>
-    <tr><th>&nbsp;</th><th>Pos</th><th class="teamName">Club</th><th>Pl</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th></tr>
+    <tr><th>M</th><th>Pos</th><th class="teamName">Club</th><th>Pl</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th></tr>
     </thead>
     <tbody>
     <?php
@@ -37,8 +38,8 @@
         }
         printf(
             '<tr class="%s">
-                <td class="change%s">&nbsp;</td>
-                <td class="rank">%d<span class="prev">(%d)</span></td>
+                <td class="change%s">&nbsp;<span class="prev">%d</span></td>
+                <td class="rank">%d</td>
                 <td class="teamName">%s</td>
                 <td>%d</td>
                 <td>%d</td>
@@ -51,8 +52,8 @@
             <tr>',
             $team['abbrev'],
             $change,
-            $team['rank'],
             $team['prev'],
+            $team['rank'],
             $team['name'],
             $team['p'],
             $team['w'],
