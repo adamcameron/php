@@ -2,7 +2,6 @@
 
 namespace me\adamcameron\silex2\controller;
 
-use Pimple\Container;
 use Symfony\Component\HttpFoundation\Response;
 
 /** @codeCoverageIgnore */

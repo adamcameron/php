@@ -1,7 +1,16 @@
+_apiIndexRoute:
+    path:       /
+    defaults:   { _controller: 'controller.api.index:getInfo'}
+    methods:    GET
+    requirements:
+      _format: json
+
 _homeRoute:
     path:       /
     defaults:   { _controller: 'controller.home:doGet'}
     methods:    GET
+    requirements:
+      _format: html
 
 _numberRoute:
     path:       /number/{id}/lang/{lang}

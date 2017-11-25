@@ -1,8 +1,7 @@
 <?php
 namespace me\adamcameron\silex2\provider;
 
-use me\adamcameron\silex2\controller\HomeController;
-use me\adamcameron\silex2\controller\NumberController;
+use me\adamcameron\silex2\controller as controller;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use Silex\Provider\ServiceControllerServiceProvider;
@@ -14,11 +13,15 @@ class ControllerProvider implements ServiceProviderInterface
         $container->register(new ServiceControllerServiceProvider());
 
         $container['controller.home'] = function ($container) {
-            return new HomeController($container['twig']);
+            return new controller\HomeController($container['twig']);
+        };
+
+        $container['controller.api.index'] = function ($container) {
+            return new controller\IndexController($container['config']);
         };
 
         $container['controller.number'] = function ($container) {
-            return new NumberController($container['repository.number']);
+            return new controller\NumberController($container['repository.number']);
         };
     }
 }

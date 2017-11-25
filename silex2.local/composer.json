@@ -1,7 +1,8 @@
 {
 	"require" : {
-		"php" : "^7",
+		"php" : "^7.1",
 		"silex/silex" : "^2.0",
+		"pimple/pimple" : "^3.0",
 		"symfony/config" : "^3.0",
 		"reva2/config-service-provider" : "^2.0",
 		"symfony/yaml" : "^3.0",
