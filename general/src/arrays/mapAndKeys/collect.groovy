@@ -1,27 +1,19 @@
 class IndexedPerson {
-	Integer id
+	String date
 	String name
 
-	IndexedPerson(Integer id, String name) {
-		this.id = id;
+	IndexedPerson(String date, String name) {
+		this.date = date;
 		this.name = name;
 	}
 
 	String toString(){
-		String.format("id: %d, name: %s", this.id, this.name)
+		String.format("date: %s, name: %s", this.date, this.name)
 	}
 }
 
-peopleData = [
-	1:"Jacinda",
-	3:"Bill",
-	5:"James",
-	7:"Winston"
-]
+peopleData = ["2008-11-08": "Jacinda", "1990-10-27": "Bill", "2014-09-20": "James", "1979-05-24": "Winston"]
 
-people = peopleData.collectEntries {key, value -> [key, new IndexedPerson(key, value)]}
+people = peopleData.collectEntries {date, name -> [date, new IndexedPerson(date, name)]}
 
-
-
-people.each {key, value -> println String.format("%d => Value: %s", key, value)}
-
+people.each {date, person -> println String.format("%s => {%s}", date, person)}
