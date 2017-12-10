@@ -1,8 +1,8 @@
-class IndexedPerson {
+class PersonalMilestone {
 	String date
 	String name
 
-	IndexedPerson(String date, String name) {
+	PersonalMilestone(String date, String name) {
 		this.date = date;
 		this.name = name;
 	}
@@ -14,6 +14,6 @@ class IndexedPerson {
 
 peopleData = ["2008-11-08": "Jacinda", "1990-10-27": "Bill", "2014-09-20": "James", "1979-05-24": "Winston"]
 
-people = peopleData.collectEntries {date, name -> [date, new IndexedPerson(date, name)]}
+people = peopleData.collectEntries {date, name -> [date, new PersonalMilestone(date, name)]}
 
 people.each {date, person -> println String.format("%s => {%s}", date, person)}

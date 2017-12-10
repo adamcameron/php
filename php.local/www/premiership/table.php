@@ -16,11 +16,11 @@
     </thead>
     <tbody>
     <?php
-    $connectionString = sprintf('mysql:host=%s;port=%s;dbname=%s', 'localhost', 3306, 'handFootball');
-    $dbConnection = new \PDO($connectionString, 'handFootball', 'handFootball');
+    $connectionString = sprintf('mysql:host=%s;port=%s;dbname=%s', 'localhost', 3306, 'handfootball');
+    $dbConnection = new \PDO($connectionString, 'handfootball', 'handfootball');
     $table = $dbConnection->query('
         SELECT tbl.*, team.abbrev
-        FROM handFootball.tableWeek6 tbl
+        FROM handfootball.tableweek7 tbl
         INNER JOIN team ON tbl.name = team.name
         ORDER BY tbl.rank
     ');

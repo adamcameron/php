@@ -462,7 +462,7 @@ tr.WAT td.rank{
 }
 
 tr.WBA {
-	background-color : #0053A0;
+	background-color : rgb(14,30,125);
 	color: white;
 }
 
@@ -496,7 +496,7 @@ tr.WHU td.rank{
 }
 
 tr.BHA {
-	background-color : skyblue;
+	background-color : #0053A0;
 	color: white;
 }
 

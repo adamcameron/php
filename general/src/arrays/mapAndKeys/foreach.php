@@ -1,6 +1,6 @@
 <?php
 
-class IndexedPerson {
+class PersonalMilestone {
     public $date;
     public $name;
 
@@ -12,11 +12,9 @@ class IndexedPerson {
 
 $peopleData = ["2008-11-08" => "Jacinda", "1990-10-27" => "Bill", "2014-09-20" => "James", "1979-05-24" => "Winston"];
 
-$keys = array_keys($peopleData);
-
 $people = [];
 foreach ($peopleData as $date => $name) {
-    $people[$date] = new IndexedPerson($date, $name);
+    $people[$date] = new PersonalMilestone($date, $name);
 }
 
 var_dump($people);

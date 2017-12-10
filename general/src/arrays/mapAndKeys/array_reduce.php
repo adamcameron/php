@@ -1,6 +1,6 @@
 <?php
 
-class IndexedPerson {
+class PersonalMilestone {
     public $date;
     public $name;
 
@@ -16,7 +16,7 @@ $keys = new ArrayIterator(array_keys($peopleData));
 
 $people = array_reduce($peopleData, function ($people, $name) use ($keys) {
     $date = $keys->current();
-    $people[$date] = new IndexedPerson($date, $name);
+    $people[$date] = new PersonalMilestone($date, $name);
     $keys->next();
 
     return $people;
