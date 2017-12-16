@@ -2,11 +2,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-class IndexedPerson {
+class PersonalMilestone {
 	String date;
 	String name;
 	
-	public IndexedPerson(String date, String name) {
+	public PersonalMilestone(String date, String name) {
 		this.date = date;
 		this.name = name;
 	}
@@ -22,7 +22,7 @@ class Collect {
 
 		HashMap<String,String> peopleData = loadData();
 
-		HashMap<String, IndexedPerson> people = mapToPeople(peopleData);
+		HashMap<String, PersonalMilestone> people = mapToPeople(peopleData);
 			
 		dumpIdents(people);
 	}
@@ -38,18 +38,18 @@ class Collect {
 		return peopleData;
 	}
 	
-	private static HashMap<String,IndexedPerson> mapToPeople(HashMap<String,String> peopleData) {
-		HashMap<String, IndexedPerson> people = (HashMap<String, IndexedPerson>) peopleData.entrySet().stream()
+	private static HashMap<String,PersonalMilestone> mapToPeople(HashMap<String,String> peopleData) {
+		HashMap<String, PersonalMilestone> people = (HashMap<String, PersonalMilestone>) peopleData.entrySet().stream()
 			.collect(Collectors.toMap(
 				e -> e.getKey(),
-				e -> new IndexedPerson(e.getKey(), e.getValue())
+				e -> new PersonalMilestone(e.getKey(), e.getValue())
 			));
 			
 		return people;
 	}
 	
-	private static void dumpIdents(HashMap<String,IndexedPerson> people) {
-		for (Map.Entry<String, IndexedPerson> entry : people.entrySet()) {
+	private static void dumpIdents(HashMap<String,PersonalMilestone> people) {
+		for (Map.Entry<String, PersonalMilestone> entry : people.entrySet()) {
 			System.out.println(String.format("%s => %s", entry.getKey(), entry.getValue()));
 		}
 	}

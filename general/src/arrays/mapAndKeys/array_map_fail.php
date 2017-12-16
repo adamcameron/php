@@ -12,10 +12,11 @@ class PersonalMilestone {
 
 $peopleData = ["2008-11-08" => "Jacinda", "1990-10-27" => "Bill", "2014-09-20" => "James", "1979-05-24" => "Winston"];
 
-$keys = array_keys($peopleData);
-
-$people = array_map(function ($name, $date) {
-    return new PersonalMilestone($date, $name);
-}, $peopleData, $keys);
+$people = array_map(function ($name) {
+    return new PersonalMilestone(
+        $date, // dammit this won't work: array_map only gives me the value, not the key
+        $name
+    );
+}, $peopleData);
 
 var_dump($people);
