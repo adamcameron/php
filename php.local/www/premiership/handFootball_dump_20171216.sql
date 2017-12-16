@@ -1,5 +1,3 @@
-
-D:\src\php\php.local\www\premiership>mysqldump --host localhost --port 3306 -uhandfootball -phandfootball --databases handfootball 
 -- MySQL dump 10.13  Distrib 5.6.26, for Win64 (x86_64)
 --
 -- Host: localhost    Database: handfootball
