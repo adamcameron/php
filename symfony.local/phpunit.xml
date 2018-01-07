@@ -1,0 +1,31 @@
+<phpunit
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/6.3/phpunit.xsd"
+    backupGlobals="true"
+    backupStaticAttributes="false"
+    colors="true"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    forceCoversAnnotation="false"
+    stopOnError="false"
+    stopOnFailure="false"
+    bootstrap="./bootstrap.php"
+>
+    <php>
+        <env name="KERNEL_CLASS" value="dac\s4\Kernel" />
+    </php>
+
+    <testsuites>
+        <testsuite name="Functional">
+            <directory>test/functional</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">/src</directory>
+        </whitelist>
+    </filter>
+
+</phpunit>

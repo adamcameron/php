@@ -1,0 +1,9 @@
+parameters:
+
+services:
+  _defaults:
+    public: false
+
+  controller.index:
+    class: dac\s4\controller\IndexController
+    public: true
