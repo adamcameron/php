@@ -5,9 +5,8 @@ class PersonalMilestone {
 	}
 }
 
-var peopleData = {"2008-11-08": "Jacinda", "1990-10-27": "Bill", "2014-09-20": "James", "1979-05-24": "Winston"}
-
-people = Object.entries(peopleData).reduce(function (people, personData) {
+let peopleData = {"2008-11-08": "Jacinda", "1990-10-27": "Bill", "2014-09-20": "James", "1979-05-24": "Winston"}
+	let people = Object.entries(peopleData).reduce(function (people, personData) {
 	people[personData[0]] = new PersonalMilestone(personData[0], personData[1])
 	return people
 }, {})

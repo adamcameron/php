@@ -1,5 +1,5 @@
 SELECT
-	allMatches.home, allMatches.away
+	allMatches.home, GROUP_CONCAT(allMatches.away ORDER BY allMatches.away SEPARATOR '     ') as remainingGames
 FROM (
 	SELECT
 		home.name AS team, away.name AS opponent
@@ -27,7 +27,9 @@ ON teamMatches.team = allMatches.home
 AND teamMatches.opponent = allMatches.away
 WHERE
 	teamMatches.opponent IS NULL
+GROUP BY
+	allMatches.home    
 ORDER BY
-	allMatches.home, allMatches.away
+	allMatches.home
 
  	

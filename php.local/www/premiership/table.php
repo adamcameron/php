@@ -17,10 +17,10 @@
     <tbody>
     <?php
     $connectionString = sprintf('mysql:host=%s;port=%s;dbname=%s', 'localhost', 3306, 'handfootball');
-    $dbConnection = new \PDO($connectionString, 'handfootball', 'handfootball');
+    $dbConnection = new \PDO($connectionString, 'handFootball', 'handFootball'); // home machine: 'handfootball', 'handfootball'; work machine: 'handFootball', 'handFootball'
     $table = $dbConnection->query('
         SELECT tbl.*, team.abbrev
-        FROM handfootball.tableweek12 tbl
+        FROM handfootball.tableweek16 tbl
         INNER JOIN team ON tbl.name = team.name
         ORDER BY tbl.rank
     ');
