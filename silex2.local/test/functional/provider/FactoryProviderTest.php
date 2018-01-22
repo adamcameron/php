@@ -3,12 +3,10 @@
 namespace me\adamcameron\silex2\test\functional\provider;
 
 use me\adamcameron\silex2\app\Application;
-use me\adamcameron\silex2\repository\NumberRepository;
 use PHPUnit\Framework\TestCase;
 
 class FactoryProviderTest extends TestCase
 {
-    private $provider;
     private $app;
 
     public function setup()
