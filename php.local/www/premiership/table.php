@@ -20,7 +20,7 @@
     $dbConnection = new \PDO($connectionString, 'handFootball', 'handFootball'); // home machine: 'handfootball', 'handfootball'; work machine: 'handFootball', 'handFootball'
     $table = $dbConnection->query('
         SELECT tbl.*, team.abbrev
-        FROM handfootball.tableweek18 tbl
+        FROM handfootball.tableweek23 tbl
         INNER JOIN team ON tbl.name = team.name
         ORDER BY tbl.rank
     ');
