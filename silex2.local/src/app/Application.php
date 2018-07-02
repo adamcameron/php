@@ -4,6 +4,7 @@ namespace me\adamcameron\silex2\app;
 
 use me\adamcameron\silex2\provider\ConfigProvider;
 use me\adamcameron\silex2\provider\ControllerProvider;
+use me\adamcameron\silex2\provider\FactoryProvider;
 use me\adamcameron\silex2\provider\RepositoryProvider;
 use me\adamcameron\silex2\provider\RouteProvider;
 use me\adamcameron\silex2\provider\ServiceProvider;
@@ -26,5 +27,6 @@ class Application extends SilexApplication
         $this->register(new ControllerProvider());
         $this->register(new ServiceProvider());
         $this->register(new RepositoryProvider());
+        $this->register(new FactoryProvider());
     }
 }

@@ -570,3 +570,66 @@ tr.HUD td.rank{
 	/*border-right-color : red;*/
 }
 
+tr.WOL {
+	background-color : #F5971D;
+	color: black;
+}
+
+tr.WOL td {
+	border-color : black;
+}
+
+tr.WOL td.teamName {
+	/*border-left-color : red;*/
+}
+
+tr.WOL td.rank{
+	/*border-right-color : red;*/
+}
+
+tr.FUL {
+	background-color : white;
+	color: black;
+}
+
+tr.FUL td {
+	border-color : black;
+}
+
+tr.FUL td.teamName {
+	/*border-left-color : red;*/
+}
+
+tr.FUL td.rank{
+	/*border-right-color : red;*/
+}
+
+tr.CAR {
+	background-color : blue;
+	color: white;
+}
+
+tr.CAR td {
+	border-color : white;
+}
+
+tr.CAR td.teamName {
+	/*border-left-color : red;*/
+}
+
+tr.CAR td.rank{
+	/*border-right-color : red;*/
+}
+
+tr.CAR td.changeUp, tr.CAR td.changeDown, tr.CAR td.changeSame {
+	border-left: 4px solid;
+	border-right: 2px solid;
+	border-top: 2px solid;
+	border-bottom: 2px solid;
+	border-color: blue;
+	background-color: white;
+	color : blue;
+	background-repeat : no-repeat;
+	background-position: center;
+}
+

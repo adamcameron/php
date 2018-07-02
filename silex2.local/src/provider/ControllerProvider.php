@@ -17,7 +17,7 @@ class ControllerProvider implements ServiceProviderInterface
         };
 
         $container['controller.api.index'] = function ($container) {
-            return new controller\IndexController($container['config']);
+            return new controller\IndexController($container['routes']);
         };
 
         $container['controller.number'] = function ($container) {

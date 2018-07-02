@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="./styles.css?random=<?php echo uniqid() ?>" />
 </head>
 <body>
-<h1>Zachary’s Hand-Football Premiership Table 17/18</h1>
+<h1>Zachary's Hand Football Premiership 2018</h1>
 <table class="season">
     <thead>
     <tr><th>M</th><th>Pos</th><th class="teamName">Club</th><th>Pl</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th></tr>
@@ -20,25 +20,36 @@
     $dbConnection = new \PDO($connectionString, 'handFootball', 'handFootball'); // home machine: 'handfootball', 'handfootball'; work machine: 'handFootball', 'handFootball'
     $table = $dbConnection->query('
         SELECT tbl.*, team.abbrev
-        FROM handfootball.tableweek16 tbl
+        FROM handfootball.tableWeek2 tbl
         INNER JOIN team ON tbl.name = team.name
         ORDER BY tbl.rank
     ');
 
-    foreach ($table as $team) {
+    function getRankChange($team)
+    {
+        if (is_null($team['prev'])) {
+            return 'Same';
+        }
+
+
         switch ($team['rank'] <=> $team['prev']) {
             case -1 :
-                $change = 'Up';
+                return 'Up';
                 break;
             case 1 :
-                $change = 'Down';
+                return  'Down';
                 break;
             default :
-                $change = 'Same';
+                return  'Same';
         }
+    }
+
+    foreach ($table as $team) {
+        $change = getRankChange($team);
+        $prev = $team['prev'] ?? '';
         printf(
             '<tr class="%s">
-                <td class="change%s">&nbsp;<span class="prev">%d</span></td>
+                <td class="change%s">&nbsp;<span class="prev">%s</span></td>
                 <td class="rank">%d</td>
                 <td class="teamName">%s</td>
                 <td>%d</td>
@@ -52,7 +63,7 @@
             <tr>',
             $team['abbrev'],
             $change,
-            $team['prev'],
+            $prev,
             $team['rank'],
             $team['name'],
             $team['p'],
