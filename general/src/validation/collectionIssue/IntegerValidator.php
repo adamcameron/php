@@ -2,7 +2,6 @@
 
 namespace me\adamcameron\general\validation\collectionIssue;
 
-use Symfony\Component\Validator\Constraints\Required;
 use Symfony\Component\Validator\Constraints\Type;
 use Symfony\Component\Validator\Validation;
 

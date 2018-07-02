@@ -17,26 +17,38 @@ class CollectionValidatorTest extends TestCase
         $this->validator = new CollectionValidator();
     }
 
-    /** @dataProvider provideCasesForValidateTests */
-    public function testValidate($validValue)
+    /** @dataProvider provideCasesForValidateEmptyCollectionTests */
+    public function testValidateWithValidButEmptyCollectionTypeIsOk($validValue)
     {
         $violations = $this->validator->validate($validValue);
         $this->assertHasNoViolations($violations);
     }
 
-    public function provideCasesForValidateTests()
+    public function provideCasesForValidateEmptyCollectionTests()
     {
         return [
-            'empty' => ['value' => []],
-            'has value' => ['value' => ['array']],
-            'iterator' => ['value' => new \ArrayIterator(['array'])]
+            'array' => ['value' => []],
+            'iterator' => ['value' => new \ArrayIterator()]
         ];
     }
 
-    public function testValidateNotIntegerShouldResultInAViolation()
+    public function testValidateWithIntegerField1ValueShouldPass()
+    {
+        $violations = $this->validator->validate(['field1'=>42]);
+        $this->assertHasNoViolations($violations);
+    }
+
+    public function testValidateWithNonIntegerField1ValueShouldHaveViolation()
     {
         $violations = $this->validator->validate(['field1'=>'NOT_AN_INTEGER']);
         $this->assertHasViolations($violations);
+        $this->assertSame('This value should be of type integer.', $violations[0]->getMessage());
+    }
+
+    public function testValidateWithOnlyOtherFieldsShouldPass()
+    {
+        $violations = $this->validator->validate(['anotherField'=>'another value']);
+        $this->assertHasNoViolations($violations);
     }
 
     public function testValidateWithNullIsApparentlyOK()

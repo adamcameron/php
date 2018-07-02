@@ -4,7 +4,6 @@ namespace me\adamcameron\general\test\validation\collectionIssue;
 
 use me\adamcameron\general\validation\collectionIssue\IntegerValidator;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\Validator\ConstraintViolationList;
 
 class IntegerValidatorTest extends TestCase
 {

@@ -3,7 +3,6 @@
 namespace me\adamcameron\general\validation\collectionIssue;
 
 use Symfony\Component\Validator\Constraints\Collection;
-use Symfony\Component\Validator\Constraints\Optional;
 use Symfony\Component\Validator\Constraints\Type;
 use Symfony\Component\Validator\Validation;
 
