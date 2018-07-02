@@ -1,19 +1,22 @@
 <phpunit bootstrap="./vendor/autoload.php"
          beStrictAboutTestsThatDoNotTestAnything="true"
          beStrictAboutChangesToGlobalState="true"
-         checkForUnintentionallyCoveredCode="false"
          forceCoversAnnotation="true"
          stopOnRisky="false"
          backupGlobals="false">
-    <ini name="display_errors" value="true"/>
-    <ini name="date.timezone" value="Europe/London"/>
-
+    <php>
+        <ini name="display_errors" value="true"/>
+        <ini name="date.timezone" value="Europe/London"/>
+    </php>
     <testsuites>
         <testsuite name="cleanCode">
             <directory suffix="Test.php">test/cleancode</directory>
         </testsuite>
         <testsuite name="DB">
             <directory suffix="Test.php">test/db</directory>
+        </testsuite>
+        <testsuite name="validation">
+            <directory suffix="Test.php">test/validation</directory>
         </testsuite>
     </testsuites>
 
