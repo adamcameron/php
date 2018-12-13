@@ -1,8 +1,17 @@
 {
+	"name" : "adamcameron/asyncguzzle",
+    "description" : "Messing around with Guzzle",
+    "license" : "proprietary",
 	"require" : {
-		"silex/silex" : "~1.2",
-		"guzzlehttp/guzzle" : "~5.0",
-		"twig/twig" : "~1.0"
+		"silex/silex" : "^2",
+		"pimple/pimple" : "^3",
+        "symfony/config":"^4",
+        "symfony/yaml":"^4",
+        "symfony/http-foundation": "^4",
+		"guzzlehttp/guzzle": "^6",
+		"twig/twig" : "^2",
+        "monolog/monolog":"^1",
+        "psr/log": "^1"
 	},
 	"autoload" : {
 		"psr-4" : {

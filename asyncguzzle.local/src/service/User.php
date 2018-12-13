@@ -1,5 +1,5 @@
 <?php
-// User.php
+// UserControllerController.php
 namespace me\adamcameron\asyncguzzle\service;
 
 class User {
