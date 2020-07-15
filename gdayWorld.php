@@ -1,2 +1,3 @@
-<?= 'G\'day World' ?>
-<?= "G'day World" ?>
+<?php
+echo "G'day world";
+
