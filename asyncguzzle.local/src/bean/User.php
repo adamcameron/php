@@ -1,5 +1,5 @@
 <?php
-// User.php
+// UserController.phproller.php
 namespace me\adamcameron\asyncguzzle\bean;
 
 class User {
