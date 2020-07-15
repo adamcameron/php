@@ -5,6 +5,7 @@
          stopOnRisky="false"
          backupGlobals="false">
     <php>
+        <ini name="error_reporting" value="E_ALL"/>
         <ini name="display_errors" value="true"/>
         <ini name="date.timezone" value="Europe/London"/>
     </php>
@@ -17,6 +18,9 @@
         </testsuite>
         <testsuite name="validation">
             <directory suffix="Test.php">test/validation</directory>
+        </testsuite>
+        <testsuite name="tdd">
+            <directory suffix="Test.php">test/tdd</directory>
         </testsuite>
     </testsuites>
 
